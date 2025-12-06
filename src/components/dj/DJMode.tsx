@@ -18,13 +18,17 @@ interface DJModeProps {
   tableId: string
 }
 
+// Perfil oficial do Spotify do Sofia Gastrobar Ibiza
+const SPOTIFY_PROFILE_URL = 'https://open.spotify.com/user/316axpbhhlk3dy6duqdfctbbec2y'
+
 // URLs do Spotify (via env vars)
+// Se não configuradas, usa o perfil como fallback
 const SUNSET_EMBED = process.env.NEXT_PUBLIC_SPOTIFY_SUNSET_EMBED_URL || ''
-const SUNSET_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_SUNSET_OPEN_URL || ''
+const SUNSET_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_SUNSET_OPEN_URL || SPOTIFY_PROFILE_URL
 const NIGHT_EMBED = process.env.NEXT_PUBLIC_SPOTIFY_NIGHT_EMBED_URL || ''
-const NIGHT_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_NIGHT_OPEN_URL || ''
+const NIGHT_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_NIGHT_OPEN_URL || SPOTIFY_PROFILE_URL
 const BREAKFAST_EMBED = process.env.NEXT_PUBLIC_SPOTIFY_BREAKFAST_EMBED_URL || ''
-const BREAKFAST_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_BREAKFAST_OPEN_URL || ''
+const BREAKFAST_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_BREAKFAST_OPEN_URL || SPOTIFY_PROFILE_URL
 
 const translations = {
   title: {
@@ -142,8 +146,8 @@ export function DJMode({ tableId }: DJModeProps) {
 
   const activePlaylist = getActivePlaylist()
 
-  // Se não tiver URLs configuradas, mostrar mensagem
-  if (!activePlaylist.embedUrl || !activePlaylist.openUrl) {
+  // Se não tiver embed configurado, mostrar botão para abrir perfil
+  if (!activePlaylist.embedUrl) {
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -158,17 +162,30 @@ export function DJMode({ tableId }: DJModeProps) {
             <h2 className="text-2xl font-bold text-white mb-1">
               {translate(translations.title, language)}
             </h2>
-            <p className="text-white/60 text-sm">
+            <p className="text-white/70 text-sm flex items-center gap-2">
+              <Clock className="w-4 h-4" />
               {translate(translations.subtitle, language)}
             </p>
           </div>
         </div>
-        <p className="text-white/80 text-sm">
+        <p className="text-white/80 text-sm mb-6 leading-relaxed">
           {translate(translations.description, language)}
         </p>
+        
+        {/* Botão para abrir perfil do Spotify */}
+        <a
+          href={SPOTIFY_PROFILE_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-[#1DB954] hover:bg-[#1ed760] text-white font-medium transition-colors shadow-lg shadow-[#1DB954]/20"
+        >
+          <Music className="w-5 h-5" />
+          <span>Abrir Perfil no Spotify</span>
+        </a>
+        
         <div className="mt-4 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
           <p className="text-yellow-400 text-xs">
-            ⚙️ Configure as variáveis de ambiente do Spotify para ativar o Modo DJ
+            💡 Configure as URLs de embed no .env.local para ver a playlist diretamente aqui
           </p>
         </div>
       </motion.div>

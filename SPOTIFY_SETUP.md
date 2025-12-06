@@ -1,5 +1,11 @@
 # 🎵 Configuração do Spotify - Modo DJ
 
+## Perfil Oficial
+
+**Perfil do Sofia Gastrobar Ibiza:**
+- URL: https://open.spotify.com/user/316axpbhhlk3dy6duqdfctbbec2y
+- Playlist atual: "Bob Marley Lives in Ibiza 1978"
+
 ## Variáveis de Ambiente
 
 Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
