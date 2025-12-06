@@ -19,7 +19,6 @@ interface SEOLandingPageProps {
   description: { pt: string; es: string; en: string }
   keywords: string[]
   category: string
-  content?: { pt: string; es: string; en: string }
 }
 
 export function SEOLandingPage({
@@ -28,7 +27,6 @@ export function SEOLandingPage({
   description,
   keywords,
   category,
-  content,
 }: SEOLandingPageProps) {
   const { language } = useLanguage()
   const dynamicContent = generateDynamicContent(language)
@@ -149,17 +147,9 @@ export function SEOLandingPage({
             {translate(title, language)} - Sofia Gastrobar Ibiza
           </h2>
           
-          {/* Conteúdo Principal - Texto Longo para SEO */}
-          {content ? (
-            <div 
-              className="prose prose-invert max-w-none text-white/80 mb-8"
-              dangerouslySetInnerHTML={{ __html: translate(content, language) }}
-            />
-          ) : (
-            <p className="text-lg text-white/80 mb-6">
-              {generateSEOText(keywords[0] || 'restaurante ibiza', language, dynamicContent)}
-            </p>
-          )}
+          <p className="text-lg text-white/80 mb-6">
+            {generateSEOText(keywords[0] || 'restaurante ibiza', language, dynamicContent)}
+          </p>
 
           <div className="grid md:grid-cols-2 gap-8 my-12">
             {/* Location */}
@@ -211,11 +201,6 @@ export function SEOLandingPage({
           </Link>
         </div>
       </section>
-
-      {/* Assinatura Invisível para SEO */}
-      <footer className="hidden">
-        <p>Designed by Goldmonkey Studio™</p>
-      </footer>
     </div>
   )
 }

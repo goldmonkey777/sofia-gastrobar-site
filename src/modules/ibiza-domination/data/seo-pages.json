@@ -1,19 +1,258 @@
 {
   "pages": [
     {
-      "slug": "restaurante-em-ibiza",
+      "slug": "sunset-em-ibiza",
       "title": {
-        "pt": "Restaurante em Ibiza | Sofia Gastrobar - O Melhor da Gastronomia Mediterrânea",
-        "es": "Restaurante en Ibiza | Sofia Gastrobar - Lo Mejor de la Gastronomía Mediterránea",
-        "en": "Restaurant in Ibiza | Sofia Gastrobar - The Best of Mediterranean Gastronomy"
+        "pt": "Sunset em Ibiza | Sofia Gastrobar - O Ritual do Pôr do Sol Perfeito",
+        "es": "Sunset en Ibiza | Sofia Gastrobar - El Ritual del Atardecer Perfecto",
+        "en": "Sunset in Ibiza | Sofia Gastrobar - The Perfect Sunset Ritual"
       },
       "description": {
-        "pt": "Descubra o melhor restaurante em Ibiza. Sofia Gastrobar oferece gastronomia mediterrânea autêntica, ambiente único e experiências inesquecíveis. Reserve sua mesa agora.",
-        "es": "Descubre el mejor restaurante en Ibiza. Sofia Gastrobar ofrece gastronomía mediterránea auténtica, ambiente único y experiencias inolvidables. Reserva tu mesa ahora.",
-        "en": "Discover the best restaurant in Ibiza. Sofia Gastrobar offers authentic Mediterranean gastronomy, unique atmosphere and unforgettable experiences. Book your table now."
+        "pt": "Viva o sunset mais mágico de Ibiza no Sofia Gastrobar. Um ritual único onde o sol se encontra com o mar, a música e os sabores mediterrâneos.",
+        "es": "Vive el sunset más mágico de Ibiza en Sofia Gastrobar. Un ritual único donde el sol se encuentra con el mar, la música y los sabores mediterráneos.",
+        "en": "Experience the most magical sunset in Ibiza at Sofia Gastrobar. A unique ritual where the sun meets the sea, music and Mediterranean flavors."
       },
-      "keywords": ["restaurante ibiza", "comida ibiza", "gastronomia ibiza", "restaurante espanha"],
-      "category": "restaurant"
+      "keywords": [
+        "sunset ibiza",
+        "pôr do sol ibiza",
+        "sunset bar ibiza"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "onde-ver-o-por-do-sol-em-ibiza",
+      "title": {
+        "pt": "Onde Ver o Pôr do Sol em Ibiza | Sofia Gastrobar - O Melhor Lugar",
+        "es": "Dónde Ver el Atardecer en Ibiza | Sofia Gastrobar - El Mejor Lugar",
+        "en": "Where to Watch the Sunset in Ibiza | Sofia Gastrobar - The Best Place"
+      },
+      "description": {
+        "pt": "Descubra onde ver o pôr do sol mais espetacular de Ibiza. Sofia Gastrobar oferece a melhor vista e experiência completa.",
+        "es": "Descubre dónde ver el atardecer más espectacular de Ibiza. Sofia Gastrobar ofrece la mejor vista y experiencia completa.",
+        "en": "Discover where to watch the most spectacular sunset in Ibiza. Sofia Gastrobar offers the best view and complete experience."
+      },
+      "keywords": [
+        "onde ver sunset ibiza",
+        "melhor lugar sunset ibiza"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "melhores-bares-para-sunset-ibiza",
+      "title": {
+        "pt": "Melhores Bares para Sunset em Ibiza | Sofia Gastrobar - Top 1",
+        "es": "Mejores Bares para Sunset en Ibiza | Sofia Gastrobar - Top 1",
+        "en": "Best Bars for Sunset in Ibiza | Sofia Gastrobar - Top 1"
+      },
+      "description": {
+        "pt": "Os melhores bares para sunset em Ibiza. Sofia Gastrobar lidera a lista com vista privilegiada, cocktails exclusivos e atmosfera única.",
+        "es": "Los mejores bares para sunset en Ibiza. Sofia Gastrobar lidera la lista con vista privilegiada, cócteles exclusivos y atmósfera única.",
+        "en": "The best bars for sunset in Ibiza. Sofia Gastrobar leads the list with privileged view, exclusive cocktails and unique atmosphere."
+      },
+      "keywords": [
+        "melhores bares sunset ibiza",
+        "bar sunset ibiza"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "sunset-bar-ibiza",
+      "title": {
+        "pt": "Sunset Bar em Ibiza | Sofia Gastrobar - O Bar do Pôr do Sol",
+        "es": "Sunset Bar en Ibiza | Sofia Gastrobar - El Bar del Atardecer",
+        "en": "Sunset Bar in Ibiza | Sofia Gastrobar - The Sunset Bar"
+      },
+      "description": {
+        "pt": "O melhor sunset bar de Ibiza. Cocktails exclusivos, música ao vivo e vista deslumbrante para o Mediterrâneo.",
+        "es": "El mejor sunset bar de Ibiza. Cócteles exclusivos, música en vivo y vista deslumbrante al Mediterráneo.",
+        "en": "The best sunset bar in Ibiza. Exclusive cocktails, live music and stunning view of the Mediterranean."
+      },
+      "keywords": [
+        "sunset bar ibiza",
+        "bar pôr do sol ibiza"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "sunset-restaurantes-ibiza",
+      "title": {
+        "pt": "Restaurantes Sunset em Ibiza | Sofia Gastrobar - Experiência Completa",
+        "es": "Restaurantes Sunset en Ibiza | Sofia Gastrobar - Experiencia Completa",
+        "en": "Sunset Restaurants in Ibiza | Sofia Gastrobar - Complete Experience"
+      },
+      "description": {
+        "pt": "Restaurantes com vista para o sunset em Ibiza. Sofia Gastrobar combina gastronomia mediterrânea com o melhor pôr do sol da ilha.",
+        "es": "Restaurantes con vista al sunset en Ibiza. Sofia Gastrobar combina gastronomía mediterránea con el mejor atardecer de la isla.",
+        "en": "Restaurants with sunset view in Ibiza. Sofia Gastrobar combines Mediterranean gastronomy with the best sunset on the island."
+      },
+      "keywords": [
+        "restaurantes sunset ibiza",
+        "restaurante pôr do sol"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "sunset-beach-bar-ibiza",
+      "title": {
+        "pt": "Sunset Beach Bar em Ibiza | Sofia Gastrobar - Bar na Praia",
+        "es": "Sunset Beach Bar en Ibiza | Sofia Gastrobar - Bar en la Playa",
+        "en": "Sunset Beach Bar in Ibiza | Sofia Gastrobar - Beach Bar"
+      },
+      "description": {
+        "pt": "O melhor sunset beach bar de Ibiza. Localizado próximo à praia, com vista privilegiada e ambiente único.",
+        "es": "El mejor sunset beach bar de Ibiza. Ubicado cerca de la playa, con vista privilegiada y ambiente único.",
+        "en": "The best sunset beach bar in Ibiza. Located near the beach, with privileged view and unique atmosphere."
+      },
+      "keywords": [
+        "beach bar sunset ibiza",
+        "bar praia sunset"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "sunset-drinks-ibiza",
+      "title": {
+        "pt": "Sunset Drinks em Ibiza | Sofia Gastrobar - Cocktails Exclusivos",
+        "es": "Sunset Drinks en Ibiza | Sofia Gastrobar - Cócteles Exclusivos",
+        "en": "Sunset Drinks in Ibiza | Sofia Gastrobar - Exclusive Cocktails"
+      },
+      "description": {
+        "pt": "Os melhores drinks para acompanhar o sunset em Ibiza. Cocktails exclusivos criados especialmente para esse momento mágico.",
+        "es": "Los mejores drinks para acompañar el sunset en Ibiza. Cócteles exclusivos creados especialmente para ese momento mágico.",
+        "en": "The best drinks to accompany the sunset in Ibiza. Exclusive cocktails created especially for this magical moment."
+      },
+      "keywords": [
+        "sunset drinks ibiza",
+        "cocktails sunset"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "melhor-lugar-sunset-sant-antoni",
+      "title": {
+        "pt": "Melhor Lugar para Sunset em Sant Antoni | Sofia Gastrobar",
+        "es": "Mejor Lugar para Sunset en Sant Antoni | Sofia Gastrobar",
+        "en": "Best Place for Sunset in Sant Antoni | Sofia Gastrobar"
+      },
+      "description": {
+        "pt": "O melhor lugar para ver o sunset em Sant Antoni, Ibiza. Sofia Gastrobar oferece vista privilegiada e experiência completa.",
+        "es": "El mejor lugar para ver el sunset en Sant Antoni, Ibiza. Sofia Gastrobar ofrece vista privilegiada y experiencia completa.",
+        "en": "The best place to watch the sunset in Sant Antoni, Ibiza. Sofia Gastrobar offers privileged view and complete experience."
+      },
+      "keywords": [
+        "sunset sant antoni",
+        "melhor lugar sunset"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "sunset-ao-vivo-ibiza",
+      "title": {
+        "pt": "Sunset ao Vivo em Ibiza | Sofia Gastrobar - Transmissão e Experiência",
+        "es": "Sunset en Vivo en Ibiza | Sofia Gastrobar - Transmisión y Experiencia",
+        "en": "Live Sunset in Ibiza | Sofia Gastrobar - Broadcast and Experience"
+      },
+      "description": {
+        "pt": "Viva o sunset ao vivo em Ibiza. Sofia Gastrobar oferece não apenas a experiência presencial, mas também transmissões especiais.",
+        "es": "Vive el sunset en vivo en Ibiza. Sofia Gastrobar ofrece no solo la experiencia presencial, sino también transmisiones especiales.",
+        "en": "Experience the live sunset in Ibiza. Sofia Gastrobar offers not only the in-person experience, but also special broadcasts."
+      },
+      "keywords": [
+        "sunset ao vivo ibiza",
+        "live sunset ibiza"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "sunset-experience-ibiza",
+      "title": {
+        "pt": "Sunset Experience em Ibiza | Sofia Gastrobar - Experiência Completa",
+        "es": "Sunset Experience en Ibiza | Sofia Gastrobar - Experiencia Completa",
+        "en": "Sunset Experience in Ibiza | Sofia Gastrobar - Complete Experience"
+      },
+      "description": {
+        "pt": "A experiência de sunset mais completa de Ibiza. Gastronomia, música, cocktails e vista privilegiada em um único lugar.",
+        "es": "La experiencia de sunset más completa de Ibiza. Gastronomía, música, cócteles y vista privilegiada en un solo lugar.",
+        "en": "The most complete sunset experience in Ibiza. Gastronomy, music, cocktails and privileged view in one place."
+      },
+      "keywords": [
+        "sunset experience ibiza",
+        "experiência sunset"
+      ],
+      "category": "sunset",
+      "content": {
+        "pt": "<p>Em Ibiza, o sunset não é apenas um momento do dia. É um ritual sagrado, uma celebração da vida, uma conexão entre o céu e o mar que transforma cada instante em memória eterna. No Sofia Gastrobar, elevamos esse ritual a uma experiência gastronômica única.</p>\n<p>Imagine: você está sentado em nossa varanda, com vista privilegiada para o Mediterrâneo. O sol começa sua descida lenta, pintando o céu com tons de laranja, rosa e dourado. Enquanto isso, nossos chefs preparam pratos que são verdadeiras obras de arte, inspirados na cozinha mediterrânea autêntica.</p>\n<p>Nossos cocktails exclusivos são criados especialmente para acompanhar esse momento mágico. Cada gole é uma celebração, cada prato uma descoberta. A música ao vivo completa a atmosfera, criando uma sinfonia perfeita entre sabores, sons e cores.</p>\n<p>O Sofia Gastrobar não é apenas um restaurante. É um templo onde o sunset se torna uma experiência espiritual, onde cada visita é uma jornada sensorial completa. Venha viver o ritual do pôr do sol mais autêntico de Ibiza.</p>\n<p>Localizado estrategicamente em Ibiza, oferecemos não apenas uma vista deslumbrante, mas uma experiência completa que combina gastronomia mediterrânea, música ao vivo e ambiente único. Nossa localização foi escolhida cuidadosamente para capturar cada momento do sunset, desde os primeiros raios dourados até o momento mágico em que o sol desaparece no horizonte.</p>\n<p>Diferente de outros lugares que apenas oferecem uma vista, no Sofia Gastrobar você vive uma experiência completa. Nossos cocktails exclusivos, a música ao vivo e o ambiente acolhedor transformam o sunset em uma celebração memorável.</p>",
+        "es": "<p>En Ibiza, el sunset no es solo un momento del día. Es un ritual sagrado, una celebración de la vida, una conexión entre el cielo y el mar que transforma cada instante en memoria eterna. En Sofia Gastrobar, elevamos ese ritual a una experiencia gastronómica única.</p>\n<p>Imagina: estás sentado en nuestra terraza, con vista privilegiada al Mediterráneo. El sol comienza su descenso lento, pintando el cielo con tonos de naranja, rosa y dorado. Mientras tanto, nuestros chefs preparan platos que son verdaderas obras de arte, inspirados en la cocina mediterránea auténtica.</p>\n<p>Nuestros cócteles exclusivos son creados especialmente para acompañar ese momento mágico. Cada sorbo es una celebración, cada plato un descubrimiento. La música en vivo completa la atmósfera, creando una sinfonía perfecta entre sabores, sonidos y colores.</p>\n<p>Sofia Gastrobar no es solo un restaurante. Es un templo donde el sunset se convierte en una experiencia espiritual, donde cada visita es un viaje sensorial completo. Ven a vivir el ritual del atardecer más auténtico de Ibiza.</p>",
+        "en": "<p>In Ibiza, sunset is not just a moment of the day. It is a sacred ritual, a celebration of life, a connection between sky and sea that transforms every instant into eternal memory. At Sofia Gastrobar, we elevate this ritual to a unique gastronomic experience.</p>\n<p>Imagine: you are sitting on our terrace, with a privileged view of the Mediterranean. The sun begins its slow descent, painting the sky with shades of orange, pink and gold. Meanwhile, our chefs prepare dishes that are true works of art, inspired by authentic Mediterranean cuisine.</p>\n<p>Our exclusive cocktails are created especially to accompany this magical moment. Each sip is a celebration, each dish a discovery. Live music completes the atmosphere, creating a perfect symphony between flavors, sounds and colors.</p>\n<p>Sofia Gastrobar is not just a restaurant. It is a temple where sunset becomes a spiritual experience, where each visit is a complete sensory journey. Come experience the most authentic sunset ritual in Ibiza.</p>"
+      }
+    },
+    {
+      "slug": "restaurantes-em-ibiza",
+      "title": {
+        "pt": "Restaurantes em Ibiza | Sofia Gastrobar - O Melhor da Ilha",
+        "es": "Restaurantes en Ibiza | Sofia Gastrobar - Lo Mejor de la Isla",
+        "en": "Restaurants in Ibiza | Sofia Gastrobar - The Best of the Island"
+      },
+      "description": {
+        "pt": "Os melhores restaurantes em Ibiza. Sofia Gastrobar lidera com gastronomia mediterrânea autêntica, ambiente único e experiência completa.",
+        "es": "Los mejores restaurantes en Ibiza. Sofia Gastrobar lidera con gastronomía mediterránea auténtica, ambiente único y experiencia completa.",
+        "en": "The best restaurants in Ibiza. Sofia Gastrobar leads with authentic Mediterranean gastronomy, unique atmosphere and complete experience."
+      },
+      "keywords": [
+        "restaurantes ibiza",
+        "melhor restaurante ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     },
     {
       "slug": "onde-comer-em-ibiza",
@@ -23,132 +262,89 @@
         "en": "Where to Eat in Ibiza | Sofia Gastrobar - Complete Guide 2025"
       },
       "description": {
-        "pt": "Procurando onde comer em Ibiza? Sofia Gastrobar é a escolha perfeita para uma experiência gastronômica única. Menu mediterrâneo, ambiente acolhedor e localização privilegiada.",
-        "es": "¿Buscas dónde comer en Ibiza? Sofia Gastrobar es la elección perfecta para una experiencia gastronómica única. Menú mediterráneo, ambiente acogedor y ubicación privilegiada.",
-        "en": "Looking for where to eat in Ibiza? Sofia Gastrobar is the perfect choice for a unique gastronomic experience. Mediterranean menu, welcoming atmosphere and privileged location."
+        "pt": "Guia completo: onde comer em Ibiza. Sofia Gastrobar é a escolha perfeita para uma experiência gastronômica única.",
+        "es": "Guía completa: dónde comer en Ibiza. Sofia Gastrobar es la elección perfecta para una experiencia gastronómica única.",
+        "en": "Complete guide: where to eat in Ibiza. Sofia Gastrobar is the perfect choice for a unique gastronomic experience."
       },
-      "keywords": ["onde comer ibiza", "melhor restaurante ibiza", "comida ibiza", "restaurantes ibiza"],
-      "category": "guide"
+      "keywords": [
+        "onde comer ibiza",
+        "guia restaurantes ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Onde Comer em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     },
     {
-      "slug": "sunset-ibiza-bar",
+      "slug": "restaurantes-baratos-ibiza",
       "title": {
-        "pt": "Sunset Bar em Ibiza | Sofia Gastrobar - O Melhor Sunset da Ilha",
-        "es": "Bar Sunset en Ibiza | Sofia Gastrobar - El Mejor Sunset de la Isla",
-        "en": "Sunset Bar in Ibiza | Sofia Gastrobar - The Best Sunset on the Island"
+        "pt": "Restaurantes Baratos em Ibiza | Sofia Gastrobar - Qualidade e Preço Justo",
+        "es": "Restaurantes Baratos en Ibiza | Sofia Gastrobar - Calidad y Precio Justo",
+        "en": "Cheap Restaurants in Ibiza | Sofia Gastrobar - Quality and Fair Price"
       },
       "description": {
-        "pt": "Viva o melhor sunset de Ibiza no Sofia Gastrobar. Cocktails exclusivos, música ao vivo e vista privilegiada. Reserve seu lugar para o pôr do sol mais mágico da ilha.",
-        "es": "Vive el mejor sunset de Ibiza en Sofia Gastrobar. Cócteles exclusivos, música en vivo y vista privilegiada. Reserva tu lugar para la puesta de sol más mágica de la isla.",
-        "en": "Experience the best sunset in Ibiza at Sofia Gastrobar. Exclusive cocktails, live music and privileged view. Book your spot for the most magical sunset on the island."
+        "pt": "Restaurantes com preços justos em Ibiza. Sofia Gastrobar oferece qualidade excepcional a preços acessíveis.",
+        "es": "Restaurantes con precios justos en Ibiza. Sofia Gastrobar ofrece calidad excepcional a precios accesibles.",
+        "en": "Restaurants with fair prices in Ibiza. Sofia Gastrobar offers exceptional quality at affordable prices."
       },
-      "keywords": ["sunset ibiza", "bar sunset ibiza", "pôr do sol ibiza", "sunset bar"],
-      "category": "sunset"
+      "keywords": [
+        "restaurantes baratos ibiza",
+        "comida barata ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes Baratos em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     },
     {
-      "slug": "melhor-brunch-ibiza",
+      "slug": "restaurantes-romanticos-ibiza",
       "title": {
-        "pt": "Melhor Brunch em Ibiza | Sofia Gastrobar - Brunch Completo e Delicioso",
-        "es": "Mejor Brunch en Ibiza | Sofia Gastrobar - Brunch Completo y Delicioso",
-        "en": "Best Brunch in Ibiza | Sofia Gastrobar - Complete and Delicious Brunch"
+        "pt": "Restaurantes Românticos em Ibiza | Sofia Gastrobar - Ambiente Perfeito",
+        "es": "Restaurantes Románticos en Ibiza | Sofia Gastrobar - Ambiente Perfecto",
+        "en": "Romantic Restaurants in Ibiza | Sofia Gastrobar - Perfect Atmosphere"
       },
       "description": {
-        "pt": "O melhor brunch de Ibiza está no Sofia Gastrobar. Opções saudáveis, pratos tradicionais e ambiente perfeito para começar o dia. Brunch servido das 8h às 12h.",
-        "es": "El mejor brunch de Ibiza está en Sofia Gastrobar. Opciones saludables, platos tradicionales y ambiente perfecto para empezar el día. Brunch servido de 8h a 12h.",
-        "en": "The best brunch in Ibiza is at Sofia Gastrobar. Healthy options, traditional dishes and perfect atmosphere to start the day. Brunch served from 8am to 12pm."
+        "pt": "Os restaurantes mais românticos de Ibiza. Sofia Gastrobar oferece ambiente íntimo, vista privilegiada e menu especial para casais.",
+        "es": "Los restaurantes más románticos de Ibiza. Sofia Gastrobar ofrece ambiente íntimo, vista privilegiada y menú especial para parejas.",
+        "en": "The most romantic restaurants in Ibiza. Sofia Gastrobar offers intimate atmosphere, privileged view and special menu for couples."
       },
-      "keywords": ["brunch ibiza", "melhor brunch ibiza", "brunch ibiza 2025", "café da manhã ibiza"],
-      "category": "breakfast"
+      "keywords": [
+        "restaurantes românticos ibiza",
+        "jantar romântico ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes Românticos em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     },
     {
-      "slug": "delivery-ibiza",
+      "slug": "restaurantes-com-vista-ibiza",
       "title": {
-        "pt": "Delivery em Ibiza | Sofia Gastrobar - Entrega Rápida em Toda a Ilha",
-        "es": "Delivery en Ibiza | Sofia Gastrobar - Entrega Rápida en Toda la Isla",
-        "en": "Delivery in Ibiza | Sofia Gastrobar - Fast Delivery Across the Island"
+        "pt": "Restaurantes com Vista em Ibiza | Sofia Gastrobar - Vista Privilegiada",
+        "es": "Restaurantes con Vista en Ibiza | Sofia Gastrobar - Vista Privilegiada",
+        "en": "Restaurants with View in Ibiza | Sofia Gastrobar - Privileged View"
       },
       "description": {
-        "pt": "Delivery rápido e confiável em toda Ibiza. Sofia Gastrobar entrega seus pratos favoritos diretamente na sua porta. Pedidos online, pagamento seguro e entrega em até 45 minutos.",
-        "es": "Delivery rápido y confiable en toda Ibiza. Sofia Gastrobar entrega tus platos favoritos directamente en tu puerta. Pedidos online, pago seguro y entrega en hasta 45 minutos.",
-        "en": "Fast and reliable delivery across Ibiza. Sofia Gastrobar delivers your favorite dishes directly to your door. Online orders, secure payment and delivery in up to 45 minutes."
+        "pt": "Restaurantes com vista deslumbrante em Ibiza. Sofia Gastrobar oferece vista privilegiada para o Mediterrâneo e sunset perfeito.",
+        "es": "Restaurantes con vista deslumbrante en Ibiza. Sofia Gastrobar ofrece vista privilegiada al Mediterráneo y sunset perfecto.",
+        "en": "Restaurants with stunning view in Ibiza. Sofia Gastrobar offers privileged view of the Mediterranean and perfect sunset."
       },
-      "keywords": ["delivery ibiza", "comida delivery ibiza", "entrega ibiza", "pedidos online ibiza"],
-      "category": "delivery"
-    },
-    {
-      "slug": "melhor-hamburguer-ibiza",
-      "title": {
-        "pt": "Melhor Hambúrguer em Ibiza | Sofia Gastrobar - Hamburgers Artesanais",
-        "es": "Mejor Hamburguesa en Ibiza | Sofia Gastrobar - Hamburguesas Artesanales",
-        "en": "Best Burger in Ibiza | Sofia Gastrobar - Artisanal Burgers"
-      },
-      "description": {
-        "pt": "O melhor hambúrguer artesanal de Ibiza. Carne selecionada, pão caseiro e ingredientes frescos. Hamburgers únicos que você só encontra no Sofia Gastrobar.",
-        "es": "La mejor hamburguesa artesanal de Ibiza. Carne seleccionada, pan casero e ingredientes frescos. Hamburguesas únicas que solo encuentras en Sofia Gastrobar.",
-        "en": "The best artisanal burger in Ibiza. Selected meat, homemade bread and fresh ingredients. Unique burgers you'll only find at Sofia Gastrobar."
-      },
-      "keywords": ["hamburguer ibiza", "melhor hamburguer ibiza", "burger ibiza", "hamburguesas ibiza"],
-      "category": "food"
-    },
-    {
-      "slug": "pizza-em-ibiza",
-      "title": {
-        "pt": "Pizza em Ibiza | Sofia Gastrobar - Pizzas Artesanais e Autênticas",
-        "es": "Pizza en Ibiza | Sofia Gastrobar - Pizzas Artesanales y Auténticas",
-        "en": "Pizza in Ibiza | Sofia Gastrobar - Artisanal and Authentic Pizzas"
-      },
-      "description": {
-        "pt": "As melhores pizzas artesanais de Ibiza. Massa fresca, ingredientes premium e forno a lenha. Pizzas autênticas italianas no coração de Ibiza.",
-        "es": "Las mejores pizzas artesanales de Ibiza. Masa fresca, ingredientes premium y horno de leña. Pizzas auténticas italianas en el corazón de Ibiza.",
-        "en": "The best artisanal pizzas in Ibiza. Fresh dough, premium ingredients and wood-fired oven. Authentic Italian pizzas in the heart of Ibiza."
-      },
-      "keywords": ["pizza ibiza", "pizzas ibiza", "pizza italiana ibiza", "melhor pizza ibiza"],
-      "category": "food"
-    },
-    {
-      "slug": "comida-brasileira-ibiza",
-      "title": {
-        "pt": "Comida Brasileira em Ibiza | Sofia Gastrobar - Sabores do Brasil",
-        "es": "Comida Brasileña en Ibiza | Sofia Gastrobar - Sabores de Brasil",
-        "en": "Brazilian Food in Ibiza | Sofia Gastrobar - Flavors from Brazil"
-      },
-      "description": {
-        "pt": "Autêntica comida brasileira em Ibiza. Pratos tradicionais com toque mediterrâneo. Uma fusão única de sabores que você só encontra no Sofia Gastrobar.",
-        "es": "Auténtica comida brasileña en Ibiza. Platos tradicionales con toque mediterráneo. Una fusión única de sabores que solo encuentras en Sofia Gastrobar.",
-        "en": "Authentic Brazilian food in Ibiza. Traditional dishes with a Mediterranean touch. A unique fusion of flavors you'll only find at Sofia Gastrobar."
-      },
-      "keywords": ["comida brasileira ibiza", "restaurante brasileiro ibiza", "brasil ibiza"],
-      "category": "food"
-    },
-    {
-      "slug": "paella-ibiza",
-      "title": {
-        "pt": "Paella em Ibiza | Sofia Gastrobar - A Melhor Paella da Ilha",
-        "es": "Paella en Ibiza | Sofia Gastrobar - La Mejor Paella de la Isla",
-        "en": "Paella in Ibiza | Sofia Gastrobar - The Best Paella on the Island"
-      },
-      "description": {
-        "pt": "A autêntica paella espanhola em Ibiza. Receita tradicional valenciana, ingredientes frescos e preparada no momento. A melhor paella que você vai provar na ilha.",
-        "es": "La auténtica paella española en Ibiza. Receta tradicional valenciana, ingredientes frescos y preparada en el momento. La mejor paella que vas a probar en la isla.",
-        "en": "Authentic Spanish paella in Ibiza. Traditional Valencian recipe, fresh ingredients and prepared on the spot. The best paella you'll taste on the island."
-      },
-      "keywords": ["paella ibiza", "paella espanhola ibiza", "melhor paella ibiza", "paella valenciana"],
-      "category": "food"
-    },
-    {
-      "slug": "sangria-ibiza",
-      "title": {
-        "pt": "Sangria em Ibiza | Sofia Gastrobar - Sangria Artesanal e Refrescante",
-        "es": "Sangría en Ibiza | Sofia Gastrobar - Sangría Artesanal y Refrescante",
-        "en": "Sangria in Ibiza | Sofia Gastrobar - Artisanal and Refreshing Sangria"
-      },
-      "description": {
-        "pt": "A melhor sangria artesanal de Ibiza. Feita com frutas frescas, vinho selecionado e receita secreta. Perfeita para acompanhar o sunset e os melhores momentos.",
-        "es": "La mejor sangría artesanal de Ibiza. Hecha con frutas frescas, vino seleccionado y receta secreta. Perfecta para acompañar el sunset y los mejores momentos.",
-        "en": "The best artisanal sangria in Ibiza. Made with fresh fruits, selected wine and secret recipe. Perfect to accompany the sunset and the best moments."
-      },
-      "keywords": ["sangria ibiza", "sangria espanhola", "bebidas ibiza", "cocktails ibiza"],
-      "category": "drinks"
+      "keywords": [
+        "restaurantes vista ibiza",
+        "vista mar ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes com Vista em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     },
     {
       "slug": "restaurantes-em-sant-antoni",
@@ -158,42 +354,575 @@
         "en": "Restaurants in Sant Antoni | Sofia Gastrobar - The Best of the Region"
       },
       "description": {
-        "pt": "O melhor restaurante em Sant Antoni, Ibiza. Sofia Gastrobar oferece gastronomia mediterrânea de alta qualidade, ambiente único e atendimento excepcional.",
-        "es": "El mejor restaurante en Sant Antoni, Ibiza. Sofia Gastrobar ofrece gastronomía mediterránea de alta calidad, ambiente único y atención excepcional.",
-        "en": "The best restaurant in Sant Antoni, Ibiza. Sofia Gastrobar offers high-quality Mediterranean gastronomy, unique atmosphere and exceptional service."
+        "pt": "Os melhores restaurantes em Sant Antoni, Ibiza. Sofia Gastrobar oferece gastronomia de alta qualidade e ambiente único.",
+        "es": "Los mejores restaurantes en Sant Antoni, Ibiza. Sofia Gastrobar ofrece gastronomía de alta calidad y ambiente único.",
+        "en": "The best restaurants in Sant Antoni, Ibiza. Sofia Gastrobar offers high-quality gastronomy and unique atmosphere."
       },
-      "keywords": ["restaurantes sant antoni", "comida sant antoni", "sant antoni ibiza"],
-      "category": "location"
+      "keywords": [
+        "restaurantes sant antoni",
+        "comida sant antoni"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes em Sant Antoni em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     },
     {
-      "slug": "bares-de-lounge-ibiza",
+      "slug": "melhores-restaurantes-ibiza",
       "title": {
-        "pt": "Bares de Lounge em Ibiza | Sofia Gastrobar - Ambiente Sofisticado",
-        "es": "Bares de Lounge en Ibiza | Sofia Gastrobar - Ambiente Sofisticado",
-        "en": "Lounge Bars in Ibiza | Sofia Gastrobar - Sophisticated Atmosphere"
+        "pt": "Melhores Restaurantes de Ibiza | Sofia Gastrobar - Top da Ilha",
+        "es": "Mejores Restaurantes de Ibiza | Sofia Gastrobar - Top de la Isla",
+        "en": "Best Restaurants in Ibiza | Sofia Gastrobar - Top of the Island"
       },
       "description": {
-        "pt": "O melhor bar de lounge em Ibiza. Ambiente sofisticado, cocktails exclusivos e música selecionada. O lugar perfeito para relaxar e desfrutar dos melhores momentos.",
-        "es": "El mejor bar de lounge en Ibiza. Ambiente sofisticado, cócteles exclusivos y música seleccionada. El lugar perfecto para relajarse y disfrutar de los mejores momentos.",
-        "en": "The best lounge bar in Ibiza. Sophisticated atmosphere, exclusive cocktails and selected music. The perfect place to relax and enjoy the best moments."
+        "pt": "Os melhores restaurantes de Ibiza em 2025. Sofia Gastrobar está entre os top restaurantes com gastronomia excepcional.",
+        "es": "Los mejores restaurantes de Ibiza en 2025. Sofia Gastrobar está entre los top restaurantes con gastronomía excepcional.",
+        "en": "The best restaurants in Ibiza in 2025. Sofia Gastrobar is among the top restaurants with exceptional gastronomy."
       },
-      "keywords": ["lounge bar ibiza", "bar ibiza", "cocktails ibiza", "bar sofisticado"],
-      "category": "bar"
+      "keywords": [
+        "melhores restaurantes ibiza",
+        "top restaurantes ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Melhores Restaurantes de Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     },
     {
-      "slug": "beach-bar-ibiza",
+      "slug": "comida-brasileira-ibiza",
       "title": {
-        "pt": "Beach Bar em Ibiza | Sofia Gastrobar - Bar na Praia com Vista Privilegiada",
-        "es": "Beach Bar en Ibiza | Sofia Gastrobar - Bar en la Playa con Vista Privilegiada",
-        "en": "Beach Bar in Ibiza | Sofia Gastrobar - Beach Bar with Privileged View"
+        "pt": "Comida Brasileira em Ibiza | Sofia Gastrobar - Sabores do Brasil",
+        "es": "Comida Brasileña en Ibiza | Sofia Gastrobar - Sabores de Brasil",
+        "en": "Brazilian Food in Ibiza | Sofia Gastrobar - Flavors from Brazil"
       },
       "description": {
-        "pt": "O melhor beach bar de Ibiza. Localizado próximo à praia, com vista privilegiada e ambiente único. Perfeito para desfrutar do sol, mar e os melhores drinks.",
-        "es": "El mejor beach bar de Ibiza. Ubicado cerca de la playa, con vista privilegiada y ambiente único. Perfecto para disfrutar del sol, mar y los mejores drinks.",
-        "en": "The best beach bar in Ibiza. Located near the beach, with privileged view and unique atmosphere. Perfect to enjoy the sun, sea and the best drinks."
+        "pt": "Autêntica comida brasileira em Ibiza. Sofia Gastrobar oferece pratos tradicionais com toque mediterrâneo único.",
+        "es": "Auténtica comida brasileña en Ibiza. Sofia Gastrobar ofrece platos tradicionales con toque mediterráneo único.",
+        "en": "Authentic Brazilian food in Ibiza. Sofia Gastrobar offers traditional dishes with unique Mediterranean touch."
       },
-      "keywords": ["beach bar ibiza", "bar praia ibiza", "bar playa ibiza", "bar costa ibiza"],
-      "category": "beach"
+      "keywords": [
+        "comida brasileira ibiza",
+        "restaurante brasileiro ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Comida Brasileira em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "paella-em-ibiza",
+      "title": {
+        "pt": "Paella em Ibiza | Sofia Gastrobar - A Melhor Paella da Ilha",
+        "es": "Paella en Ibiza | Sofia Gastrobar - La Mejor Paella de la Isla",
+        "en": "Paella in Ibiza | Sofia Gastrobar - The Best Paella on the Island"
+      },
+      "description": {
+        "pt": "A autêntica paella espanhola em Ibiza. Receita tradicional valenciana, ingredientes frescos e preparada no momento.",
+        "es": "La auténtica paella española en Ibiza. Receta tradicional valenciana, ingredientes frescos y preparada en el momento.",
+        "en": "Authentic Spanish paella in Ibiza. Traditional Valencian recipe, fresh ingredients and prepared on the spot."
+      },
+      "keywords": [
+        "paella ibiza",
+        "paella espanhola ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Paella em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "brunch-em-ibiza",
+      "title": {
+        "pt": "Brunch em Ibiza | Sofia Gastrobar - O Melhor Brunch da Ilha",
+        "es": "Brunch en Ibiza | Sofia Gastrobar - El Mejor Brunch de la Isla",
+        "en": "Brunch in Ibiza | Sofia Gastrobar - The Best Brunch on the Island"
+      },
+      "description": {
+        "pt": "O melhor brunch de Ibiza está no Sofia Gastrobar. Opções saudáveis, pratos tradicionais e ambiente perfeito para começar o dia.",
+        "es": "El mejor brunch de Ibiza está en Sofia Gastrobar. Opciones saludables, platos tradicionales y ambiente perfecto para empezar el día.",
+        "en": "The best brunch in Ibiza is at Sofia Gastrobar. Healthy options, traditional dishes and perfect atmosphere to start the day."
+      },
+      "keywords": [
+        "brunch ibiza",
+        "melhor brunch ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Brunch em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "melhor-hamburguer-ibiza",
+      "title": {
+        "pt": "Melhor Hambúrguer em Ibiza | Sofia Gastrobar - Hamburgers Artesanais",
+        "es": "Mejor Hamburguesa en Ibiza | Sofia Gastrobar - Hamburguesas Artesanales",
+        "en": "Best Burger in Ibiza | Sofia Gastrobar - Artisanal Burgers"
+      },
+      "description": {
+        "pt": "O melhor hambúrguer artesanal de Ibiza. Carne selecionada, pão caseiro e ingredientes frescos. Hamburgers únicos.",
+        "es": "La mejor hamburguesa artesanal de Ibiza. Carne seleccionada, pan casero e ingredientes frescos. Hamburguesas únicas.",
+        "en": "The best artisanal burger in Ibiza. Selected meat, homemade bread and fresh ingredients. Unique burgers."
+      },
+      "keywords": [
+        "hamburguer ibiza",
+        "melhor hamburguer ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Melhor Hambúrguer em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "melhor-pizza-ibiza",
+      "title": {
+        "pt": "Melhor Pizza em Ibiza | Sofia Gastrobar - Pizzas Artesanais",
+        "es": "Mejor Pizza en Ibiza | Sofia Gastrobar - Pizzas Artesanales",
+        "en": "Best Pizza in Ibiza | Sofia Gastrobar - Artisanal Pizzas"
+      },
+      "description": {
+        "pt": "As melhores pizzas artesanais de Ibiza. Massa fresca, ingredientes premium e forno a lenha. Pizzas autênticas italianas.",
+        "es": "Las mejores pizzas artesanales de Ibiza. Masa fresca, ingredientes premium y horno de leña. Pizzas auténticas italianas.",
+        "en": "The best artisanal pizzas in Ibiza. Fresh dough, premium ingredients and wood-fired oven. Authentic Italian pizzas."
+      },
+      "keywords": [
+        "pizza ibiza",
+        "melhor pizza ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Melhor Pizza em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "tapas-em-ibiza",
+      "title": {
+        "pt": "Tapas em Ibiza | Sofia Gastrobar - As Melhores Tapas da Ilha",
+        "es": "Tapas en Ibiza | Sofia Gastrobar - Las Mejores Tapas de la Isla",
+        "en": "Tapas in Ibiza | Sofia Gastrobar - The Best Tapas on the Island"
+      },
+      "description": {
+        "pt": "As melhores tapas de Ibiza. Pratos tradicionais espanhóis preparados com ingredientes frescos e técnicas autênticas.",
+        "es": "Las mejores tapas de Ibiza. Platos tradicionales españoles preparados con ingredientes frescos y técnicas auténticas.",
+        "en": "The best tapas in Ibiza. Traditional Spanish dishes prepared with fresh ingredients and authentic techniques."
+      },
+      "keywords": [
+        "tapas ibiza",
+        "melhores tapas ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Tapas em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "comida-mediterranea-ibiza",
+      "title": {
+        "pt": "Comida Mediterrânea em Ibiza | Sofia Gastrobar - Autêntica e Deliciosa",
+        "es": "Comida Mediterránea en Ibiza | Sofia Gastrobar - Auténtica y Deliciosa",
+        "en": "Mediterranean Food in Ibiza | Sofia Gastrobar - Authentic and Delicious"
+      },
+      "description": {
+        "pt": "A melhor comida mediterrânea de Ibiza. Pratos autênticos preparados com ingredientes frescos e técnicas tradicionais.",
+        "es": "La mejor comida mediterránea de Ibiza. Platos auténticos preparados con ingredientes frescos y técnicas tradicionales.",
+        "en": "The best Mediterranean food in Ibiza. Authentic dishes prepared with fresh ingredients and traditional techniques."
+      },
+      "keywords": [
+        "comida mediterrânea ibiza",
+        "gastronomia mediterrânea"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Comida Mediterrânea em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "frutos-do-mar-ibiza",
+      "title": {
+        "pt": "Frutos do Mar em Ibiza | Sofia Gastrobar - Frescos e Deliciosos",
+        "es": "Mariscos en Ibiza | Sofia Gastrobar - Frescos y Deliciosos",
+        "en": "Seafood in Ibiza | Sofia Gastrobar - Fresh and Delicious"
+      },
+      "description": {
+        "pt": "Os melhores frutos do mar de Ibiza. Peixes e mariscos frescos preparados com técnicas tradicionais mediterrâneas.",
+        "es": "Los mejores mariscos de Ibiza. Pescados y mariscos frescos preparados con técnicas tradicionales mediterráneas.",
+        "en": "The best seafood in Ibiza. Fresh fish and seafood prepared with traditional Mediterranean techniques."
+      },
+      "keywords": [
+        "frutos do mar ibiza",
+        "peixe ibiza",
+        "mariscos ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Frutos do Mar em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "comida-caseira-ibiza",
+      "title": {
+        "pt": "Comida Caseira em Ibiza | Sofia Gastrobar - Sabor de Casa",
+        "es": "Comida Casera en Ibiza | Sofia Gastrobar - Sabor de Casa",
+        "en": "Home Cooking in Ibiza | Sofia Gastrobar - Home Flavor"
+      },
+      "description": {
+        "pt": "Comida caseira autêntica em Ibiza. Pratos preparados com amor e ingredientes frescos, como se fosse em casa.",
+        "es": "Comida casera auténtica en Ibiza. Platos preparados con amor e ingredientes frescos, como si fuera en casa.",
+        "en": "Authentic home cooking in Ibiza. Dishes prepared with love and fresh ingredients, as if at home."
+      },
+      "keywords": [
+        "comida caseira ibiza",
+        "comida tradicional ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Comida Caseira em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "churrasco-em-ibiza",
+      "title": {
+        "pt": "Churrasco em Ibiza | Sofia Gastrobar - Carnes Selecionadas",
+        "es": "Churrasco en Ibiza | Sofia Gastrobar - Carnes Seleccionadas",
+        "en": "Barbecue in Ibiza | Sofia Gastrobar - Selected Meats"
+      },
+      "description": {
+        "pt": "O melhor churrasco de Ibiza. Carnes selecionadas preparadas na grelha com técnicas tradicionais.",
+        "es": "El mejor churrasco de Ibiza. Carnes seleccionadas preparadas en la parrilla con técnicas tradicionales.",
+        "en": "The best barbecue in Ibiza. Selected meats prepared on the grill with traditional techniques."
+      },
+      "keywords": [
+        "churrasco ibiza",
+        "carnes ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Churrasco em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "sangria-ibiza",
+      "title": {
+        "pt": "Sangria em Ibiza | Sofia Gastrobar - Sangria Artesanal",
+        "es": "Sangría en Ibiza | Sofia Gastrobar - Sangría Artesanal",
+        "en": "Sangria in Ibiza | Sofia Gastrobar - Artisanal Sangria"
+      },
+      "description": {
+        "pt": "A melhor sangria artesanal de Ibiza. Feita com frutas frescas, vinho selecionado e receita secreta.",
+        "es": "La mejor sangría artesanal de Ibiza. Hecha con frutas frescas, vino seleccionado y receta secreta.",
+        "en": "The best artisanal sangria in Ibiza. Made with fresh fruits, selected wine and secret recipe."
+      },
+      "keywords": [
+        "sangria ibiza",
+        "sangria espanhola"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Sangria em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "cocktails-ibiza",
+      "title": {
+        "pt": "Cocktails em Ibiza | Sofia Gastrobar - Drinks Exclusivos",
+        "es": "Cócteles en Ibiza | Sofia Gastrobar - Drinks Exclusivos",
+        "en": "Cocktails in Ibiza | Sofia Gastrobar - Exclusive Drinks"
+      },
+      "description": {
+        "pt": "Os melhores cocktails de Ibiza. Drinks exclusivos criados especialmente para acompanhar o sunset e os melhores momentos.",
+        "es": "Los mejores cócteles de Ibiza. Drinks exclusivos creados especialmente para acompañar el sunset y los mejores momentos.",
+        "en": "The best cocktails in Ibiza. Exclusive drinks created especially to accompany the sunset and the best moments."
+      },
+      "keywords": [
+        "cocktails ibiza",
+        "drinks ibiza",
+        "bebidas ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Cocktails em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "sobremesas-ibiza",
+      "title": {
+        "pt": "Sobremesas em Ibiza | Sofia Gastrobar - Doces Artesanais",
+        "es": "Postres en Ibiza | Sofia Gastrobar - Dulces Artesanales",
+        "en": "Desserts in Ibiza | Sofia Gastrobar - Artisanal Sweets"
+      },
+      "description": {
+        "pt": "As melhores sobremesas de Ibiza. Doces artesanais preparados com ingredientes frescos e técnicas tradicionais.",
+        "es": "Los mejores postres de Ibiza. Dulces artesanales preparados con ingredientes frescos y técnicas tradicionales.",
+        "en": "The best desserts in Ibiza. Artisanal sweets prepared with fresh ingredients and traditional techniques."
+      },
+      "keywords": [
+        "sobremesas ibiza",
+        "doces ibiza",
+        "sobremesa ibiza"
+      ],
+      "category": "restaurant",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Sobremesas em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "delivery-ibiza",
+      "title": {
+        "pt": "Delivery em Ibiza | Sofia Gastrobar - Entrega Rápida em Toda a Ilha",
+        "es": "Delivery en Ibiza | Sofia Gastrobar - Entrega Rápida en Toda la Isla",
+        "en": "Delivery in Ibiza | Sofia Gastrobar - Fast Delivery Across the Island"
+      },
+      "description": {
+        "pt": "Delivery rápido e confiável em toda Ibiza. Sofia Gastrobar entrega seus pratos favoritos diretamente na sua porta.",
+        "es": "Delivery rápido y confiable en toda Ibiza. Sofia Gastrobar entrega tus platos favoritos directamente en tu puerta.",
+        "en": "Fast and reliable delivery across Ibiza. Sofia Gastrobar delivers your favorite dishes directly to your door."
+      },
+      "keywords": [
+        "delivery ibiza",
+        "comida delivery ibiza"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Delivery em Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Delivery em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Delivery em Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Delivery em Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "comida-delivery-ibiza",
+      "title": {
+        "pt": "Comida Delivery em Ibiza | Sofia Gastrobar - Pedidos Online",
+        "es": "Comida Delivery en Ibiza | Sofia Gastrobar - Pedidos Online",
+        "en": "Food Delivery in Ibiza | Sofia Gastrobar - Online Orders"
+      },
+      "description": {
+        "pt": "Comida delivery em Ibiza nunca foi tão fácil. Peça online e receba em casa com qualidade garantida.",
+        "es": "Comida delivery en Ibiza nunca fue tan fácil. Pide online y recibe en casa con calidad garantida.",
+        "en": "Food delivery in Ibiza has never been easier. Order online and receive at home with guaranteed quality."
+      },
+      "keywords": [
+        "comida delivery ibiza",
+        "pedidos online ibiza"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Comida Delivery em Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Comida Delivery em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Comida Delivery em Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Comida Delivery em Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "entrega-rapida-ibiza",
+      "title": {
+        "pt": "Entrega Rápida em Ibiza | Sofia Gastrobar - Até 45 Minutos",
+        "es": "Entrega Rápida en Ibiza | Sofia Gastrobar - Hasta 45 Minutos",
+        "en": "Fast Delivery in Ibiza | Sofia Gastrobar - Up to 45 Minutes"
+      },
+      "description": {
+        "pt": "Entrega rápida em toda Ibiza. Receba seus pedidos em até 45 minutos, com qualidade e sabor preservados.",
+        "es": "Entrega rápida en toda Ibiza. Recibe tus pedidos en hasta 45 minutos, con calidad y sabor preservados.",
+        "en": "Fast delivery across Ibiza. Receive your orders in up to 45 minutes, with quality and flavor preserved."
+      },
+      "keywords": [
+        "entrega rápida ibiza",
+        "delivery rápido ibiza"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Entrega Rápida em Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Entrega Rápida em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Entrega Rápida em Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Entrega Rápida em Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "delivery-sant-antoni",
+      "title": {
+        "pt": "Delivery em Sant Antoni | Sofia Gastrobar - Entrega na Região",
+        "es": "Delivery en Sant Antoni | Sofia Gastrobar - Entrega en la Región",
+        "en": "Delivery in Sant Antoni | Sofia Gastrobar - Delivery in the Region"
+      },
+      "description": {
+        "pt": "Delivery rápido em Sant Antoni, Ibiza. Sofia Gastrobar entrega em toda a região com qualidade garantida.",
+        "es": "Delivery rápido en Sant Antoni, Ibiza. Sofia Gastrobar entrega en toda la región con calidad garantida.",
+        "en": "Fast delivery in Sant Antoni, Ibiza. Sofia Gastrobar delivers across the region with guaranteed quality."
+      },
+      "keywords": [
+        "delivery sant antoni",
+        "entrega sant antoni"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Delivery em Sant Antoni em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Delivery em Sant Antoni em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Delivery em Sant Antoni en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Delivery em Sant Antoni in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "comida-em-casa-ibiza",
+      "title": {
+        "pt": "Comida em Casa em Ibiza | Sofia Gastrobar - Delivery Direto",
+        "es": "Comida en Casa en Ibiza | Sofia Gastrobar - Delivery Directo",
+        "en": "Food at Home in Ibiza | Sofia Gastrobar - Direct Delivery"
+      },
+      "description": {
+        "pt": "Comida em casa em Ibiza com qualidade de restaurante. Sofia Gastrobar entrega diretamente na sua porta.",
+        "es": "Comida en casa en Ibiza con calidad de restaurante. Sofia Gastrobar entrega directamente en tu puerta.",
+        "en": "Food at home in Ibiza with restaurant quality. Sofia Gastrobar delivers directly to your door."
+      },
+      "keywords": [
+        "comida em casa ibiza",
+        "delivery casa ibiza"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Comida em Casa em Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Comida em Casa em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Comida em Casa em Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Comida em Casa em Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "restaurante-entrega-ibiza",
+      "title": {
+        "pt": "Restaurante com Entrega em Ibiza | Sofia Gastrobar",
+        "es": "Restaurante con Entrega en Ibiza | Sofia Gastrobar",
+        "en": "Restaurant with Delivery in Ibiza | Sofia Gastrobar"
+      },
+      "description": {
+        "pt": "Restaurante com entrega rápida em Ibiza. Qualidade de restaurante entregue na sua porta.",
+        "es": "Restaurante con entrega rápida en Ibiza. Calidad de restaurante entregada en tu puerta.",
+        "en": "Restaurant with fast delivery in Ibiza. Restaurant quality delivered to your door."
+      },
+      "keywords": [
+        "restaurante entrega ibiza",
+        "restaurante delivery"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Restaurante com Entrega em Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Restaurante com Entrega em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Restaurante com Entrega em Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Restaurante com Entrega em Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "brunch-delivery-ibiza",
+      "title": {
+        "pt": "Brunch Delivery em Ibiza | Sofia Gastrobar - Brunch em Casa",
+        "es": "Brunch Delivery en Ibiza | Sofia Gastrobar - Brunch en Casa",
+        "en": "Brunch Delivery in Ibiza | Sofia Gastrobar - Brunch at Home"
+      },
+      "description": {
+        "pt": "Brunch delivery em Ibiza. Comece o dia com o melhor brunch da ilha entregue na sua porta.",
+        "es": "Brunch delivery en Ibiza. Empieza el día con el mejor brunch de la isla entregado en tu puerta.",
+        "en": "Brunch delivery in Ibiza. Start the day with the best brunch on the island delivered to your door."
+      },
+      "keywords": [
+        "brunch delivery ibiza",
+        "brunch entrega"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Brunch Delivery em Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Brunch Delivery em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Brunch Delivery em Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Brunch Delivery em Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "late-night-delivery-ibiza",
+      "title": {
+        "pt": "Delivery Tarde da Noite em Ibiza | Sofia Gastrobar - Até Tarde",
+        "es": "Delivery Tarde de la Noche en Ibiza | Sofia Gastrobar - Hasta Tarde",
+        "en": "Late Night Delivery in Ibiza | Sofia Gastrobar - Until Late"
+      },
+      "description": {
+        "pt": "Delivery tarde da noite em Ibiza. Sofia Gastrobar entrega até tarde para satisfazer sua fome noturna.",
+        "es": "Delivery tarde de la noche en Ibiza. Sofia Gastrobar entrega hasta tarde para satisfacer tu hambre nocturna.",
+        "en": "Late night delivery in Ibiza. Sofia Gastrobar delivers until late to satisfy your nighttime hunger."
+      },
+      "keywords": [
+        "delivery tarde ibiza",
+        "comida tarde ibiza"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Delivery Tarde da Noite em Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Delivery Tarde da Noite em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Delivery Tarde da Noite em Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Delivery Tarde da Noite em Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "comida-barata-delivery-ibiza",
+      "title": {
+        "pt": "Comida Barata Delivery em Ibiza | Sofia Gastrobar - Preços Justos",
+        "es": "Comida Barata Delivery en Ibiza | Sofia Gastrobar - Precios Justos",
+        "en": "Cheap Food Delivery in Ibiza | Sofia Gastrobar - Fair Prices"
+      },
+      "description": {
+        "pt": "Comida delivery com preços justos em Ibiza. Qualidade excepcional a preços acessíveis.",
+        "es": "Comida delivery con precios justos en Ibiza. Calidad excepcional a precios accesibles.",
+        "en": "Food delivery with fair prices in Ibiza. Exceptional quality at affordable prices."
+      },
+      "keywords": [
+        "comida barata delivery ibiza",
+        "delivery barato ibiza"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Comida Barata Delivery em Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Comida Barata Delivery em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Comida Barata Delivery em Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Comida Barata Delivery em Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
+    },
+    {
+      "slug": "melhor-delivery-ibiza",
+      "title": {
+        "pt": "Melhor Delivery de Ibiza | Sofia Gastrobar - #1 em Qualidade",
+        "es": "Mejor Delivery de Ibiza | Sofia Gastrobar - #1 en Calidad",
+        "en": "Best Delivery in Ibiza | Sofia Gastrobar - #1 in Quality"
+      },
+      "description": {
+        "pt": "O melhor delivery de Ibiza. Sofia Gastrobar lidera com qualidade, velocidade e preços justos.",
+        "es": "El mejor delivery de Ibiza. Sofia Gastrobar lidera con calidad, velocidad y precios justos.",
+        "en": "The best delivery in Ibiza. Sofia Gastrobar leads with quality, speed and fair prices."
+      },
+      "keywords": [
+        "melhor delivery ibiza",
+        "top delivery ibiza"
+      ],
+      "category": "delivery",
+      "content": {
+        "pt": "<p>Melhor Delivery de Ibiza em Ibiza nunca foi tão fácil. O Sofia Gastrobar oferece delivery rápido e confiável para toda a ilha, levando os sabores autênticos da gastronomia mediterrânea diretamente até você.</p>\n<p>Nossos pratos são preparados com os mesmos ingredientes frescos e técnicas tradicionais que usamos no restaurante. Cada pedido é embalado com cuidado para manter a qualidade e o sabor até chegar à sua porta.</p>\n<p>Diferente de plataformas de delivery que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas ocultas. Você pede diretamente conosco e recebe em até 45 minutos.</p>\n<p>Se você está procurando Melhor Delivery de Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Qualidade garantida, preços justos e entrega rápida.</p>",
+        "es": "<p>Melhor Delivery de Ibiza en Ibiza nunca fue tan fácil. Sofia Gastrobar ofrece delivery rápido y confiable para toda la isla, llevando los sabores auténticos de la gastronomía mediterránea directamente hasta ti.</p>",
+        "en": "<p>Melhor Delivery de Ibiza in Ibiza has never been easier. Sofia Gastrobar offers fast and reliable delivery across the island, bringing the authentic flavors of Mediterranean gastronomy directly to you.</p>"
+      }
     },
     {
       "slug": "alternativa-ao-ubereats-ibiza",
@@ -203,42 +932,89 @@
         "en": "Alternative to UberEats in Ibiza | Sofia Gastrobar - Direct Delivery"
       },
       "description": {
-        "pt": "Procurando alternativa ao UberEats em Ibiza? Sofia Gastrobar oferece delivery direto, sem taxas ocultas e com entrega mais rápida. Peça diretamente conosco e economize.",
-        "es": "¿Buscas alternativa a UberEats en Ibiza? Sofia Gastrobar ofrece delivery directo, sin tasas ocultas y con entrega más rápida. Pide directamente con nosotros y ahorra.",
-        "en": "Looking for an alternative to UberEats in Ibiza? Sofia Gastrobar offers direct delivery, no hidden fees and faster delivery. Order directly with us and save."
+        "pt": "Procurando alternativa ao UberEats em Ibiza? Sofia Gastrobar oferece delivery direto, sem taxas ocultas e mais rápido.",
+        "es": "¿Buscas alternativa a UberEats en Ibiza? Sofia Gastrobar ofrece delivery directo, sin tasas ocultas y más rápido.",
+        "en": "Looking for an alternative to UberEats in Ibiza? Sofia Gastrobar offers direct delivery, no hidden fees and faster."
       },
-      "keywords": ["alternativa ubereats", "delivery ibiza", "ubereats ibiza", "glovo ibiza"],
-      "category": "comparative"
+      "keywords": [
+        "alternativa ubereats",
+        "ubereats ibiza"
+      ],
+      "category": "comparative",
+      "content": {
+        "pt": "<p>Procurando Alternativa ao UberEats em Ibiza em Ibiza? O Sofia Gastrobar oferece uma alternativa superior, com delivery direto, sem taxas de plataforma e com qualidade garantida.</p>\n<p>Diferente de outras plataformas que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto do restaurante para sua casa. Isso significa preços mais justos, entrega mais rápida e qualidade garantida.</p>\n<p>Nossos pratos são preparados com ingredientes frescos e técnicas tradicionais, mantendo a mesma qualidade que você encontra no restaurante. Cada pedido é embalado com cuidado para preservar o sabor e a temperatura.</p>\n<p>Se você está procurando Alternativa ao UberEats em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Mais rápido, mais barato e com qualidade superior.</p>",
+        "es": "<p>¿Buscas Alternativa ao UberEats em Ibiza en Ibiza? Sofia Gastrobar ofrece una alternativa superior, con delivery directo, sin tasas de plataforma y con calidad garantida.</p>",
+        "en": "<p>Looking for Alternativa ao UberEats em Ibiza in Ibiza? Sofia Gastrobar offers a superior alternative, with direct delivery, no platform fees and guaranteed quality.</p>"
+      }
     },
     {
-      "slug": "glovo-ibiza-entrega-rapida",
+      "slug": "alternativa-ao-glovo-ibiza",
       "title": {
-        "pt": "Glovo Ibiza - Entrega Rápida | Sofia Gastrobar - Delivery Mais Rápido",
-        "es": "Glovo Ibiza - Entrega Rápida | Sofia Gastrobar - Delivery Más Rápido",
-        "en": "Glovo Ibiza - Fast Delivery | Sofia Gastrobar - Faster Delivery"
+        "pt": "Alternativa ao Glovo em Ibiza | Sofia Gastrobar - Mais Rápido",
+        "es": "Alternativa a Glovo en Ibiza | Sofia Gastrobar - Más Rápido",
+        "en": "Alternative to Glovo in Ibiza | Sofia Gastrobar - Faster"
       },
       "description": {
-        "pt": "Mais rápido que Glovo em Ibiza. Sofia Gastrobar entrega seus pedidos em até 45 minutos, sem taxas de plataforma. Delivery direto e mais econômico.",
-        "es": "Más rápido que Glovo en Ibiza. Sofia Gastrobar entrega tus pedidos en hasta 45 minutos, sin tasas de plataforma. Delivery directo y más económico.",
-        "en": "Faster than Glovo in Ibiza. Sofia Gastrobar delivers your orders in up to 45 minutes, no platform fees. Direct delivery and more economical."
+        "pt": "Mais rápido que Glovo em Ibiza. Sofia Gastrobar entrega em até 45 minutos, sem taxas de plataforma.",
+        "es": "Más rápido que Glovo en Ibiza. Sofia Gastrobar entrega en hasta 45 minutos, sin tasas de plataforma.",
+        "en": "Faster than Glovo in Ibiza. Sofia Gastrobar delivers in up to 45 minutes, no platform fees."
       },
-      "keywords": ["glovo ibiza", "delivery rápido ibiza", "entrega rápida", "alternativa glovo"],
-      "category": "comparative"
+      "keywords": [
+        "alternativa glovo",
+        "glovo ibiza"
+      ],
+      "category": "comparative",
+      "content": {
+        "pt": "<p>Procurando Alternativa ao Glovo em Ibiza em Ibiza? O Sofia Gastrobar oferece uma alternativa superior, com delivery direto, sem taxas de plataforma e com qualidade garantida.</p>\n<p>Diferente de outras plataformas que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto do restaurante para sua casa. Isso significa preços mais justos, entrega mais rápida e qualidade garantida.</p>\n<p>Nossos pratos são preparados com ingredientes frescos e técnicas tradicionais, mantendo a mesma qualidade que você encontra no restaurante. Cada pedido é embalado com cuidado para preservar o sabor e a temperatura.</p>\n<p>Se você está procurando Alternativa ao Glovo em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Mais rápido, mais barato e com qualidade superior.</p>",
+        "es": "<p>¿Buscas Alternativa ao Glovo em Ibiza en Ibiza? Sofia Gastrobar ofrece una alternativa superior, con delivery directo, sin tasas de plataforma y con calidad garantida.</p>",
+        "en": "<p>Looking for Alternativa ao Glovo em Ibiza in Ibiza? Sofia Gastrobar offers a superior alternative, with direct delivery, no platform fees and guaranteed quality.</p>"
+      }
     },
     {
-      "slug": "justeat-ibiza-restaurantes",
+      "slug": "alternativa-ao-justeat-ibiza",
       "title": {
-        "pt": "JustEat Ibiza - Restaurantes | Sofia Gastrobar - Melhor Opção",
-        "es": "JustEat Ibiza - Restaurantes | Sofia Gastrobar - Mejor Opción",
-        "en": "JustEat Ibiza - Restaurants | Sofia Gastrobar - Better Option"
+        "pt": "Alternativa ao JustEat em Ibiza | Sofia Gastrobar - Melhor Opção",
+        "es": "Alternativa a JustEat en Ibiza | Sofia Gastrobar - Mejor Opción",
+        "en": "Alternative to JustEat in Ibiza | Sofia Gastrobar - Better Option"
       },
       "description": {
-        "pt": "Melhor que JustEat em Ibiza. Peça diretamente no Sofia Gastrobar e evite taxas de plataforma. Delivery rápido, preços justos e qualidade garantida.",
-        "es": "Mejor que JustEat en Ibiza. Pide directamente en Sofia Gastrobar y evita tasas de plataforma. Delivery rápido, precios justos y calidad garantida.",
-        "en": "Better than JustEat in Ibiza. Order directly at Sofia Gastrobar and avoid platform fees. Fast delivery, fair prices and guaranteed quality."
+        "pt": "Melhor que JustEat em Ibiza. Peça diretamente no Sofia Gastrobar e evite taxas de plataforma.",
+        "es": "Mejor que JustEat en Ibiza. Pide directamente en Sofia Gastrobar y evita tasas de plataforma.",
+        "en": "Better than JustEat in Ibiza. Order directly at Sofia Gastrobar and avoid platform fees."
       },
-      "keywords": ["justeat ibiza", "delivery ibiza", "restaurantes justeat", "alternativa justeat"],
-      "category": "comparative"
+      "keywords": [
+        "alternativa justeat",
+        "justeat ibiza"
+      ],
+      "category": "comparative",
+      "content": {
+        "pt": "<p>Procurando Alternativa ao JustEat em Ibiza em Ibiza? O Sofia Gastrobar oferece uma alternativa superior, com delivery direto, sem taxas de plataforma e com qualidade garantida.</p>\n<p>Diferente de outras plataformas que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto do restaurante para sua casa. Isso significa preços mais justos, entrega mais rápida e qualidade garantida.</p>\n<p>Nossos pratos são preparados com ingredientes frescos e técnicas tradicionais, mantendo a mesma qualidade que você encontra no restaurante. Cada pedido é embalado com cuidado para preservar o sabor e a temperatura.</p>\n<p>Se você está procurando Alternativa ao JustEat em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Mais rápido, mais barato e com qualidade superior.</p>",
+        "es": "<p>¿Buscas Alternativa ao JustEat em Ibiza en Ibiza? Sofia Gastrobar ofrece una alternativa superior, con delivery directo, sin tasas de plataforma y con calidad garantida.</p>",
+        "en": "<p>Looking for Alternativa ao JustEat em Ibiza in Ibiza? Sofia Gastrobar offers a superior alternative, with direct delivery, no platform fees and guaranteed quality.</p>"
+      }
+    },
+    {
+      "slug": "alternativa-ao-deliveroo-ibiza",
+      "title": {
+        "pt": "Alternativa ao Deliveroo em Ibiza | Sofia Gastrobar - Delivery Direto",
+        "es": "Alternativa a Deliveroo en Ibiza | Sofia Gastrobar - Delivery Directo",
+        "en": "Alternative to Deliveroo in Ibiza | Sofia Gastrobar - Direct Delivery"
+      },
+      "description": {
+        "pt": "Alternativa ao Deliveroo em Ibiza. Sofia Gastrobar oferece delivery direto, mais rápido e sem taxas.",
+        "es": "Alternativa a Deliveroo en Ibiza. Sofia Gastrobar ofrece delivery directo, más rápido y sin tasas.",
+        "en": "Alternative to Deliveroo in Ibiza. Sofia Gastrobar offers direct delivery, faster and no fees."
+      },
+      "keywords": [
+        "alternativa deliveroo",
+        "deliveroo ibiza"
+      ],
+      "category": "comparative",
+      "content": {
+        "pt": "<p>Procurando Alternativa ao Deliveroo em Ibiza em Ibiza? O Sofia Gastrobar oferece uma alternativa superior, com delivery direto, sem taxas de plataforma e com qualidade garantida.</p>\n<p>Diferente de outras plataformas que cobram taxas altas e demoram para entregar, o Sofia Gastrobar oferece delivery direto do restaurante para sua casa. Isso significa preços mais justos, entrega mais rápida e qualidade garantida.</p>\n<p>Nossos pratos são preparados com ingredientes frescos e técnicas tradicionais, mantendo a mesma qualidade que você encontra no restaurante. Cada pedido é embalado com cuidado para preservar o sabor e a temperatura.</p>\n<p>Se você está procurando Alternativa ao Deliveroo em Ibiza em Ibiza, escolha o delivery direto do Sofia Gastrobar. Mais rápido, mais barato e com qualidade superior.</p>",
+        "es": "<p>¿Buscas Alternativa ao Deliveroo em Ibiza en Ibiza? Sofia Gastrobar ofrece una alternativa superior, con delivery directo, sin tasas de plataforma y con calidad garantida.</p>",
+        "en": "<p>Looking for Alternativa ao Deliveroo em Ibiza in Ibiza? Sofia Gastrobar offers a superior alternative, with direct delivery, no platform fees and guaranteed quality.</p>"
+      }
     },
     {
       "slug": "restaurantes-perto-do-cafe-del-mar",
@@ -248,27 +1024,20 @@
         "en": "Restaurants Near Café del Mar | Sofia Gastrobar - Perfect Alternative"
       },
       "description": {
-        "pt": "Procurando restaurantes perto do Café del Mar? Sofia Gastrobar oferece a melhor alternativa com gastronomia mediterrânea, ambiente único e preços acessíveis.",
-        "es": "¿Buscas restaurantes cerca del Café del Mar? Sofia Gastrobar ofrece la mejor alternativa con gastronomía mediterránea, ambiente único y precios accesibles.",
-        "en": "Looking for restaurants near Café del Mar? Sofia Gastrobar offers the best alternative with Mediterranean gastronomy, unique atmosphere and affordable prices."
+        "pt": "Restaurantes perto do Café del Mar? Sofia Gastrobar oferece a melhor alternativa com gastronomia mediterrânea.",
+        "es": "¿Restaurantes cerca del Café del Mar? Sofia Gastrobar ofrece la mejor alternativa con gastronomía mediterránea.",
+        "en": "Restaurants near Café del Mar? Sofia Gastrobar offers the best alternative with Mediterranean gastronomy."
       },
-      "keywords": ["cafe del mar", "restaurantes sant antoni", "comida sant antoni", "alternativa cafe del mar"],
-      "category": "competitor"
-    },
-    {
-      "slug": "onde-comer-perto-do-mambo",
-      "title": {
-        "pt": "Onde Comer Perto do Mambo | Sofia Gastrobar - Melhor Opção",
-        "es": "Dónde Comer Cerca del Mambo | Sofia Gastrobar - Mejor Opción",
-        "en": "Where to Eat Near Mambo | Sofia Gastrobar - Best Option"
-      },
-      "description": {
-        "pt": "Onde comer perto do Mambo? Sofia Gastrobar é a melhor opção com comida deliciosa, ambiente acolhedor e localização privilegiada. Reserve sua mesa agora.",
-        "es": "¿Dónde comer cerca del Mambo? Sofia Gastrobar es la mejor opción con comida deliciosa, ambiente acogedor y ubicación privilegiada. Reserva tu mesa ahora.",
-        "en": "Where to eat near Mambo? Sofia Gastrobar is the best option with delicious food, welcoming atmosphere and privileged location. Book your table now."
-      },
-      "keywords": ["mambo ibiza", "restaurantes mambo", "comida mambo", "onde comer sant antoni"],
-      "category": "competitor"
+      "keywords": [
+        "cafe del mar",
+        "restaurantes sant antoni"
+      ],
+      "category": "competitor",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes Perto do Café del Mar em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     },
     {
       "slug": "restaurantes-perto-do-ocean-beach",
@@ -278,13 +1047,112 @@
         "en": "Restaurants Near Ocean Beach | Sofia Gastrobar - Exclusive Alternative"
       },
       "description": {
-        "pt": "Restaurantes perto do Ocean Beach? Sofia Gastrobar oferece uma alternativa exclusiva com gastronomia de alta qualidade e ambiente único.",
-        "es": "¿Restaurantes cerca del Ocean Beach? Sofia Gastrobar ofrece una alternativa exclusiva con gastronomía de alta calidad y ambiente único.",
-        "en": "Restaurants near Ocean Beach? Sofia Gastrobar offers an exclusive alternative with high-quality gastronomy and unique atmosphere."
+        "pt": "Restaurantes perto do Ocean Beach? Sofia Gastrobar oferece alternativa exclusiva com alta qualidade.",
+        "es": "¿Restaurantes cerca del Ocean Beach? Sofia Gastrobar ofrece alternativa exclusiva con alta calidad.",
+        "en": "Restaurants near Ocean Beach? Sofia Gastrobar offers exclusive alternative with high quality."
       },
-      "keywords": ["ocean beach ibiza", "restaurantes playa den bossa", "comida playa den bossa"],
-      "category": "competitor"
+      "keywords": [
+        "ocean beach ibiza",
+        "restaurantes playa den bossa"
+      ],
+      "category": "competitor",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes Perto do Ocean Beach em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "restaurantes-perto-do-mambo-ibiza",
+      "title": {
+        "pt": "Restaurantes Perto do Mambo em Ibiza | Sofia Gastrobar - Melhor Opção",
+        "es": "Restaurantes Cerca del Mambo en Ibiza | Sofia Gastrobar - Mejor Opción",
+        "en": "Restaurants Near Mambo in Ibiza | Sofia Gastrobar - Best Option"
+      },
+      "description": {
+        "pt": "Onde comer perto do Mambo? Sofia Gastrobar é a melhor opção com comida deliciosa e ambiente único.",
+        "es": "¿Dónde comer cerca del Mambo? Sofia Gastrobar es la mejor opción con comida deliciosa y ambiente único.",
+        "en": "Where to eat near Mambo? Sofia Gastrobar is the best option with delicious food and unique atmosphere."
+      },
+      "keywords": [
+        "mambo ibiza",
+        "restaurantes mambo"
+      ],
+      "category": "competitor",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes Perto do Mambo em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "restaurantes-perto-de-san-antonio-bay",
+      "title": {
+        "pt": "Restaurantes Perto de San Antonio Bay | Sofia Gastrobar",
+        "es": "Restaurantes Cerca de San Antonio Bay | Sofia Gastrobar",
+        "en": "Restaurants Near San Antonio Bay | Sofia Gastrobar"
+      },
+      "description": {
+        "pt": "Os melhores restaurantes perto de San Antonio Bay. Sofia Gastrobar oferece gastronomia excepcional.",
+        "es": "Los mejores restaurantes cerca de San Antonio Bay. Sofia Gastrobar ofrece gastronomía excepcional.",
+        "en": "The best restaurants near San Antonio Bay. Sofia Gastrobar offers exceptional gastronomy."
+      },
+      "keywords": [
+        "san antonio bay",
+        "restaurantes san antonio"
+      ],
+      "category": "competitor",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes Perto de San Antonio Bay em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "restaurantes-perto-do-ibiza-rocks",
+      "title": {
+        "pt": "Restaurantes Perto do Ibiza Rocks | Sofia Gastrobar - Alternativa Premium",
+        "es": "Restaurantes Cerca del Ibiza Rocks | Sofia Gastrobar - Alternativa Premium",
+        "en": "Restaurants Near Ibiza Rocks | Sofia Gastrobar - Premium Alternative"
+      },
+      "description": {
+        "pt": "Restaurantes perto do Ibiza Rocks? Sofia Gastrobar oferece alternativa premium com qualidade superior.",
+        "es": "¿Restaurantes cerca del Ibiza Rocks? Sofia Gastrobar ofrece alternativa premium con calidad superior.",
+        "en": "Restaurants near Ibiza Rocks? Sofia Gastrobar offers premium alternative with superior quality."
+      },
+      "keywords": [
+        "ibiza rocks",
+        "restaurantes sant antoni"
+      ],
+      "category": "competitor",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Restaurantes Perto do Ibiza Rocks em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
+    },
+    {
+      "slug": "guia-restaurantes-ibiza",
+      "title": {
+        "pt": "Guia Completo de Restaurantes em Ibiza | Sofia Gastrobar - 2025",
+        "es": "Guía Completa de Restaurantes en Ibiza | Sofia Gastrobar - 2025",
+        "en": "Complete Guide to Restaurants in Ibiza | Sofia Gastrobar - 2025"
+      },
+      "description": {
+        "pt": "Guia completo dos melhores restaurantes de Ibiza. Sofia Gastrobar lidera a lista com experiência única.",
+        "es": "Guía completa de los mejores restaurantes de Ibiza. Sofia Gastrobar lidera la lista con experiencia única.",
+        "en": "Complete guide to the best restaurants in Ibiza. Sofia Gastrobar leads the list with unique experience."
+      },
+      "keywords": [
+        "guia restaurantes ibiza",
+        "melhores restaurantes ibiza 2025"
+      ],
+      "category": "guide",
+      "content": {
+        "pt": "<p>Ibiza é um paraíso gastronômico, e o Sofia Gastrobar representa o melhor da culinária mediterrânea na ilha. Nossa paixão pela gastronomia autêntica, ingredientes frescos e técnicas tradicionais fazem de nós uma referência entre os restaurantes de Ibiza.</p>\n<p>Cada prato que servimos conta uma história. Inspirados pela rica tradição mediterrânea e pela energia única de Ibiza, nossos chefs criam experiências gastronômicas que vão além do simples ato de comer. É uma jornada sensorial completa.</p>\n<p>Nossa localização privilegiada, combinada com um ambiente acolhedor e atendimento excepcional, faz do Sofia Gastrobar o destino perfeito para quem busca a melhor experiência gastronômica de Ibiza.</p>\n<p>Se você está procurando Guia Completo de Restaurantes em Ibiza em Ibiza, o Sofia Gastrobar é a escolha perfeita. Oferecemos não apenas comida excepcional, mas uma experiência completa que combina sabores autênticos, ambiente único e momentos inesquecíveis.</p>",
+        "es": "<p>Ibiza es un paraíso gastronómico, y Sofia Gastrobar representa lo mejor de la cocina mediterránea en la isla. Nuestra pasión por la gastronomía auténtica, ingredientes frescos y técnicas tradicionales nos convierten en una referencia entre los restaurantes de Ibiza.</p>\n<p>Cada plato que servimos cuenta una historia. Inspirados por la rica tradición mediterránea y la energía única de Ibiza, nuestros chefs crean experiencias gastronómicas que van más allá del simple acto de comer. Es un viaje sensorial completo.</p>",
+        "en": "<p>Ibiza is a gastronomic paradise, and Sofia Gastrobar represents the best of Mediterranean cuisine on the island. Our passion for authentic gastronomy, fresh ingredients and traditional techniques make us a reference among Ibiza restaurants.</p>\n<p>Each dish we serve tells a story. Inspired by the rich Mediterranean tradition and the unique energy of Ibiza, our chefs create gastronomic experiences that go beyond the simple act of eating. It is a complete sensory journey.</p>"
+      }
     }
   ]
 }
-

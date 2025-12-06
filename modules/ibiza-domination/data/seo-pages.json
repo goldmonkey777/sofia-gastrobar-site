@@ -1,0 +1,290 @@
+{
+  "pages": [
+    {
+      "slug": "restaurante-em-ibiza",
+      "title": {
+        "pt": "Restaurante em Ibiza | Sofia Gastrobar - O Melhor da Gastronomia Mediterrânea",
+        "es": "Restaurante en Ibiza | Sofia Gastrobar - Lo Mejor de la Gastronomía Mediterránea",
+        "en": "Restaurant in Ibiza | Sofia Gastrobar - The Best of Mediterranean Gastronomy"
+      },
+      "description": {
+        "pt": "Descubra o melhor restaurante em Ibiza. Sofia Gastrobar oferece gastronomia mediterrânea autêntica, ambiente único e experiências inesquecíveis. Reserve sua mesa agora.",
+        "es": "Descubre el mejor restaurante en Ibiza. Sofia Gastrobar ofrece gastronomía mediterránea auténtica, ambiente único y experiencias inolvidables. Reserva tu mesa ahora.",
+        "en": "Discover the best restaurant in Ibiza. Sofia Gastrobar offers authentic Mediterranean gastronomy, unique atmosphere and unforgettable experiences. Book your table now."
+      },
+      "keywords": ["restaurante ibiza", "comida ibiza", "gastronomia ibiza", "restaurante espanha"],
+      "category": "restaurant"
+    },
+    {
+      "slug": "onde-comer-em-ibiza",
+      "title": {
+        "pt": "Onde Comer em Ibiza | Sofia Gastrobar - Guia Completo 2025",
+        "es": "Dónde Comer en Ibiza | Sofia Gastrobar - Guía Completa 2025",
+        "en": "Where to Eat in Ibiza | Sofia Gastrobar - Complete Guide 2025"
+      },
+      "description": {
+        "pt": "Procurando onde comer em Ibiza? Sofia Gastrobar é a escolha perfeita para uma experiência gastronômica única. Menu mediterrâneo, ambiente acolhedor e localização privilegiada.",
+        "es": "¿Buscas dónde comer en Ibiza? Sofia Gastrobar es la elección perfecta para una experiencia gastronómica única. Menú mediterráneo, ambiente acogedor y ubicación privilegiada.",
+        "en": "Looking for where to eat in Ibiza? Sofia Gastrobar is the perfect choice for a unique gastronomic experience. Mediterranean menu, welcoming atmosphere and privileged location."
+      },
+      "keywords": ["onde comer ibiza", "melhor restaurante ibiza", "comida ibiza", "restaurantes ibiza"],
+      "category": "guide"
+    },
+    {
+      "slug": "sunset-ibiza-bar",
+      "title": {
+        "pt": "Sunset Bar em Ibiza | Sofia Gastrobar - O Melhor Sunset da Ilha",
+        "es": "Bar Sunset en Ibiza | Sofia Gastrobar - El Mejor Sunset de la Isla",
+        "en": "Sunset Bar in Ibiza | Sofia Gastrobar - The Best Sunset on the Island"
+      },
+      "description": {
+        "pt": "Viva o melhor sunset de Ibiza no Sofia Gastrobar. Cocktails exclusivos, música ao vivo e vista privilegiada. Reserve seu lugar para o pôr do sol mais mágico da ilha.",
+        "es": "Vive el mejor sunset de Ibiza en Sofia Gastrobar. Cócteles exclusivos, música en vivo y vista privilegiada. Reserva tu lugar para la puesta de sol más mágica de la isla.",
+        "en": "Experience the best sunset in Ibiza at Sofia Gastrobar. Exclusive cocktails, live music and privileged view. Book your spot for the most magical sunset on the island."
+      },
+      "keywords": ["sunset ibiza", "bar sunset ibiza", "pôr do sol ibiza", "sunset bar"],
+      "category": "sunset"
+    },
+    {
+      "slug": "melhor-brunch-ibiza",
+      "title": {
+        "pt": "Melhor Brunch em Ibiza | Sofia Gastrobar - Brunch Completo e Delicioso",
+        "es": "Mejor Brunch en Ibiza | Sofia Gastrobar - Brunch Completo y Delicioso",
+        "en": "Best Brunch in Ibiza | Sofia Gastrobar - Complete and Delicious Brunch"
+      },
+      "description": {
+        "pt": "O melhor brunch de Ibiza está no Sofia Gastrobar. Opções saudáveis, pratos tradicionais e ambiente perfeito para começar o dia. Brunch servido das 8h às 12h.",
+        "es": "El mejor brunch de Ibiza está en Sofia Gastrobar. Opciones saludables, platos tradicionales y ambiente perfecto para empezar el día. Brunch servido de 8h a 12h.",
+        "en": "The best brunch in Ibiza is at Sofia Gastrobar. Healthy options, traditional dishes and perfect atmosphere to start the day. Brunch served from 8am to 12pm."
+      },
+      "keywords": ["brunch ibiza", "melhor brunch ibiza", "brunch ibiza 2025", "café da manhã ibiza"],
+      "category": "breakfast"
+    },
+    {
+      "slug": "delivery-ibiza",
+      "title": {
+        "pt": "Delivery em Ibiza | Sofia Gastrobar - Entrega Rápida em Toda a Ilha",
+        "es": "Delivery en Ibiza | Sofia Gastrobar - Entrega Rápida en Toda la Isla",
+        "en": "Delivery in Ibiza | Sofia Gastrobar - Fast Delivery Across the Island"
+      },
+      "description": {
+        "pt": "Delivery rápido e confiável em toda Ibiza. Sofia Gastrobar entrega seus pratos favoritos diretamente na sua porta. Pedidos online, pagamento seguro e entrega em até 45 minutos.",
+        "es": "Delivery rápido y confiable en toda Ibiza. Sofia Gastrobar entrega tus platos favoritos directamente en tu puerta. Pedidos online, pago seguro y entrega en hasta 45 minutos.",
+        "en": "Fast and reliable delivery across Ibiza. Sofia Gastrobar delivers your favorite dishes directly to your door. Online orders, secure payment and delivery in up to 45 minutes."
+      },
+      "keywords": ["delivery ibiza", "comida delivery ibiza", "entrega ibiza", "pedidos online ibiza"],
+      "category": "delivery"
+    },
+    {
+      "slug": "melhor-hamburguer-ibiza",
+      "title": {
+        "pt": "Melhor Hambúrguer em Ibiza | Sofia Gastrobar - Hamburgers Artesanais",
+        "es": "Mejor Hamburguesa en Ibiza | Sofia Gastrobar - Hamburguesas Artesanales",
+        "en": "Best Burger in Ibiza | Sofia Gastrobar - Artisanal Burgers"
+      },
+      "description": {
+        "pt": "O melhor hambúrguer artesanal de Ibiza. Carne selecionada, pão caseiro e ingredientes frescos. Hamburgers únicos que você só encontra no Sofia Gastrobar.",
+        "es": "La mejor hamburguesa artesanal de Ibiza. Carne seleccionada, pan casero e ingredientes frescos. Hamburguesas únicas que solo encuentras en Sofia Gastrobar.",
+        "en": "The best artisanal burger in Ibiza. Selected meat, homemade bread and fresh ingredients. Unique burgers you'll only find at Sofia Gastrobar."
+      },
+      "keywords": ["hamburguer ibiza", "melhor hamburguer ibiza", "burger ibiza", "hamburguesas ibiza"],
+      "category": "food"
+    },
+    {
+      "slug": "pizza-em-ibiza",
+      "title": {
+        "pt": "Pizza em Ibiza | Sofia Gastrobar - Pizzas Artesanais e Autênticas",
+        "es": "Pizza en Ibiza | Sofia Gastrobar - Pizzas Artesanales y Auténticas",
+        "en": "Pizza in Ibiza | Sofia Gastrobar - Artisanal and Authentic Pizzas"
+      },
+      "description": {
+        "pt": "As melhores pizzas artesanais de Ibiza. Massa fresca, ingredientes premium e forno a lenha. Pizzas autênticas italianas no coração de Ibiza.",
+        "es": "Las mejores pizzas artesanales de Ibiza. Masa fresca, ingredientes premium y horno de leña. Pizzas auténticas italianas en el corazón de Ibiza.",
+        "en": "The best artisanal pizzas in Ibiza. Fresh dough, premium ingredients and wood-fired oven. Authentic Italian pizzas in the heart of Ibiza."
+      },
+      "keywords": ["pizza ibiza", "pizzas ibiza", "pizza italiana ibiza", "melhor pizza ibiza"],
+      "category": "food"
+    },
+    {
+      "slug": "comida-brasileira-ibiza",
+      "title": {
+        "pt": "Comida Brasileira em Ibiza | Sofia Gastrobar - Sabores do Brasil",
+        "es": "Comida Brasileña en Ibiza | Sofia Gastrobar - Sabores de Brasil",
+        "en": "Brazilian Food in Ibiza | Sofia Gastrobar - Flavors from Brazil"
+      },
+      "description": {
+        "pt": "Autêntica comida brasileira em Ibiza. Pratos tradicionais com toque mediterrâneo. Uma fusão única de sabores que você só encontra no Sofia Gastrobar.",
+        "es": "Auténtica comida brasileña en Ibiza. Platos tradicionales con toque mediterráneo. Una fusión única de sabores que solo encuentras en Sofia Gastrobar.",
+        "en": "Authentic Brazilian food in Ibiza. Traditional dishes with a Mediterranean touch. A unique fusion of flavors you'll only find at Sofia Gastrobar."
+      },
+      "keywords": ["comida brasileira ibiza", "restaurante brasileiro ibiza", "brasil ibiza"],
+      "category": "food"
+    },
+    {
+      "slug": "paella-ibiza",
+      "title": {
+        "pt": "Paella em Ibiza | Sofia Gastrobar - A Melhor Paella da Ilha",
+        "es": "Paella en Ibiza | Sofia Gastrobar - La Mejor Paella de la Isla",
+        "en": "Paella in Ibiza | Sofia Gastrobar - The Best Paella on the Island"
+      },
+      "description": {
+        "pt": "A autêntica paella espanhola em Ibiza. Receita tradicional valenciana, ingredientes frescos e preparada no momento. A melhor paella que você vai provar na ilha.",
+        "es": "La auténtica paella española en Ibiza. Receta tradicional valenciana, ingredientes frescos y preparada en el momento. La mejor paella que vas a probar en la isla.",
+        "en": "Authentic Spanish paella in Ibiza. Traditional Valencian recipe, fresh ingredients and prepared on the spot. The best paella you'll taste on the island."
+      },
+      "keywords": ["paella ibiza", "paella espanhola ibiza", "melhor paella ibiza", "paella valenciana"],
+      "category": "food"
+    },
+    {
+      "slug": "sangria-ibiza",
+      "title": {
+        "pt": "Sangria em Ibiza | Sofia Gastrobar - Sangria Artesanal e Refrescante",
+        "es": "Sangría en Ibiza | Sofia Gastrobar - Sangría Artesanal y Refrescante",
+        "en": "Sangria in Ibiza | Sofia Gastrobar - Artisanal and Refreshing Sangria"
+      },
+      "description": {
+        "pt": "A melhor sangria artesanal de Ibiza. Feita com frutas frescas, vinho selecionado e receita secreta. Perfeita para acompanhar o sunset e os melhores momentos.",
+        "es": "La mejor sangría artesanal de Ibiza. Hecha con frutas frescas, vino seleccionado y receta secreta. Perfecta para acompañar el sunset y los mejores momentos.",
+        "en": "The best artisanal sangria in Ibiza. Made with fresh fruits, selected wine and secret recipe. Perfect to accompany the sunset and the best moments."
+      },
+      "keywords": ["sangria ibiza", "sangria espanhola", "bebidas ibiza", "cocktails ibiza"],
+      "category": "drinks"
+    },
+    {
+      "slug": "restaurantes-em-sant-antoni",
+      "title": {
+        "pt": "Restaurantes em Sant Antoni | Sofia Gastrobar - O Melhor da Região",
+        "es": "Restaurantes en Sant Antoni | Sofia Gastrobar - Lo Mejor de la Región",
+        "en": "Restaurants in Sant Antoni | Sofia Gastrobar - The Best of the Region"
+      },
+      "description": {
+        "pt": "O melhor restaurante em Sant Antoni, Ibiza. Sofia Gastrobar oferece gastronomia mediterrânea de alta qualidade, ambiente único e atendimento excepcional.",
+        "es": "El mejor restaurante en Sant Antoni, Ibiza. Sofia Gastrobar ofrece gastronomía mediterránea de alta calidad, ambiente único y atención excepcional.",
+        "en": "The best restaurant in Sant Antoni, Ibiza. Sofia Gastrobar offers high-quality Mediterranean gastronomy, unique atmosphere and exceptional service."
+      },
+      "keywords": ["restaurantes sant antoni", "comida sant antoni", "sant antoni ibiza"],
+      "category": "location"
+    },
+    {
+      "slug": "bares-de-lounge-ibiza",
+      "title": {
+        "pt": "Bares de Lounge em Ibiza | Sofia Gastrobar - Ambiente Sofisticado",
+        "es": "Bares de Lounge en Ibiza | Sofia Gastrobar - Ambiente Sofisticado",
+        "en": "Lounge Bars in Ibiza | Sofia Gastrobar - Sophisticated Atmosphere"
+      },
+      "description": {
+        "pt": "O melhor bar de lounge em Ibiza. Ambiente sofisticado, cocktails exclusivos e música selecionada. O lugar perfeito para relaxar e desfrutar dos melhores momentos.",
+        "es": "El mejor bar de lounge en Ibiza. Ambiente sofisticado, cócteles exclusivos y música seleccionada. El lugar perfecto para relajarse y disfrutar de los mejores momentos.",
+        "en": "The best lounge bar in Ibiza. Sophisticated atmosphere, exclusive cocktails and selected music. The perfect place to relax and enjoy the best moments."
+      },
+      "keywords": ["lounge bar ibiza", "bar ibiza", "cocktails ibiza", "bar sofisticado"],
+      "category": "bar"
+    },
+    {
+      "slug": "beach-bar-ibiza",
+      "title": {
+        "pt": "Beach Bar em Ibiza | Sofia Gastrobar - Bar na Praia com Vista Privilegiada",
+        "es": "Beach Bar en Ibiza | Sofia Gastrobar - Bar en la Playa con Vista Privilegiada",
+        "en": "Beach Bar in Ibiza | Sofia Gastrobar - Beach Bar with Privileged View"
+      },
+      "description": {
+        "pt": "O melhor beach bar de Ibiza. Localizado próximo à praia, com vista privilegiada e ambiente único. Perfeito para desfrutar do sol, mar e os melhores drinks.",
+        "es": "El mejor beach bar de Ibiza. Ubicado cerca de la playa, con vista privilegiada y ambiente único. Perfecto para disfrutar del sol, mar y los mejores drinks.",
+        "en": "The best beach bar in Ibiza. Located near the beach, with privileged view and unique atmosphere. Perfect to enjoy the sun, sea and the best drinks."
+      },
+      "keywords": ["beach bar ibiza", "bar praia ibiza", "bar playa ibiza", "bar costa ibiza"],
+      "category": "beach"
+    },
+    {
+      "slug": "alternativa-ao-ubereats-ibiza",
+      "title": {
+        "pt": "Alternativa ao UberEats em Ibiza | Sofia Gastrobar - Delivery Direto",
+        "es": "Alternativa a UberEats en Ibiza | Sofia Gastrobar - Delivery Directo",
+        "en": "Alternative to UberEats in Ibiza | Sofia Gastrobar - Direct Delivery"
+      },
+      "description": {
+        "pt": "Procurando alternativa ao UberEats em Ibiza? Sofia Gastrobar oferece delivery direto, sem taxas ocultas e com entrega mais rápida. Peça diretamente conosco e economize.",
+        "es": "¿Buscas alternativa a UberEats en Ibiza? Sofia Gastrobar ofrece delivery directo, sin tasas ocultas y con entrega más rápida. Pide directamente con nosotros y ahorra.",
+        "en": "Looking for an alternative to UberEats in Ibiza? Sofia Gastrobar offers direct delivery, no hidden fees and faster delivery. Order directly with us and save."
+      },
+      "keywords": ["alternativa ubereats", "delivery ibiza", "ubereats ibiza", "glovo ibiza"],
+      "category": "comparative"
+    },
+    {
+      "slug": "glovo-ibiza-entrega-rapida",
+      "title": {
+        "pt": "Glovo Ibiza - Entrega Rápida | Sofia Gastrobar - Delivery Mais Rápido",
+        "es": "Glovo Ibiza - Entrega Rápida | Sofia Gastrobar - Delivery Más Rápido",
+        "en": "Glovo Ibiza - Fast Delivery | Sofia Gastrobar - Faster Delivery"
+      },
+      "description": {
+        "pt": "Mais rápido que Glovo em Ibiza. Sofia Gastrobar entrega seus pedidos em até 45 minutos, sem taxas de plataforma. Delivery direto e mais econômico.",
+        "es": "Más rápido que Glovo en Ibiza. Sofia Gastrobar entrega tus pedidos en hasta 45 minutos, sin tasas de plataforma. Delivery directo y más económico.",
+        "en": "Faster than Glovo in Ibiza. Sofia Gastrobar delivers your orders in up to 45 minutes, no platform fees. Direct delivery and more economical."
+      },
+      "keywords": ["glovo ibiza", "delivery rápido ibiza", "entrega rápida", "alternativa glovo"],
+      "category": "comparative"
+    },
+    {
+      "slug": "justeat-ibiza-restaurantes",
+      "title": {
+        "pt": "JustEat Ibiza - Restaurantes | Sofia Gastrobar - Melhor Opção",
+        "es": "JustEat Ibiza - Restaurantes | Sofia Gastrobar - Mejor Opción",
+        "en": "JustEat Ibiza - Restaurants | Sofia Gastrobar - Better Option"
+      },
+      "description": {
+        "pt": "Melhor que JustEat em Ibiza. Peça diretamente no Sofia Gastrobar e evite taxas de plataforma. Delivery rápido, preços justos e qualidade garantida.",
+        "es": "Mejor que JustEat en Ibiza. Pide directamente en Sofia Gastrobar y evita tasas de plataforma. Delivery rápido, precios justos y calidad garantida.",
+        "en": "Better than JustEat in Ibiza. Order directly at Sofia Gastrobar and avoid platform fees. Fast delivery, fair prices and guaranteed quality."
+      },
+      "keywords": ["justeat ibiza", "delivery ibiza", "restaurantes justeat", "alternativa justeat"],
+      "category": "comparative"
+    },
+    {
+      "slug": "restaurantes-perto-do-cafe-del-mar",
+      "title": {
+        "pt": "Restaurantes Perto do Café del Mar | Sofia Gastrobar - Alternativa Perfeita",
+        "es": "Restaurantes Cerca del Café del Mar | Sofia Gastrobar - Alternativa Perfecta",
+        "en": "Restaurants Near Café del Mar | Sofia Gastrobar - Perfect Alternative"
+      },
+      "description": {
+        "pt": "Procurando restaurantes perto do Café del Mar? Sofia Gastrobar oferece a melhor alternativa com gastronomia mediterrânea, ambiente único e preços acessíveis.",
+        "es": "¿Buscas restaurantes cerca del Café del Mar? Sofia Gastrobar ofrece la mejor alternativa con gastronomía mediterránea, ambiente único y precios accesibles.",
+        "en": "Looking for restaurants near Café del Mar? Sofia Gastrobar offers the best alternative with Mediterranean gastronomy, unique atmosphere and affordable prices."
+      },
+      "keywords": ["cafe del mar", "restaurantes sant antoni", "comida sant antoni", "alternativa cafe del mar"],
+      "category": "competitor"
+    },
+    {
+      "slug": "onde-comer-perto-do-mambo",
+      "title": {
+        "pt": "Onde Comer Perto do Mambo | Sofia Gastrobar - Melhor Opção",
+        "es": "Dónde Comer Cerca del Mambo | Sofia Gastrobar - Mejor Opción",
+        "en": "Where to Eat Near Mambo | Sofia Gastrobar - Best Option"
+      },
+      "description": {
+        "pt": "Onde comer perto do Mambo? Sofia Gastrobar é a melhor opção com comida deliciosa, ambiente acolhedor e localização privilegiada. Reserve sua mesa agora.",
+        "es": "¿Dónde comer cerca del Mambo? Sofia Gastrobar es la mejor opción con comida deliciosa, ambiente acogedor y ubicación privilegiada. Reserva tu mesa ahora.",
+        "en": "Where to eat near Mambo? Sofia Gastrobar is the best option with delicious food, welcoming atmosphere and privileged location. Book your table now."
+      },
+      "keywords": ["mambo ibiza", "restaurantes mambo", "comida mambo", "onde comer sant antoni"],
+      "category": "competitor"
+    },
+    {
+      "slug": "restaurantes-perto-do-ocean-beach",
+      "title": {
+        "pt": "Restaurantes Perto do Ocean Beach | Sofia Gastrobar - Alternativa Exclusiva",
+        "es": "Restaurantes Cerca del Ocean Beach | Sofia Gastrobar - Alternativa Exclusiva",
+        "en": "Restaurants Near Ocean Beach | Sofia Gastrobar - Exclusive Alternative"
+      },
+      "description": {
+        "pt": "Restaurantes perto do Ocean Beach? Sofia Gastrobar oferece uma alternativa exclusiva com gastronomia de alta qualidade e ambiente único.",
+        "es": "¿Restaurantes cerca del Ocean Beach? Sofia Gastrobar ofrece una alternativa exclusiva con gastronomía de alta calidad y ambiente único.",
+        "en": "Restaurants near Ocean Beach? Sofia Gastrobar offers an exclusive alternative with high-quality gastronomy and unique atmosphere."
+      },
+      "keywords": ["ocean beach ibiza", "restaurantes playa den bossa", "comida playa den bossa"],
+      "category": "competitor"
+    }
+  ]
+}
+

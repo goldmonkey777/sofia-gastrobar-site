@@ -62,6 +62,7 @@ export default function SEOLandingPageRoute({ params }: PageProps) {
       description={page.description}
       keywords={page.keywords}
       category={page.category}
+      content={(page as any).content}
     />
   )
 }
