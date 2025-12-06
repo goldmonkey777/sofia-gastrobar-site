@@ -17,9 +17,14 @@ interface DJModeProps {
   tableId: string
 }
 
+// Perfil do Apple Music do Sofia Gastrobar Ibiza
+const APPLE_MUSIC_PROFILE_URL = 'https://music.apple.com/profile/Sofiagastrobaribiza'
+
 // Link da playlist colaborativa do Apple Music
-// TODO: Substituir pelo link real quando criar a playlist
-const APPLE_MUSIC_PLAYLIST_URL = 'https://music.apple.com/playlist/sofia-sunset-sessions'
+// TODO: Quando criar a playlist colaborativa, substituir pelo link direto da playlist
+// Exemplo: https://music.apple.com/playlist/pl.u-XXXXX
+// Por enquanto, redireciona para o perfil onde o cliente pode encontrar as playlists
+const APPLE_MUSIC_PLAYLIST_URL = APPLE_MUSIC_PROFILE_URL
 
 const translations = {
   title: {
@@ -38,9 +43,14 @@ const translations = {
     en: 'Here you can participate in the house sound. Choose up to 2 songs to join the queue of Sofia\'s official playlist. Songs play in order, without interrupting the current vibe.',
   },
   openPlaylist: {
-    pt: 'Abrir Playlist no Apple Music',
-    es: 'Abrir Playlist en Apple Music',
-    en: 'Open Playlist in Apple Music',
+    pt: 'Abrir no Apple Music',
+    es: 'Abrir en Apple Music',
+    en: 'Open in Apple Music',
+  },
+  profileDescription: {
+    pt: 'Acesse nosso perfil no Apple Music para ver todas as playlists e adicionar suas músicas favoritas.',
+    es: 'Accede a nuestro perfil en Apple Music para ver todas las listas de reproducción y agregar tus canciones favoritas.',
+    en: 'Access our Apple Music profile to see all playlists and add your favorite songs.',
   },
   rulesTitle: {
     pt: 'Regras do Modo DJ',
@@ -112,8 +122,11 @@ export function DJMode({ tableId }: DJModeProps) {
       </div>
 
       {/* Description */}
-      <p className="text-white/80 text-sm mb-6 leading-relaxed">
+      <p className="text-white/80 text-sm mb-4 leading-relaxed">
         {translate(translations.description, language)}
+      </p>
+      <p className="text-white/60 text-xs mb-6 leading-relaxed">
+        {translate(translations.profileDescription, language)}
       </p>
 
       {/* Main Action Button */}
