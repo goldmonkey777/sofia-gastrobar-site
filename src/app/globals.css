@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  
+  /* Goldmonkey Palette */
+  --gold-50: #fff9e6;
+  --gold-100: #ffecb3;
+  --gold-200: #ffe080;
+  --gold-300: #ffd44d;
+  --gold-400: #ffc81a;
+  --gold-500: #ffbc00; /* Primary Brand Gold */
+  --gold-600: #cc9600;
+  --gold-700: #997100;
+  --gold-800: #664b00;
+  --gold-900: #332600;
+  
+  --magical-purple: #6b21a8;
+  --deep-ocean: #0f172a;
+  --sunset-orange: #f97316;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply antialiased selection:bg-yellow-500 selection:text-black;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600;
+  }
+  
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+  
+  .magic-glow {
+    box-shadow: 0 0 20px rgba(255, 188, 0, 0.3);
+  }
+}

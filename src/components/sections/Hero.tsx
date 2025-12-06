@@ -1,0 +1,57 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { MagicButton } from "@/components/ui/MagicButton";
+import { ArrowRight, Sparkles } from "lucide-react";
+
+export function Hero() {
+    return (
+        <section id="manifesto" className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+            {/* Background Image / Overlay */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-60" />
+            </div>
+
+            <div className="relative z-20 max-w-5xl mx-auto px-6 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                >
+                    <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur border border-white/20 text-yellow-400 text-sm font-medium tracking-wider mb-6">
+                        IBIZA DOMINATION PHASE 1™
+                    </span>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6">
+                        <span className="text-yellow-500">Magia</span>, Fogo<br className="hidden md:block" /> e Sabor.
+                    </h1>
+                    <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                        Um refúgio para quem procura presença.
+                        Onde cada prato é uma oração e cada noite é uma história escrita entre a brisa do mar e o calor da noite balear.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <MagicButton variant="primary" icon={<Sparkles size={18} />}>
+                            Reservar Mesa
+                        </MagicButton>
+                        <MagicButton variant="outline" icon={<ArrowRight size={18} />}>
+                            Explorar Menu
+                        </MagicButton>
+                    </div>
+                </motion.div>
+            </div>
+
+            {/* Scroll indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, y: [0, 10, 0] }}
+                transition={{ delay: 2, duration: 2, repeat: Infinity }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white/50"
+            >
+                <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+                    <div className="w-1 h-3 bg-white/50 rounded-full" />
+                </div>
+            </motion.div>
+        </section>
+    );
+}
