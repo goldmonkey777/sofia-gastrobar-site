@@ -140,8 +140,13 @@ export async function createPaymentLink(
         expires_at: checkoutData.valid_until || expiresAt.toISOString(),
       }
     } catch (error) {
-      console.warn('Erro ao criar checkout com API_KEY, tentando OAuth:', error)
-      // Fallback para OAuth
+      console.error('[SumUp] Erro ao criar checkout com API_KEY:', error)
+      // Se erro de autenticação, não tentar OAuth (API Key pode estar incorreta)
+      if (error instanceof Error && (error.message.includes('401') || error.message.includes('Unauthorized'))) {
+        throw new Error('SUMUP_API_KEY inválida ou expirada. Verifique no Vercel Dashboard.')
+      }
+      // Se outro erro, tentar OAuth se disponível
+      console.warn('[SumUp] Tentando OAuth como fallback...')
     }
   }
 
