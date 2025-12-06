@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { MagicButton } from "@/components/ui/MagicButton";
 import { ArrowRight, Sparkles } from "lucide-react";
 
@@ -40,12 +41,21 @@ export function Hero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <MagicButton variant="primary" icon={<Sparkles size={18} />}>
-                            Reservar Mesa
-                        </MagicButton>
-                        <MagicButton variant="outline" icon={<ArrowRight size={18} />}>
-                            Explorar Menu
-                        </MagicButton>
+                        <Link href="/reservas">
+                            <MagicButton variant="primary" icon={<Sparkles size={18} />}>
+                                Reservar Mesa
+                            </MagicButton>
+                        </Link>
+                        <Link href="/delivery">
+                            <MagicButton variant="outline" icon={<ArrowRight size={18} />}>
+                                Pedir Delivery
+                            </MagicButton>
+                        </Link>
+                        <Link href="#menu">
+                            <MagicButton variant="outline" icon={<ArrowRight size={18} />}>
+                                Ver Menu
+                            </MagicButton>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

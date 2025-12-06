@@ -23,6 +23,8 @@ export function Navbar() {
         { name: "Menu", href: "#menu" },
         { name: "A Lenda", href: "#lenda" },
         { name: "Experiência", href: "#experiencia" },
+        { name: "Reservas", href: "/reservas" },
+        { name: "Delivery", href: "/delivery" },
         { name: "Localização", href: "#location" },
     ];
 
