@@ -14,15 +14,15 @@
 
 ---
 
-### ⏳ Playlist Night Vibes (21h-01h)
+### ✅ Playlist Night Vibes (21h-01h)
 
-**ID:** `_________________` (aguardando)
+**ID:** `34bVZ5Yt3D7g2YeO8ELVaA`
 
 **URLs:**
-- **Embed:** `https://open.spotify.com/embed/playlist/SEU_ID_NIGHT?utm_source=generator`
-- **Open:** `https://open.spotify.com/playlist/SEU_ID_NIGHT`
+- **Embed:** `https://open.spotify.com/embed/playlist/34bVZ5Yt3D7g2YeO8ELVaA?utm_source=generator`
+- **Open:** `https://open.spotify.com/playlist/34bVZ5Yt3D7g2YeO8ELVaA`
 
-**Status:** ⏳ Pendente
+**Status:** ✅ Configurada
 
 ---
 
@@ -59,7 +59,7 @@ NEXT_PUBLIC_SPOTIFY_BREAKFAST_OPEN_URL="https://open.spotify.com/playlist/SEU_ID
 ## ✅ Checklist
 
 - [x] Playlist Sunset Sessions criada e configurada
-- [ ] Playlist Night Vibes criada e configurada
+- [x] Playlist Night Vibes criada e configurada
 - [ ] Playlist Breakfast Flow criada e configurada
 - [ ] Todas as playlists são públicas
 - [ ] Todas as playlists são colaborativas
