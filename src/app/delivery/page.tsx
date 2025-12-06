@@ -418,7 +418,9 @@ export default function DeliveryPage() {
                       <div key={item.id} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div className="flex-1">
                           <p className="text-white text-sm font-medium">{item.name}</p>
-                          <p className="text-yellow-500 text-xs">€{item.price.toFixed(2)} cada</p>
+                          <p className="text-yellow-500 text-xs">
+                            €{item.price.toFixed(2)} {translate({ pt: 'cada', es: 'cada', en: 'each' }, language)}
+                          </p>
                         </div>
                         <div className="flex items-center gap-2">
                           <button
