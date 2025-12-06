@@ -510,111 +510,127 @@ function MenuContent({
 }) {
   const { addToCart } = useCart()
 
-  const renderItemDetails = (item: MenuItem) => (
-    <motion.div
-      initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: 'auto' }}
-      exit={{ opacity: 0, height: 0 }}
-      transition={{ duration: 0.3 }}
-      className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 text-gray-700"
-    >
-      <p className="text-sm mb-2">{translate(item.description, language)}</p>
-      {item.allergens && item.allergens.length > 0 && (
-        <p className="text-xs text-red-500 mb-2">
-          <strong>{translate(translations.allergens, language)}:</strong> {item.allergens.join(', ')}
-        </p>
-      )}
-      <button
-        onClick={() => setExpandedItem(null)}
-        className="mt-3 text-primary hover:underline text-sm"
-      >
-        {translate(translations.close, language)}
-      </button>
-    </motion.div>
-  )
+  const handleAddToCart = (item: MenuItem) => {
+    addToCart(item)
+    // Feedback visual - poderia adicionar um toast aqui
+  }
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
-      <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">
-        {translate(translations.menuTitle, language)}
-      </h2>
-      <p className="text-gray-600 mb-8 text-center">
-        {translate(translations.menuSubtitle, language)}
-      </p>
+    <div className="px-4 py-6">
+      {/* Header */}
+      <div className="text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+          {translate(translations.menuTitle, language)}
+        </h2>
+        <p className="text-white/70 text-sm md:text-base">
+          {translate(translations.menuSubtitle, language)}
+        </p>
+      </div>
 
+      {/* Categories */}
       {menu.map((category: MenuCategory) => (
-        <div key={category.id} className="mb-8 last:mb-0">
+        <div key={category.id} className="mb-10 last:mb-0">
+          {/* Category Header */}
           <div className="flex items-center gap-3 mb-6">
-            <Utensils className="w-7 h-7 text-primary" />
-            <h3 className="text-2xl font-bold text-gray-900">{translate(category.name, language)}</h3>
-            {'description' in category && (category as any).description && (
-              <span className="text-sm text-gray-500 italic ml-2 hidden sm:block">
-                ({translate((category as any).description, language)})
-              </span>
-            )}
+            <div className="p-2 bg-yellow-500/20 rounded-lg">
+              <Utensils className="w-5 h-5 text-yellow-400" />
+            </div>
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-white">
+                {translate(category.name, language)}
+              </h3>
+              {'description' in category && (category as any).description && (
+                <p className="text-white/60 text-xs md:text-sm mt-1">
+                  {translate((category as any).description, language)}
+                </p>
+              )}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Items Grid */}
+          <div className="grid grid-cols-1 gap-4">
             {category.items.length > 0 ? (
               category.items.map((item: MenuItem) => (
                 <motion.div
                   key={item.id}
-                  layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-gray-50 rounded-xl shadow-sm overflow-hidden border border-gray-200"
+                  className="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-yellow-500/50 transition-all"
                 >
-                  <Image
-                    src={item.image}
-                    alt={translate(item.name, language)}
-                    width={400}
-                    height={200}
-                    className="w-full h-40 object-cover"
-                  />
-                  <div className="p-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <h4 className="text-xl font-semibold text-gray-900">{translate(item.name, language)}</h4>
-                      <span className="text-primary text-xl font-bold ml-4">€{item.price.toFixed(2)}</span>
+                  <div className="flex gap-4 p-4">
+                    {/* Image */}
+                    <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-lg overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={translate(item.name, language)}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 96px, 128px"
+                      />
                     </div>
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      {item.popular && (
-                        <span className="flex items-center gap-1 text-xs font-medium bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
-                          <Star className="w-3 h-3" /> {translate(translations.popular, language)}
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <h4 className="text-base md:text-lg font-semibold text-white line-clamp-2">
+                          {translate(item.name, language)}
+                        </h4>
+                        <span className="text-yellow-400 text-lg md:text-xl font-bold flex-shrink-0">
+                          €{item.price.toFixed(2)}
                         </span>
-                      )}
-                      {'chefRecommend' in item && item.chefRecommend && (
-                        <span className="flex items-center gap-1 text-xs font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full">
-                          <ChefHat className="w-3 h-3" /> {translate(translations.chefRecommend, language)}
-                        </span>
-                      )}
-                      {'sunsetSpecial' in item && item.sunsetSpecial && (
-                        <span className="flex items-center gap-1 text-xs font-medium bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
-                          <Star className="w-3 h-3" /> {translate(translations.sunsetSpecial, language)}
-                        </span>
-                      )}
+                      </div>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-1.5 mb-2">
+                        {item.popular && (
+                          <span className="flex items-center gap-1 text-[10px] md:text-xs font-medium bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded-full border border-yellow-500/30">
+                            <Star className="w-3 h-3" /> {translate(translations.popular, language)}
+                          </span>
+                        )}
+                        {'chefRecommend' in item && item.chefRecommend && (
+                          <span className="flex items-center gap-1 text-[10px] md:text-xs font-medium bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full border border-green-500/30">
+                            <ChefHat className="w-3 h-3" /> {translate(translations.chefRecommend, language)}
+                          </span>
+                        )}
+                        {'sunsetSpecial' in item && item.sunsetSpecial && (
+                          <span className="flex items-center gap-1 text-[10px] md:text-xs font-medium bg-orange-500/20 text-orange-400 px-2 py-0.5 rounded-full border border-orange-500/30">
+                            <Star className="w-3 h-3" /> {translate(translations.sunsetSpecial, language)}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-white/70 text-xs md:text-sm mb-3 line-clamp-2">
+                        {translate(item.description, language)}
+                      </p>
+
+                      {/* Add Button */}
+                      <button
+                        onClick={() => handleAddToCart(item)}
+                        className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-semibold py-2.5 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all flex items-center justify-center gap-2 shadow-lg shadow-yellow-500/20 active:scale-95"
+                      >
+                        <Plus className="w-4 h-4" />
+                        <span>{translate(translations.addToCart, language)}</span>
+                      </button>
                     </div>
-                    <p className="text-gray-700 text-sm mb-3">{translate(item.description, language)}</p>
-                    <button
-                      onClick={() => {
-                        addToCart(item)
-                      }}
-                      className="w-full bg-primary text-white py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
-                    >
-                      <Plus className="w-4 h-4" />
-                      {translate(translations.addToCart, language)}
-                    </button>
-                    <AnimatePresence>
-                      {expandedItem === item.id && renderItemDetails(item)}
-                    </AnimatePresence>
                   </div>
+
+                  {/* Allergens */}
+                  {item.allergens && item.allergens.length > 0 && (
+                    <div className="px-4 pb-3 pt-0">
+                      <p className="text-[10px] text-white/50">
+                        <strong className="text-white/70">{translate(translations.allergens, language)}:</strong>{' '}
+                        {item.allergens.join(', ')}
+                      </p>
+                    </div>
+                  )}
                 </motion.div>
               ))
             ) : (
-              <div className="col-span-full text-center text-gray-500 py-8">
-                <Info className="w-12 h-12 mx-auto mb-4 text-gray-300" />
-                <p>{translate(translations.noItems, language)}</p>
+              <div className="text-center text-white/50 py-8">
+                <Info className="w-12 h-12 mx-auto mb-4 text-white/30" />
+                <p className="text-sm">{translate(translations.noItems, language)}</p>
               </div>
             )}
           </div>
