@@ -5,13 +5,13 @@
 
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { PaymentStatus } from '@/components/payment/PaymentStatus'
 import { CheckCircle, Home } from 'lucide-react'
 import Link from 'next/link'
 
-export default function ReservaConfirmacaoPage() {
+function ReservaConfirmacaoContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const reservationId = searchParams.get('reservation_id')
@@ -81,6 +81,18 @@ export default function ReservaConfirmacaoPage() {
         )}
       </div>
     </div>
+  )
+}
+
+export default function ReservaConfirmacaoPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black flex items-center justify-center">
+        <div className="text-white">Carregando...</div>
+      </div>
+    }>
+      <ReservaConfirmacaoContent />
+    </Suspense>
   )
 }
 
