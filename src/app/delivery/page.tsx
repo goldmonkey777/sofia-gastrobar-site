@@ -2,12 +2,20 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, ShoppingCart, Home, CheckCircle } from 'lucide-react'
+import { MapPin, ShoppingCart, Home, CheckCircle, Clock } from 'lucide-react'
 import Link from 'next/link'
 import { AddressInput } from '@/components/ui/AddressInput'
 import { UserDataAutoFill } from '@/components/ui/UserDataAutoFill'
 import { useUserData } from '@/hooks/useUserData'
-import { detectZone, getDistanceFromSofia, calculateDeliveryFee } from '@/lib/locationHelpers'
+import { 
+  detectZone, 
+  getDistanceFromSofia, 
+  calculateDeliveryFee, 
+  calculateDeliveryTime, 
+  formatDeliveryTime,
+  detectDeliveryZone,
+  type DeliveryZone 
+} from '@/lib/locationHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
 
@@ -25,6 +33,8 @@ export default function DeliveryPage() {
     deliveryFee: 0,
   })
   const [location, setLocation] = useState<{ lat: number; lng: number; address: string } | null>(null)
+  const [deliveryZone, setDeliveryZone] = useState<DeliveryZone | null>(null)
+  const [estimatedTime, setEstimatedTime] = useState<string>('')
   const [cart, setCart] = useState<Array<{ id: string; name: string; price: number; quantity: number }>>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -41,22 +51,37 @@ export default function DeliveryPage() {
     }
   }, [userData, userDataLoading])
 
-  // Calcular taxa de entrega baseada no GPS quando localização muda
+  // Calcular taxa de entrega e tempo estimado baseado no GPS quando localização muda
   useEffect(() => {
     if (location) {
       const distance = getDistanceFromSofia(location.lat, location.lng)
       const fee = calculateDeliveryFee(distance)
+      const timeMinutes = calculateDeliveryTime(distance)
+      const timeFormatted = formatDeliveryTime(timeMinutes)
+      
+      // Tentar detectar zona específica
+      const zone = detectDeliveryZone(location.lat, location.lng)
+      if (zone) {
+        setDeliveryZone(zone)
+        setEstimatedTime(`${zone.minTime}-${zone.maxTime} min`)
+      } else {
+        setDeliveryZone(null)
+        setEstimatedTime(timeFormatted)
+      }
+      
       // Atualizar zona com base na distância calculada
-      setFormData(prev => ({ ...prev, zone: 'gps-calculated', deliveryFee: fee }))
+      setFormData(prev => ({ ...prev, zone: zone?.id || 'gps-calculated', deliveryFee: fee }))
     }
   }, [location])
 
+  // Usar zonas de entrega com tempos
   const zones = [
-    { id: 'sant-antoni', name: translate({ pt: 'Sant Antoni de Portmany', es: 'Sant Antoni de Portmany', en: 'Sant Antoni de Portmany' }, language), fee: 3.00 },
-    { id: 'ibiza-town', name: translate({ pt: 'Ibiza Town / Eivissa', es: 'Ibiza Town / Eivissa', en: 'Ibiza Town / Eivissa' }, language), fee: 5.00 },
-    { id: 'san-jose', name: translate({ pt: 'Sant Josep', es: 'Sant Josep', en: 'Sant Josep' }, language), fee: 4.00 },
-    { id: 'santa-eulalia', name: translate({ pt: 'Santa Eulària', es: 'Santa Eulària', en: 'Santa Eulària' }, language), fee: 6.00 },
-    { id: 'other', name: translate({ pt: 'Outra zona da ilha', es: 'Otra zona de la isla', en: 'Other island zone' }, language), fee: 8.00 },
+    { id: 'sant-antoni', name: translate({ pt: 'Sant Antoni de Portmany', es: 'Sant Antoni de Portmany', en: 'Sant Antoni de Portmany' }, language), fee: 3.00, time: '20-30 min' },
+    { id: 'ibiza-town', name: translate({ pt: 'Ibiza Town / Eivissa', es: 'Ibiza Town / Eivissa', en: 'Ibiza Town / Eivissa' }, language), fee: 5.00, time: '25-35 min' },
+    { id: 'san-jose', name: translate({ pt: 'Sant Josep', es: 'Sant Josep', en: 'Sant Josep' }, language), fee: 4.00, time: '22-32 min' },
+    { id: 'santa-eulalia', name: translate({ pt: 'Santa Eulària', es: 'Santa Eulària', en: 'Santa Eulària' }, language), fee: 6.00, time: '30-40 min' },
+    { id: 'san-joan', name: translate({ pt: 'Sant Joan de Labritja', es: 'Sant Joan de Labritja', en: 'Sant Joan de Labritja' }, language), fee: 7.00, time: '35-45 min' },
+    { id: 'other', name: translate({ pt: 'Outras áreas da ilha', es: 'Otras áreas de la isla', en: 'Other island areas' }, language), fee: 8.00, time: '40-50 min' },
   ]
 
   const menuItems = [
@@ -225,7 +250,13 @@ export default function DeliveryPage() {
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-white font-medium">{zone.name}</span>
+                        <div>
+                          <span className="text-white font-medium block">{zone.name}</span>
+                          <span className="text-white/60 text-xs flex items-center gap-1 mt-1">
+                            <Clock className="w-3 h-3" />
+                            {zone.time}
+                          </span>
+                        </div>
                         <span className="text-yellow-500 font-bold">+€{zone.fee.toFixed(2)}</span>
                       </div>
                     </button>
@@ -446,9 +477,18 @@ export default function DeliveryPage() {
                     {formData.zone && (
                       <div className="flex justify-between text-white/80 text-sm">
                         <span>
-                          {translate({ pt: 'Entrega', es: 'Envío', en: 'Delivery' }, language)} ({zones.find(z => z.id === formData.zone)?.name})
+                          {translate({ pt: 'Taxa de Entrega', es: 'Tarifa de Envío', en: 'Delivery Fee' }, language)}
                         </span>
                         <span>€{deliveryFee.toFixed(2)}</span>
+                      </div>
+                    )}
+                    {estimatedTime && (
+                      <div className="flex justify-between text-white/80 text-sm border-t border-white/10 pt-3 mt-3">
+                        <span className="flex items-center gap-2">
+                          <Clock className="w-4 h-4" />
+                          {translate({ pt: 'Tempo Estimado', es: 'Tiempo Estimado', en: 'Estimated Time' }, language)}
+                        </span>
+                        <span className="text-green-400 font-semibold">{estimatedTime}</span>
                       </div>
                     )}
                     <div className="flex justify-between text-white font-bold text-lg pt-2 border-t border-white/10">
