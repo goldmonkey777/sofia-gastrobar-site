@@ -3,6 +3,8 @@ import { Inter, Outfit } from "next/font/google"; // Using Google Fonts
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { AudioPlayer } from "@/components/ui/AudioPlayer";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 // Using Outfit as primary font for that modern, slightly geometric look
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -24,6 +26,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <AudioPlayer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

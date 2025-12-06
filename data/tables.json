@@ -1,0 +1,14 @@
+{
+  "tables": [
+    { "id": "01", "number": 1, "capacity": 4, "location": "Sala principal" },
+    { "id": "02", "number": 2, "capacity": 2, "location": "Terraço" },
+    { "id": "03", "number": 3, "capacity": 6, "location": "Sala principal" },
+    { "id": "04", "number": 4, "capacity": 4, "location": "Terraço" },
+    { "id": "05", "number": 5, "capacity": 2, "location": "Bar" },
+    { "id": "06", "number": 6, "capacity": 4, "location": "Sala VIP" },
+    { "id": "07", "number": 7, "capacity": 8, "location": "Sala VIP" },
+    { "id": "08", "number": 8, "capacity": 2, "location": "Terraço" },
+    { "id": "09", "number": 9, "capacity": 4, "location": "Sala principal" },
+    { "id": "10", "number": 10, "capacity": 6, "location": "Sala principal" }
+  ]
+}
