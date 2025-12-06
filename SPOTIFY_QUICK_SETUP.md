@@ -72,7 +72,7 @@ As imagens que você usou como capa das playlists.
 ### Passo 1: Copiar Template
 
 ```bash
-cp .env.local.template .env.local
+cp env.local.example .env.local
 ```
 
 ### Passo 2: Preencher IDs
