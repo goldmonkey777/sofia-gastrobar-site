@@ -6,24 +6,24 @@ import Image from "next/image";
 
 const MENU_ITEMS = [
     {
-        title: "Tapas Artesanais",
-        description: "Pequenas porções, grandes histórias. Clássicos reinvetados.",
+        title: "Tapas & Entradas",
+        description: "Para compartilhar: Croquetas, Calamares, Patatas Bravas e o melhor do mar.",
         image: "https://images.unsplash.com/photo-1541529086526-db283c563270?q=80&w=2070&auto=format&fit=crop",
     },
     {
-        title: "Bowls Nutritivos",
-        description: "Frescor da ilha em cada garfada. Equilíbrio e sabor.",
+        title: "Signature Burgers",
+        description: "Blend especial, queijos nobres e o toque secreto da Sofia.",
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1500&auto=format&fit=crop",
+    },
+    {
+        title: "Bowls & Saladas",
+        description: "Frescor mediterrâneo com ingredientes locais e nutritivos.",
         image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1760&auto=format&fit=crop",
     },
     {
-        title: "Cocktails Autorais",
-        description: "Alquimia líquida inspirada nos elementos de Ibiza.",
+        title: "Cocktails & Vinhos",
+        description: "Uma seleção curada para acompanhar o pôr do sol de Ibiza.",
         image: "https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-        title: "Fogo & Brasa",
-        description: "Carnes e pescados nobres tocados pelo fogo sagrado.",
-        image: "https://images.unsplash.com/photo-1594041680508-e38734207e6c?q=80&w=2072&auto=format&fit=crop",
     }
 ];
 
