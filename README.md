@@ -31,6 +31,21 @@ O projeto inclui um sistema completo de localização com:
 
 **📋 Para configurar:** Veja [SETUP_LOCALIZACAO.md](./SETUP_LOCALIZACAO.md)
 
+## ⚡ Configuração Rápida - SumUp
+
+**⚠️ IMPORTANTE:** Para os pagamentos funcionarem, você precisa configurar o SumUp.
+
+**📋 Ver checklist completo:** `CHECKLIST_SUMUP.md`
+
+**Resumo rápido:**
+1. Criar conta SumUp: https://sumup.com
+2. Obter API Key do Dashboard
+3. Adicionar `SUMUP_API_KEY` ao `.env.local`
+4. Adicionar `SUMUP_API_KEY` ao Vercel (produção)
+5. Reiniciar servidor
+
+---
+
 ## 🚀 Getting Started
 
 1.  **Install dependencies**:

@@ -45,9 +45,20 @@ Crie ou edite o arquivo `.env.local` na raiz do projeto:
 
 ```env
 # SumUp Integration (OBRIGATÓRIO para pagamentos)
+
+# Opção 1: API Key (Recomendado - SDK Oficial)
+# Secret Key (Server-side) - Privada
+SUMUP_API_KEY=sua_api_key_aqui
+
+# Public Key (Client-side) - Pública
+NEXT_PUBLIC_SUMUP_API_KEY=sua_public_key_aqui
+
+# Opção 2: OAuth (Método Alternativo)
 SUMUP_CLIENT_ID=seu_client_id_aqui
 SUMUP_CLIENT_SECRET=seu_client_secret_aqui
 SUMUP_ACCESS_TOKEN=seu_access_token_aqui
+
+# Configurações Adicionais
 SUMUP_MERCHANT_CODE=seu_merchant_code_aqui
 SUMUP_WEBHOOK_SECRET=seu_webhook_secret_aqui
 SUMUP_REDIRECT_URI=https://sofiagastrobaribiza.com/api/sumup/callback
@@ -62,9 +73,14 @@ NEXT_PUBLIC_SITE_URL=https://sofiagastrobaribiza.com
 
 ### Variáveis Obrigatórias
 
+**Opção 1 (Recomendado - SDK Oficial):**
+- ✅ `SUMUP_API_KEY` - Secret Key (privada, server-side)
+- ✅ `NEXT_PUBLIC_SUMUP_API_KEY` - Public Key (pública, client-side)
+
+**Opção 2 (OAuth):**
 - ✅ `SUMUP_CLIENT_ID` - ID da aplicação SumUp
 - ✅ `SUMUP_CLIENT_SECRET` - Secret da aplicação SumUp
-- ✅ `SUMUP_ACCESS_TOKEN` OU `SUMUP_MERCHANT_CODE` - Token de acesso ou código do merchant
+- ✅ `SUMUP_ACCESS_TOKEN` - Token de acesso gerado via OAuth
 
 ### Variáveis Opcionais (mas recomendadas)
 

@@ -18,7 +18,7 @@ import {
 } from '@/lib/locationHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
-import { PaymentCheckout } from '@/components/payment/PaymentCheckout'
+import { CompletePaymentCheckout } from '@/components/payment/CompletePaymentCheckout'
 
 export default function DeliveryPage() {
   const { language } = useLanguage()
@@ -41,7 +41,6 @@ export default function DeliveryPage() {
   const [isSuccess, setIsSuccess] = useState(false)
   const [showPayment, setShowPayment] = useState(false)
   const [deliveryId, setDeliveryId] = useState<string | null>(null)
-  const [paymentLinkId, setPaymentLinkId] = useState<string | null>(null)
 
   // Preencher dados do usuário automaticamente
   useEffect(() => {
@@ -158,35 +157,8 @@ export default function DeliveryPage() {
         throw new Error(data.error || 'Erro ao criar pedido')
       }
 
-      // 2. Criar link de pagamento SumUp
-      const paymentResponse = await fetch('/api/sumup/payment-link', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          type: 'delivery',
-          deliveryId: data.order.id,
-          totalAmount: total,
-          deliveryFee: deliveryFee,
-        }),
-      })
-
-      const paymentData = await paymentResponse.json()
-
-      if (!paymentResponse.ok) {
-        // Tratar erro de configuração do SumUp
-        if (paymentData.error === 'SUMUP_NOT_CONFIGURED') {
-          alert('SumUp não está configurado. O pagamento online está temporariamente indisponível. Por favor, entre em contato conosco via WhatsApp para finalizar seu pedido.')
-          setIsSubmitting(false)
-          return
-        }
-        throw new Error(paymentData.message || paymentData.error || 'Erro ao criar link de pagamento')
-      }
-
-      // 3. Mostrar tela de pagamento
+      // 2. Mostrar tela de pagamento completa (com Apple Pay e Google Pay)
       setDeliveryId(data.order.id)
-      setPaymentLinkId(paymentData.paymentLink.id)
       setShowPayment(true)
       setIsSubmitting(false)
     } catch (error) {
@@ -231,17 +203,22 @@ export default function DeliveryPage() {
           </p>
         </motion.div>
 
-        {/* Payment Checkout */}
-        {showPayment && paymentLinkId && (
+        {/* Complete Payment Checkout */}
+        {showPayment && deliveryId && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <PaymentCheckout
+            <CompletePaymentCheckout
               amount={total}
+              currency="EUR"
               description={`Delivery Sofia Gastrobar – Pedido ${deliveryId}`}
-              paymentLinkId={paymentLinkId}
+              orderId={deliveryId}
+              orderType="delivery"
+              customerEmail={formData.phone ? undefined : undefined}
+              customerName={formData.name}
+              redirectUrl={`${typeof window !== 'undefined' ? window.location.origin : ''}/delivery/confirmacao?delivery_id=${deliveryId}&status=paid`}
               onSuccess={() => {
                 setShowPayment(false)
                 setIsSuccess(true)
@@ -250,8 +227,9 @@ export default function DeliveryPage() {
                 }, 2000)
               }}
               onError={(error) => {
-                alert(error)
+                console.error('Payment error:', error)
               }}
+              language={language}
             />
           </motion.div>
         )}
@@ -581,6 +559,7 @@ export default function DeliveryPage() {
           </div>
         </div>
       </div>
+
     </div>
   )
 }

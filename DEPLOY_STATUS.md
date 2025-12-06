@@ -1,137 +1,89 @@
-# ✅ Status do Deploy - Sofia Gastrobar Ibiza
+# 🚀 Status do Deploy - Sofia Gastrobar
 
-## 🚀 Deploy Realizado
-
-**Data:** 06 de Dezembro de 2025  
-**Status:** ✅ Sucesso  
-**Projeto:** `sofia-gastrobar-site`  
-**Ambiente:** Production
-
-### URL do Deploy
-- **Produção:** https://sofia-gastrobar-site-mzbwwmf8x-goldmonkeys-projects.vercel.app
-- **Alias:** https://sofia-gastrobar-site.vercel.app
-
-## 📊 Build Status
-
-```
-✓ Compiled successfully
-✓ TypeScript check passed
-✓ 8 páginas geradas
-✓ Build completed in 19s
-```
-
-### Rotas Deployadas
-- ✅ `/` - Página inicial (Static)
-- ✅ `/mesa/[id]` - Páginas de mesa (Dynamic)
-- ✅ `/api/garcom` - API de chamar garçom (Dynamic)
-- ✅ `/cardapio` - Cardápio (Static)
-- ✅ `/dj` - Modo DJ (Static)
-- ✅ `/jogo` - Mini-jogo (Static)
-
-## 🌐 Configuração de Domínio
-
-### Domínio Principal
-- **sofiagastrobaribiza.com** → Configurado no metadata
-- **www.sofiagastrobaribiza.com** → Configurado no metadata
-
-### Próximos Passos no Dashboard Vercel
-
-1. **Acesse:** https://vercel.com/goldmonkeys-projects/sofia-gastrobar-site/settings/domains
-
-2. **Verifique se os domínios estão listados:**
-   - `sofiagastrobaribiza.com`
-   - `www.sofiagastrobaribiza.com`
-
-3. **Se não estiverem, adicione:**
-   - Clique em "Add Domain"
-   - Digite o domínio
-   - Selecione "Production" environment
-   - Salve
-
-4. **Configure Redirect (Opcional):**
-   - `sofiagastrobaribiza.com` → Redirect 307 para `www.sofiagastrobaribiza.com`
-   - `www.sofiagastrobaribiza.com` → Production (sem redirect)
-
-## ✅ Verificações
-
-### Build Local
-```bash
-npm run build
-# ✅ Sucesso - 8 páginas geradas
-```
-
-### Deploy Vercel
-```bash
-vercel --prod
-# ✅ Deploy concluído com sucesso
-```
-
-### Teste do Site
-```bash
-curl -I https://sofia-gastrobar-site-mzbwwmf8x-goldmonkeys-projects.vercel.app
-# ✅ HTTP 200 OK
-```
-
-## 📝 Configurações Aplicadas
-
-### Metadata SEO
-- ✅ Domínio: `sofiagastrobaribiza.com`
-- ✅ Open Graph configurado
-- ✅ Twitter Cards configurado
-- ✅ Robots.txt otimizado
-
-### Segurança
-- ✅ Headers de segurança configurados
-- ✅ HTTPS obrigatório
-- ✅ X-Frame-Options: SAMEORIGIN
-- ✅ X-Content-Type-Options: nosniff
-
-### Performance
-- ✅ Compressão habilitada
-- ✅ Imagens otimizadas (Next.js Image)
-- ✅ Static Generation quando possível
-- ✅ Vercel Analytics ativo
-- ✅ Speed Insights ativo
-
-## 🔗 Links Úteis
-
-- **Dashboard Vercel:** https://vercel.com/goldmonkeys-projects/sofia-gastrobar-site
-- **Deployments:** https://vercel.com/goldmonkeys-projects/sofia-gastrobar-site/deployments
-- **Domains:** https://vercel.com/goldmonkeys-projects/sofia-gastrobar-site/settings/domains
-- **Analytics:** https://vercel.com/goldmonkeys-projects/sofia-gastrobar-site/analytics
-
-## 📋 Checklist Pós-Deploy
-
-- [x] Build local bem-sucedido
-- [x] Deploy para produção concluído
-- [x] Código commitado e enviado para GitHub
-- [ ] Domínios configurados no dashboard Vercel
-- [ ] DNS configurado corretamente
-- [ ] SSL certificado ativo
-- [ ] Site acessível em sofiagastrobaribiza.com
-- [ ] Testar todas as rotas principais
-- [ ] Verificar Analytics funcionando
-
-## 🐛 Troubleshooting
-
-Se o domínio não funcionar:
-
-1. **Verifique DNS:**
-   ```bash
-   dig sofiagastrobaribiza.com
-   # Deve apontar para Vercel
-   ```
-
-2. **Verifique no Vercel:**
-   - Settings → Domains
-   - Status deve ser "Valid Configuration"
-
-3. **Aguarde propagação:**
-   - DNS: 5min - 48h (geralmente < 1h)
-   - SSL: Automático pelo Vercel
+**Data:** 2025-01-27  
+**Status:** ✅ Deploy realizado com sucesso
 
 ---
 
-**Última atualização:** 06/12/2025 15:25  
-**Deploy ID:** sofia-gastrobar-site-mzbwwmf8x-goldmonkeys-projects.vercel.app
+## ✅ Variáveis de Ambiente Configuradas
 
+### SumUp Integration
+- ✅ `SUMUP_API_KEY` (Secret Key - Server-side)
+- ✅ `NEXT_PUBLIC_SUMUP_API_KEY` (Public Key - Client-side)
+
+### Site Configuration
+- ✅ `NEXT_PUBLIC_SITE_URL` = `https://sofiagastrobaribiza.com`
+
+### Ambientes
+- ✅ Production
+- ✅ Preview
+- ✅ Development
+
+---
+
+## 🌐 URLs de Produção
+
+- **Site Principal:** https://sofiagastrobaribiza.com
+- **Reservas:** https://sofiagastrobaribiza.com/reservas
+- **Delivery:** https://sofiagastrobaribiza.com/delivery
+- **Menu:** https://sofiagastrobaribiza.com/cardapio
+- **Clube Sofia:** https://sofiagastrobaribiza.com/clube-sofia
+
+---
+
+## 🧪 Testar Agora
+
+### 1. Teste de Reserva com Pagamento
+1. Acessar: https://sofiagastrobaribiza.com/reservas
+2. Preencher formulário de reserva
+3. Verificar se aparece botão de pagamento SumUp
+4. Clicar e verificar se redireciona para SumUp
+5. Fazer pagamento de teste
+
+### 2. Teste de Delivery com Pagamento
+1. Acessar: https://sofiagastrobaribiza.com/delivery
+2. Adicionar itens ao carrinho
+3. Preencher endereço
+4. Verificar se aparece botão de pagamento SumUp
+5. Fazer pagamento de teste
+
+---
+
+## 📋 Checklist de Verificação
+
+- [x] Variáveis de ambiente configuradas
+- [x] Deploy realizado
+- [ ] Teste de reserva realizado
+- [ ] Teste de delivery realizado
+- [ ] Verificar se pagamentos funcionam
+- [ ] Verificar se webhooks funcionam (se configurado)
+
+---
+
+## 🔒 Segurança
+
+✅ **Tudo protegido:**
+- Secret Key apenas server-side
+- Public Key pode ser usada client-side
+- Variáveis criptografadas no Vercel
+- `.env.local` no `.gitignore`
+
+---
+
+## 🆘 Troubleshooting
+
+### Se o pagamento não funcionar:
+1. Verificar se as variáveis estão no Vercel
+2. Verificar se o deploy foi concluído
+3. Verificar logs no Vercel Dashboard
+4. Verificar se a conta SumUp está ativa
+
+### Se houver erros:
+1. Verificar logs: `vercel logs`
+2. Verificar no Vercel Dashboard
+3. Verificar se todas as variáveis estão configuradas
+
+---
+
+**Goldmonkey Studio**  
+**Deploy realizado em:** 2025-01-27
