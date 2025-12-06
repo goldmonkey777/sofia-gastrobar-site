@@ -1,23 +1,60 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { MapPin, Clock, ShoppingCart, Home, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
+import { AddressInput } from '@/components/ui/AddressInput'
+import { useUserData } from '@/hooks/useUserData'
+import { useGeolocation } from '@/hooks/useGeolocation'
+import { detectZone, getDistanceFromSofia, calculateDeliveryFee } from '@/lib/locationHelpers'
+import { useLanguage } from '@/hooks/useLanguage'
+import { translate } from '@/lib/i18n'
 
 export default function DeliveryPage() {
+  const { language, isReady } = useLanguage()
+  const { userData, loading: userDataLoading } = useUserData({ autoLoad: true })
   const [step, setStep] = useState<'zone' | 'order' | 'checkout'>('zone')
   const [formData, setFormData] = useState({
     zone: '',
     address: '',
     phone: '',
     name: '',
-    deliveryTime: 'now', // 'now' | 'scheduled'
+    deliveryTime: 'now' as 'now' | 'scheduled',
     scheduledTime: '',
   })
+  const [location, setLocation] = useState<{ lat: number; lng: number; address: string } | null>(null)
   const [cart, setCart] = useState<Array<{ id: string; name: string; price: number; quantity: number }>>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+
+  // Preencher dados do usuário automaticamente
+  useEffect(() => {
+    if (userData && !userDataLoading) {
+      setFormData(prev => ({
+        ...prev,
+        name: userData.name || prev.name,
+        phone: userData.phone || prev.phone,
+        address: userData.address || prev.address,
+      }))
+    }
+  }, [userData, userDataLoading])
+
+  // Detectar zona quando localização muda
+  useEffect(() => {
+    if (location) {
+      const zone = detectZone(location.lat, location.lng)
+      if (zone) {
+        setFormData(prev => ({ ...prev, zone: zone.id }))
+      } else {
+        // Se não detectar zona, calcular taxa por distância
+        const distance = getDistanceFromSofia(location.lat, location.lng)
+        const fee = calculateDeliveryFee(distance)
+        // Usar zona "other" com taxa calculada
+        setFormData(prev => ({ ...prev, zone: 'other' }))
+      }
+    }
+  }, [location])
 
   const zones = [
     { id: 'sant-antoni', name: 'Sant Antoni de Portmany', fee: 3.00 },
@@ -194,12 +231,14 @@ export default function DeliveryPage() {
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-white">Menu</h2>
+                  <h2 className="text-2xl font-bold text-white">
+                    {translate({ pt: 'Menu', es: 'Menú', en: 'Menu' }, language)}
+                  </h2>
                   <button
                     onClick={() => setStep('zone')}
                     className="text-white/60 hover:text-white text-sm"
                   >
-                    ← Alterar zona
+                    ← {translate({ pt: 'Alterar zona', es: 'Cambiar zona', en: 'Change zone' }, language)}
                   </button>
                 </div>
                 <div className="space-y-4">
@@ -232,21 +271,42 @@ export default function DeliveryPage() {
                 onSubmit={handleSubmit}
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
               >
-                <h2 className="text-2xl font-bold text-white mb-6">Finalizar Pedido</h2>
+                <h2 className="text-2xl font-bold text-white mb-6">
+                  {translate({ pt: 'Finalizar Pedido', es: 'Finalizar Pedido', en: 'Complete Order' }, language)}
+                </h2>
                 <div className="space-y-4 mb-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-white">
+                      {translate({ pt: 'Dados de Entrega', es: 'Datos de Entrega', en: 'Delivery Details' }, language)}
+                    </h3>
+                    <UserDataAutoFill
+                      onFill={(data) => {
+                        setFormData(prev => ({
+                          ...prev,
+                          name: data.name || prev.name,
+                          phone: data.phone || prev.phone,
+                          address: data.address || prev.address,
+                        }))
+                      }}
+                    />
+                  </div>
                   <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">Nome *</label>
+                    <label className="block text-white/80 text-sm font-medium mb-2">
+                      {translate({ pt: 'Nome', es: 'Nombre', en: 'Name' }, language)} *
+                    </label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                       className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-yellow-500"
-                      placeholder="Seu nome"
+                      placeholder={translate({ pt: 'Seu nome', es: 'Tu nombre', en: 'Your name' }, language)}
                     />
                   </div>
                   <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">Telefone *</label>
+                    <label className="block text-white/80 text-sm font-medium mb-2">
+                      {translate({ pt: 'Telefone', es: 'Teléfono', en: 'Phone' }, language)} *
+                    </label>
                     <input
                       type="tel"
                       required
@@ -257,14 +317,18 @@ export default function DeliveryPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-white/80 text-sm font-medium mb-2">Endereço Completo *</label>
-                    <input
-                      type="text"
-                      required
+                    <label className="block text-white/80 text-sm font-medium mb-2">
+                      {translate({ pt: 'Endereço Completo', es: 'Dirección Completa', en: 'Full Address' }, language)} *
+                    </label>
+                    <AddressInput
                       value={formData.address}
-                      onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-yellow-500"
-                      placeholder="Rua, número, bairro..."
+                      onChange={(address) => setFormData(prev => ({ ...prev, address }))}
+                      onLocationChange={(loc) => {
+                        setLocation(loc)
+                        setFormData(prev => ({ ...prev, address: loc.address }))
+                      }}
+                      showGeolocation={true}
+                      showMaps={true}
                     />
                   </div>
                   <div>

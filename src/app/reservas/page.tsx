@@ -1,11 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Calendar, Clock, Users, Phone, Mail, Home, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
+import { useUserData } from '@/hooks/useUserData'
+import { useLanguage } from '@/hooks/useLanguage'
+import { translate } from '@/lib/i18n'
 
 export default function ReservasPage() {
+  const { language, isReady } = useLanguage()
+  const { userData, loading: userDataLoading, updateUserData } = useUserData({ autoLoad: true })
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,6 +22,33 @@ export default function ReservasPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+
+  // Preencher dados do usuário automaticamente
+  useEffect(() => {
+    if (userData && !userDataLoading) {
+      setFormData(prev => ({
+        ...prev,
+        name: userData.name || prev.name,
+        email: userData.email || prev.email,
+        phone: userData.phone || prev.phone,
+      }))
+    }
+  }, [userData, userDataLoading])
+
+  // Salvar dados quando formulário é enviado
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    // Salvar dados do usuário
+    updateUserData({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+    })
+
+    // Continuar com o submit original
+    handleSubmit(e)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -67,6 +99,8 @@ export default function ReservasPage() {
       alert(error instanceof Error ? error.message : 'Erro ao criar reserva. Tente novamente.')
     }
   }
+
+  if (!isReady) return null
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
@@ -129,14 +163,29 @@ export default function ReservasPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          onSubmit={handleSubmit}
+          onSubmit={handleFormSubmit}
           className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
         >
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold text-white">
+              {translate({ pt: 'Dados da Reserva', es: 'Datos de la Reserva', en: 'Reservation Details' }, language)}
+            </h3>
+            <UserDataAutoFill
+              onFill={(data) => {
+                setFormData(prev => ({
+                  ...prev,
+                  name: data.name || prev.name,
+                  email: data.email || prev.email,
+                  phone: data.phone || prev.phone,
+                }))
+              }}
+            />
+          </div>
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             {/* Name */}
             <div>
               <label className="block text-white/80 text-sm font-medium mb-2">
-                Nome Completo *
+                {translate({ pt: 'Nome Completo', es: 'Nombre Completo', en: 'Full Name' }, language)} *
               </label>
               <input
                 type="text"
@@ -145,14 +194,14 @@ export default function ReservasPage() {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-yellow-500 transition-colors"
-                placeholder="Seu nome"
+                placeholder={translate({ pt: 'Seu nome', es: 'Tu nombre', en: 'Your name' }, language)}
               />
             </div>
 
             {/* Email */}
             <div>
               <label className="block text-white/80 text-sm font-medium mb-2">
-                E-mail *
+                {translate({ pt: 'E-mail', es: 'E-mail', en: 'Email' }, language)} *
               </label>
               <input
                 type="email"
@@ -168,7 +217,7 @@ export default function ReservasPage() {
             {/* Phone */}
             <div>
               <label className="block text-white/80 text-sm font-medium mb-2">
-                Telefone *
+                {translate({ pt: 'Telefone', es: 'Teléfono', en: 'Phone' }, language)} *
               </label>
               <input
                 type="tel"
