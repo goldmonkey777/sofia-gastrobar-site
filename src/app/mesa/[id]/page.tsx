@@ -85,9 +85,6 @@ export default function MesaPage() {
             </Link>
             
             <div className="flex items-center gap-3">
-              {/* Idioma */}
-              {isReady && <LanguageSelector />}
-              
               {/* Mesa */}
               <div className="text-center">
                 <div className="text-lg font-bold text-white">{formatTableNumber(table)}</div>
