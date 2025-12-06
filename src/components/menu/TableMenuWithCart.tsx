@@ -79,6 +79,7 @@ function CartProvider({ children, tableId, onOrderPlaced }: { children: React.Re
   const [orderPlaced, setOrderPlaced] = useState(false)
   const [orderNotes, setOrderNotes] = useState('')
   const [placedOrderData, setPlacedOrderData] = useState<{ id: string; items: CartItem[]; total: number } | null>(null)
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
   const addToCart = (item: MenuItem) => {
     setCart(prev => {
@@ -164,121 +165,152 @@ function CartProvider({ children, tableId, onOrderPlaced }: { children: React.Re
     <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>
       {children}
       
-      {/* Floating Cart Button */}
+      {/* Floating Cart Button - Compacto */}
       {cartItemCount > 0 && (
         <motion.button
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          onClick={() => {
-            const drawer = document.getElementById('cart-drawer')
-            if (drawer) {
-              drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
-            }
-          }}
-          className="fixed bottom-24 right-4 z-40 bg-yellow-500 text-black rounded-full p-4 shadow-lg hover:bg-yellow-400 transition-colors"
+          onClick={() => setIsCartOpen(!isCartOpen)}
+          className="fixed bottom-20 right-4 z-40 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black rounded-full p-3 shadow-xl hover:from-yellow-400 hover:to-yellow-500 transition-all active:scale-95"
         >
-          <ShoppingCart className="w-6 h-6" />
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">
+          <ShoppingCart className="w-5 h-5" />
+          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
             {cartItemCount}
           </span>
         </motion.button>
       )}
 
-      {/* Cart Drawer */}
-      {cartItemCount > 0 && (
-        <div id="cart-drawer" className="fixed bottom-0 left-0 right-0 bg-black/95 border-t border-white/10 z-50 max-h-[60vh] overflow-y-auto">
-          <div className="max-w-2xl mx-auto p-4">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-white">
-                {translate(translations.cart, language)} ({cartItemCount})
-              </h2>
-            </div>
+      {/* Cart Drawer - Compacto e Mobile-First */}
+      <AnimatePresence>
+        {cartItemCount > 0 && isCartOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsCartOpen(false)}
+              className="fixed inset-0 bg-black/60 z-[45]"
+            />
 
-            <div className="space-y-3 mb-4">
-              {cart.map(item => (
-                <div
-                  key={item.id}
-                  className="bg-white/5 rounded-lg p-3 border border-white/10 flex items-center justify-between"
-                >
-                  <div className="flex-1">
-                    <h3 className="text-white font-semibold text-sm">
-                      {translate(item.name, language)}
-                    </h3>
-                    <p className="text-white/60 text-xs">
-                      €{item.price.toFixed(2)} × {item.quantity} = €{(item.price * item.quantity).toFixed(2)}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="bg-white/10 text-white rounded p-1"
-                    >
-                      <Minus className="w-4 h-4" />
-                    </button>
-                    <span className="text-white font-semibold w-8 text-center text-sm">
-                      {item.quantity}
-                    </span>
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="bg-white/10 text-white rounded p-1"
-                    >
-                      <Plus className="w-4 h-4" />
-                    </button>
-                    <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="text-red-500 hover:text-red-400 ml-2"
-                    >
-                      <Trash className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="border-t border-white/10 pt-4 space-y-3">
-              <div className="flex justify-between text-white">
-                <span>{translate(translations.subtotal, language)}:</span>
-                <span className="font-semibold">€{subtotal.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-white text-lg font-bold">
-                <span>{translate(translations.total, language)}:</span>
-                <span>€{total.toFixed(2)}</span>
-              </div>
-
-              <textarea
-                value={orderNotes}
-                onChange={e => setOrderNotes(e.target.value)}
-                placeholder={translate(translations.notes, language)}
-                rows={2}
-                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-yellow-500 resize-none text-sm"
-              />
-
-              {orderPlaced && placedOrderData ? (
-                <OrderSuccessScreen
-                  orderId={placedOrderData.id}
-                  items={placedOrderData.items}
-                  total={placedOrderData.total}
-                  language={language}
-                  onClose={() => {
-                    setOrderPlaced(false)
-                    setPlacedOrderData(null)
-                  }}
-                />
-              ) : (
+            {/* Drawer */}
+            <motion.div
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              exit={{ y: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed bottom-0 left-0 right-0 bg-black border-t-2 border-yellow-500/50 z-50 rounded-t-2xl shadow-2xl max-h-[75vh] flex flex-col"
+            >
+              {/* Header Compacto */}
+              <div className="flex items-center justify-between p-3 border-b border-white/10">
+                <h2 className="text-base font-bold text-white">
+                  {translate(translations.cart, language)} <span className="text-yellow-400">({cartItemCount})</span>
+                </h2>
                 <button
-                  onClick={handlePlaceOrder}
-                  disabled={isPlacing}
-                  className="w-full bg-yellow-500 text-black font-bold py-3 rounded-lg hover:bg-yellow-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={() => setIsCartOpen(false)}
+                  className="text-white/60 hover:text-white transition-colors p-1"
                 >
-                  {isPlacing
-                    ? translate(translations.placingOrder, language)
-                    : translate(translations.placeOrder, language)}
+                  <X className="w-5 h-5" />
                 </button>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+              </div>
+
+              {/* Items Scrollable */}
+              <div className="flex-1 overflow-y-auto px-3 py-2">
+                <div className="space-y-2">
+                  {cart.map(item => (
+                    <div
+                      key={item.id}
+                      className="bg-white/5 rounded-lg p-2.5 border border-white/10 flex items-center gap-2"
+                    >
+                      {/* Item Info */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-white font-medium text-sm truncate">
+                          {translate(item.name, language)}
+                        </h3>
+                        <p className="text-white/50 text-xs">
+                          €{item.price.toFixed(2)} × {item.quantity}
+                        </p>
+                      </div>
+
+                      {/* Controls Compactos */}
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          className="bg-white/10 hover:bg-white/20 text-white rounded p-1 transition-colors"
+                        >
+                          <Minus className="w-3.5 h-3.5" />
+                        </button>
+                        <span className="text-white font-semibold text-sm w-6 text-center">
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          className="bg-white/10 hover:bg-white/20 text-white rounded p-1 transition-colors"
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => removeFromCart(item.id)}
+                          className="text-red-400 hover:text-red-300 ml-1 p-1 transition-colors"
+                        >
+                          <Trash className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer Fixo */}
+              <div className="border-t border-white/10 p-3 space-y-2 bg-black/50 backdrop-blur-sm">
+                {/* Totals Compactos */}
+                <div className="flex justify-between text-white text-sm">
+                  <span className="text-white/70">{translate(translations.subtotal, language)}:</span>
+                  <span className="font-semibold">€{subtotal.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-white">
+                  <span className="font-bold">{translate(translations.total, language)}:</span>
+                  <span className="text-yellow-400 font-bold text-lg">€{total.toFixed(2)}</span>
+                </div>
+
+                {/* Notes Compacto */}
+                <textarea
+                  value={orderNotes}
+                  onChange={e => setOrderNotes(e.target.value)}
+                  placeholder={translate(translations.notes, language)}
+                  rows={1}
+                  className="w-full px-2.5 py-1.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-yellow-500 resize-none text-xs"
+                />
+
+                {/* Order Button */}
+                {orderPlaced && placedOrderData ? (
+                  <OrderSuccessScreen
+                    orderId={placedOrderData.id}
+                    items={placedOrderData.items}
+                    total={placedOrderData.total}
+                    language={language}
+                    onClose={() => {
+                      setOrderPlaced(false)
+                      setPlacedOrderData(null)
+                      setIsCartOpen(false)
+                    }}
+                  />
+                ) : (
+                  <button
+                    onClick={handlePlaceOrder}
+                    disabled={isPlacing}
+                    className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-2.5 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 shadow-lg shadow-yellow-500/20"
+                  >
+                    {isPlacing
+                      ? translate(translations.placingOrder, language)
+                      : translate(translations.placeOrder, language)}
+                  </button>
+                )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </CartContext.Provider>
   )
 }
