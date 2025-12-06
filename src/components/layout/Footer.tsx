@@ -11,13 +11,20 @@ export function Footer() {
                 <div>
                     <h3 className="text-white font-bold text-lg mb-6">Contato</h3>
                     <ul className="space-y-4 text-white/60">
-                        <li className="flex items-start space-x-3">
-                            <MapPin size={20} className="text-yellow-500 shrink-0 mt-1" />
-                            <span>Carrer del Progrés, 109<br />Sant Antoni de Portmany, Ibiza</span>
+                        <li>
+                            <a
+                                href="https://maps.app.goo.gl/95a5g4466d6d45544"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-start space-x-3 hover:text-white transition-colors"
+                            >
+                                <MapPin size={20} className="text-yellow-500 shrink-0 mt-1" />
+                                <span>Carrer des Caló, 109<br />07829 Sant Agustí des Vedrà<br />Illes Balears, Spain</span>
+                            </a>
                         </li>
                         <li className="flex items-center space-x-3">
                             <Phone size={20} className="text-yellow-500 shrink-0" />
-                            <span>611-487-773</span>
+                            <span>+34 611 48 77 73</span>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +52,7 @@ export function Footer() {
                         tecnologia intuitiva e design emocional.
                     </p>
                     <a
-                        href="#"
+                        href="https://www.instagram.com/sofia_gastrobar_ibiza/"
                         className="flex items-center space-x-2 text-yellow-500 hover:text-white transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
