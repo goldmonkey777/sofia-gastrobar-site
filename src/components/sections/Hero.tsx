@@ -29,9 +29,16 @@ export function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                 >
-                    <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur border border-white/20 text-yellow-400 text-sm font-medium tracking-wider mb-6">
-                        IBIZA DOMINATION PHASE 1™
-                    </span>
+                    <div className="mb-6 flex justify-center">
+                        <Image
+                            src="/logo.png"
+                            alt="Sofia Gastrobar Ibiza"
+                            width={120}
+                            height={120}
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6">
                         <span className="text-yellow-500">Magia</span>, Fogo<br className="hidden md:block" /> e Sabor.
                     </h1>
