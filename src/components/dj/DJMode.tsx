@@ -23,6 +23,7 @@ const SPOTIFY_PROFILE_URL = 'https://open.spotify.com/user/316axpbhhlk3dy6duqdfc
 
 // URLs do Spotify (via env vars)
 // Se não configuradas, usa o perfil como fallback
+// Exemplo real: Playlist ID 5az1XeIPO0ijDQiz1nykRW
 const SUNSET_EMBED = process.env.NEXT_PUBLIC_SPOTIFY_SUNSET_EMBED_URL || ''
 const SUNSET_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_SUNSET_OPEN_URL || SPOTIFY_PROFILE_URL
 const NIGHT_EMBED = process.env.NEXT_PUBLIC_SPOTIFY_NIGHT_EMBED_URL || ''
