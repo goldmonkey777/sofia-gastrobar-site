@@ -17,6 +17,7 @@ import { useCallWaiter } from '@/modules/qr-table-system/hooks/useCallWaiter'
 import { formatTableNumber } from '@/modules/qr-table-system/utils/tableHelpers'
 import { TableMenu } from '@/components/menu/TableMenu'
 import { LanguageSelector } from '@/components/ui/LanguageSelector'
+import { DJMode } from '@/components/dj/DJMode'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
 
@@ -103,6 +104,11 @@ export default function MesaPage() {
       {/* Menu Direto - Sem página intermediária */}
       <div className="max-w-2xl mx-auto pb-24">
         <TableMenu tableId={tableId} />
+        
+        {/* Modo DJ - Integrado na experiência da mesa */}
+        <div className="px-4 mt-8">
+          <DJMode tableId={tableId} />
+        </div>
       </div>
 
       {/* Botões de Ação Fixos (Bottom Sheet) */}
