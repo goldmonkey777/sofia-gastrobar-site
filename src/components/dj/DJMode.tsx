@@ -1,30 +1,30 @@
 /**
  * Modo DJ - Escolha a Música
  * Integrado na experiência da mesa
- * Apple Music como motor por baixo
+ * Spotify como motor por baixo
  */
 
 'use client'
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Music, ExternalLink, Info, Sparkles, Headphones } from 'lucide-react'
+import { Music, Info, Headphones, Clock } from 'lucide-react'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
-import { QRCode } from '@/components/ui/QRCode'
+import { SpotifyPlaylistEmbed } from '@/components/spotify/SpotifyPlaylistEmbed'
+import { getCurrentHour } from '@/lib/menuHelpers'
 
 interface DJModeProps {
   tableId: string
 }
 
-// Perfil do Apple Music do Sofia Gastrobar Ibiza
-const APPLE_MUSIC_PROFILE_URL = 'https://music.apple.com/profile/Sofiagastrobaribiza'
-
-// Link da playlist colaborativa do Apple Music
-// TODO: Quando criar a playlist colaborativa, substituir pelo link direto da playlist
-// Exemplo: https://music.apple.com/playlist/pl.u-XXXXX
-// Por enquanto, redireciona para o perfil onde o cliente pode encontrar as playlists
-const APPLE_MUSIC_PLAYLIST_URL = APPLE_MUSIC_PROFILE_URL
+// URLs do Spotify (via env vars)
+const SUNSET_EMBED = process.env.NEXT_PUBLIC_SPOTIFY_SUNSET_EMBED_URL || ''
+const SUNSET_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_SUNSET_OPEN_URL || ''
+const NIGHT_EMBED = process.env.NEXT_PUBLIC_SPOTIFY_NIGHT_EMBED_URL || ''
+const NIGHT_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_NIGHT_OPEN_URL || ''
+const BREAKFAST_EMBED = process.env.NEXT_PUBLIC_SPOTIFY_BREAKFAST_EMBED_URL || ''
+const BREAKFAST_OPEN = process.env.NEXT_PUBLIC_SPOTIFY_BREAKFAST_OPEN_URL || ''
 
 const translations = {
   title: {
@@ -38,19 +38,9 @@ const translations = {
     en: 'Choose the Next Song',
   },
   description: {
-    pt: 'Aqui você pode participar do som da casa. Escolha até 2 músicas para entrar na fila da playlist oficial do Sofia. A música toca em ordem, sem interromper a vibe atual.',
-    es: 'Aquí puedes participar del sonido de la casa. Elige hasta 2 canciones para entrar en la cola de la playlist oficial del Sofia. La música suena en orden, sin interrumpir el ambiente actual.',
-    en: 'Here you can participate in the house sound. Choose up to 2 songs to join the queue of Sofia\'s official playlist. Songs play in order, without interrupting the current vibe.',
-  },
-  openPlaylist: {
-    pt: 'Abrir no Apple Music',
-    es: 'Abrir en Apple Music',
-    en: 'Open in Apple Music',
-  },
-  profileDescription: {
-    pt: 'Acesse nosso perfil no Apple Music para ver todas as playlists e adicionar suas músicas favoritas.',
-    es: 'Accede a nuestro perfil en Apple Music para ver todas las listas de reproducción y agregar tus canciones favoritas.',
-    en: 'Access our Apple Music profile to see all playlists and add your favorite songs.',
+    pt: 'Participe do som do Sofia. Escolha até 2 músicas para a playlist do momento. Elas entram na fila, sem interromper a música atual.',
+    es: 'Participa del sonido del Sofia. Elige hasta 2 canciones para la playlist del momento. Entran en la cola, sin interrumpir la música actual.',
+    en: 'Participate in Sofia\'s sound. Choose up to 2 songs for the current playlist. They join the queue, without interrupting current music.',
   },
   rulesTitle: {
     pt: 'Regras do Modo DJ',
@@ -77,27 +67,112 @@ const translations = {
     es: 'La casa puede saltar canciones que rompan el ambiente',
     en: 'The house may skip songs that break the vibe',
   },
-  qrLabel: {
-    pt: 'Escaneie para abrir no Apple Music',
-    es: 'Escanea para abrir en Apple Music',
-    en: 'Scan to open in Apple Music',
-  },
   tip: {
     pt: '💡 Dica: A música entra na fila e toca em ordem. Não interrompe o som atual!',
     es: '💡 Consejo: La música entra en la cola y suena en orden. ¡No interrumpe el sonido actual!',
     en: '💡 Tip: Songs join the queue and play in order. Doesn\'t interrupt current music!',
+  },
+  breakfastTitle: {
+    pt: 'Breakfast Flow ☕',
+    es: 'Breakfast Flow ☕',
+    en: 'Breakfast Flow ☕',
+  },
+  breakfastDesc: {
+    pt: 'De manhã, energia suave, café, sol nascendo e boa conversa.',
+    es: 'Por la mañana, energía suave, café, sol naciente y buena conversación.',
+    en: 'Morning vibes, soft energy, coffee, rising sun and good conversation.',
+  },
+  sunsetTitle: {
+    pt: 'Sunset Sessions 🌅',
+    es: 'Sunset Sessions 🌅',
+    en: 'Sunset Sessions 🌅',
+  },
+  sunsetDesc: {
+    pt: 'Fim de tarde em Sant Antoni, céu laranja, drinks e alma leve.',
+    es: 'Final de tarde en Sant Antoni, cielo naranja, copas y alma ligera.',
+    en: 'Late afternoon in Sant Antoni, orange sky, drinks and light soul.',
+  },
+  nightTitle: {
+    pt: 'Night Vibes 🔥',
+    es: 'Night Vibes 🔥',
+    en: 'Night Vibes 🔥',
+  },
+  nightDesc: {
+    pt: 'Quando a noite cai e o Sofia acende.',
+    es: 'Cuando cae la noche y el Sofia se enciende.',
+    en: 'When night falls and Sofia lights up.',
   },
 }
 
 export function DJMode({ tableId }: DJModeProps) {
   const { language, isReady } = useLanguage()
   const [showRules, setShowRules] = useState(false)
+  const currentHour = getCurrentHour()
 
   if (!isReady) return null
 
-  const handleOpenPlaylist = () => {
-    // Abre Apple Music (deep link funciona no iOS, fallback para web)
-    window.open(APPLE_MUSIC_PLAYLIST_URL, '_blank')
+  // Determinar qual playlist mostrar baseado no horário
+  const getActivePlaylist = () => {
+    if (currentHour >= 8 && currentHour < 12) {
+      // Breakfast
+      return {
+        embedUrl: BREAKFAST_EMBED,
+        openUrl: BREAKFAST_OPEN,
+        title: translate(translations.breakfastTitle, language),
+        description: translate(translations.breakfastDesc, language),
+      }
+    } else if (currentHour >= 17 || currentHour < 1) {
+      // Night (17h-1h)
+      return {
+        embedUrl: NIGHT_EMBED,
+        openUrl: NIGHT_OPEN,
+        title: translate(translations.nightTitle, language),
+        description: translate(translations.nightDesc, language),
+      }
+    } else {
+      // Sunset (12h-17h)
+      return {
+        embedUrl: SUNSET_EMBED,
+        openUrl: SUNSET_OPEN,
+        title: translate(translations.sunsetTitle, language),
+        description: translate(translations.sunsetDesc, language),
+      }
+    }
+  }
+
+  const activePlaylist = getActivePlaylist()
+
+  // Se não tiver URLs configuradas, mostrar mensagem
+  if (!activePlaylist.embedUrl || !activePlaylist.openUrl) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-yellow-900/20 border border-white/10 rounded-2xl p-6 mb-6"
+      >
+        <div className="flex items-start gap-4 mb-4">
+          <div className="bg-yellow-500/20 p-3 rounded-xl">
+            <Headphones className="w-6 h-6 text-yellow-500" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold text-white mb-1">
+              {translate(translations.title, language)}
+            </h2>
+            <p className="text-white/60 text-sm">
+              {translate(translations.subtitle, language)}
+            </p>
+          </div>
+        </div>
+        <p className="text-white/80 text-sm">
+          {translate(translations.description, language)}
+        </p>
+        <div className="mt-4 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+          <p className="text-yellow-400 text-xs">
+            ⚙️ Configure as variáveis de ambiente do Spotify para ativar o Modo DJ
+          </p>
+        </div>
+      </motion.div>
+    )
   }
 
   return (
@@ -115,42 +190,26 @@ export function DJMode({ tableId }: DJModeProps) {
           <h2 className="text-2xl font-bold text-white mb-1">
             {translate(translations.title, language)}
           </h2>
-          <p className="text-white/70 text-sm">
+          <p className="text-white/70 text-sm flex items-center gap-2">
+            <Clock className="w-4 h-4" />
             {translate(translations.subtitle, language)}
           </p>
         </div>
       </div>
 
       {/* Description */}
-      <p className="text-white/80 text-sm mb-4 leading-relaxed">
+      <p className="text-white/80 text-sm mb-6 leading-relaxed">
         {translate(translations.description, language)}
       </p>
-      <p className="text-white/60 text-xs mb-6 leading-relaxed">
-        {translate(translations.profileDescription, language)}
-      </p>
 
-      {/* Main Action Button */}
-      <button
-        onClick={handleOpenPlaylist}
-        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg shadow-purple-500/20 mb-4 flex items-center justify-center gap-3"
-      >
-        <Music className="w-5 h-5" />
-        <span>{translate(translations.openPlaylist, language)}</span>
-        <ExternalLink className="w-4 h-4" />
-      </button>
-
-      {/* QR Code */}
-      <div className="bg-black/40 rounded-xl p-4 mb-4">
-        <div className="flex flex-col items-center">
-          <QRCode 
-            value={APPLE_MUSIC_PLAYLIST_URL} 
-            size={120} 
-            showLabel={false}
-          />
-          <p className="text-white/60 text-xs text-center mt-2 max-w-[140px]">
-            {translate(translations.qrLabel, language)}
-          </p>
-        </div>
+      {/* Spotify Playlist Embed */}
+      <div className="mb-4">
+        <SpotifyPlaylistEmbed
+          title={activePlaylist.title}
+          description={activePlaylist.description}
+          embedUrl={activePlaylist.embedUrl}
+          openUrl={activePlaylist.openUrl}
+        />
       </div>
 
       {/* Rules Toggle */}
@@ -208,4 +267,3 @@ export function DJMode({ tableId }: DJModeProps) {
     </motion.div>
   )
 }
-
