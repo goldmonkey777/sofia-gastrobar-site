@@ -49,6 +49,24 @@ Sofia is not just a restaurant. It is a refuge, a stage, and a living microcosm 
 -   **Immersive Hero**: Full-screen video/image background with "Goldmonkey" gradients.
 -   **Audio Player**: Global floating player for the "Ritual Sonoro".
 -   **Responsive Design**: Mobile-first approach for tourists and diners.
+-   **QR Table System**: Smart table management with QR codes.
+-   **Waiter Call API**: Real-time waiter calling system.
+
+## 🌐 Production
+
+-   **Domain**: [sofiagastrobaribiza.com](https://sofiagastrobaribiza.com)
+-   **Deployment**: Vercel (auto-deploy from `main` branch)
+-   **See**: [DEPLOY.md](./DEPLOY.md) for detailed deployment instructions
+
+## 📦 Build Status
+
+```bash
+# Test build locally
+npm run build
+
+# Start production server
+npm start
+```
 
 ---
 

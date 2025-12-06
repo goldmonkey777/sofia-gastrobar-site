@@ -5,21 +5,7 @@ import { motion } from 'framer-motion'
 import { Bell, FileText, XCircle, Home, Menu, Gamepad2, Music } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
-
-const tablesData = {
-  tables: [
-    { id: "01", number: 1, capacity: 4, location: "Sala principal" },
-    { id: "02", number: 2, capacity: 2, location: "Terraço" },
-    { id: "03", number: 3, capacity: 6, location: "Sala principal" },
-    { id: "04", number: 4, capacity: 4, location: "Terraço" },
-    { id: "05", number: 5, capacity: 2, location: "Bar" },
-    { id: "06", number: 6, capacity: 4, location: "Sala VIP" },
-    { id: "07", number: 7, capacity: 8, location: "Sala VIP" },
-    { id: "08", number: 8, capacity: 2, location: "Terraço" },
-    { id: "09", number: 9, capacity: 4, location: "Sala principal" },
-    { id: "10", number: 10, capacity: 6, location: "Sala principal" }
-  ]
-}
+import { getTableById } from '@/lib/tables'
 
 export default function MesaPage() {
   const params = useParams()
@@ -27,7 +13,7 @@ export default function MesaPage() {
   const [callStatus, setCallStatus] = useState<'idle' | 'calling' | 'success' | 'error'>('idle')
   const [billStatus, setBillStatus] = useState<'idle' | 'requesting' | 'success' | 'error'>('idle')
 
-  const table = tablesData.tables.find(t => t.id === tableId)
+  const table = getTableById(tableId)
 
   if (!table) {
     return (

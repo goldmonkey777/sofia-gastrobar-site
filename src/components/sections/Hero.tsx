@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { MagicButton } from "@/components/ui/MagicButton";
 import { ArrowRight, Sparkles } from "lucide-react";
 
@@ -10,7 +11,15 @@ export function Hero() {
             {/* Background Image / Overlay */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-60" />
+                <Image
+                    src="https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=2070&auto=format&fit=crop"
+                    alt="Sofia Gastrobar Ibiza - Ambiente acolhedor"
+                    fill
+                    className="object-cover opacity-60"
+                    priority
+                    quality={85}
+                    sizes="100vw"
+                />
             </div>
 
             <div className="relative z-20 max-w-5xl mx-auto px-6 text-center">

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 
 export function Story() {
@@ -26,8 +27,14 @@ export function Story() {
                 </div>
 
                 <div className="relative h-[500px] w-full rounded-full overflow-hidden border-4 border-yellow-500/20 shadow-2xl shadow-yellow-500/10">
-                    {/* Placeholder for a mystical/story image */}
-                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=1887&auto=format&fit=crop')] bg-cover bg-center" />
+                    <Image
+                        src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=1887&auto=format&fit=crop"
+                        alt="A lenda de Sofia - Ambiente místico"
+                        fill
+                        className="object-cover"
+                        quality={85}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                     <div className="absolute inset-0 bg-purple-900/30 mix-blend-overlay" />
                 </div>
             </div>
