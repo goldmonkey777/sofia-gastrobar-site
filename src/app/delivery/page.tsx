@@ -12,7 +12,7 @@ import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
 
 export default function DeliveryPage() {
-  const { language, isReady } = useLanguage()
+  const { language } = useLanguage()
   const { userData, loading: userDataLoading } = useUserData({ autoLoad: true })
   const [step, setStep] = useState<'zone' | 'order' | 'checkout'>('zone')
   const [formData, setFormData] = useState({
