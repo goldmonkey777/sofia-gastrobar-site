@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Clock, ShoppingCart, Home, CheckCircle } from 'lucide-react'
+import { MapPin, ShoppingCart, Home, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 import { AddressInput } from '@/components/ui/AddressInput'
+import { UserDataAutoFill } from '@/components/ui/UserDataAutoFill'
 import { useUserData } from '@/hooks/useUserData'
-import { useGeolocation } from '@/hooks/useGeolocation'
 import { detectZone, getDistanceFromSofia, calculateDeliveryFee } from '@/lib/locationHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
@@ -293,7 +293,7 @@ export default function DeliveryPage() {
                       {translate({ pt: 'Dados de Entrega', es: 'Datos de Entrega', en: 'Delivery Details' }, language)}
                     </h3>
                     <UserDataAutoFill
-                      onFill={(data) => {
+                      onFill={(data: { name?: string; phone?: string; address?: string }) => {
                         setFormData(prev => ({
                           ...prev,
                           name: data.name || prev.name,
