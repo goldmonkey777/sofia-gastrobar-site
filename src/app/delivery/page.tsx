@@ -440,17 +440,19 @@ export default function DeliveryPage() {
                   </div>
                   <div className="border-t border-white/10 pt-4 space-y-2">
                     <div className="flex justify-between text-white/80 text-sm">
-                      <span>Subtotal</span>
+                      <span>{translate({ pt: 'Subtotal', es: 'Subtotal', en: 'Subtotal' }, language)}</span>
                       <span>€{subtotal.toFixed(2)}</span>
                     </div>
                     {formData.zone && (
                       <div className="flex justify-between text-white/80 text-sm">
-                        <span>Entrega ({zones.find(z => z.id === formData.zone)?.name})</span>
+                        <span>
+                          {translate({ pt: 'Entrega', es: 'Envío', en: 'Delivery' }, language)} ({zones.find(z => z.id === formData.zone)?.name})
+                        </span>
                         <span>€{deliveryFee.toFixed(2)}</span>
                       </div>
                     )}
                     <div className="flex justify-between text-white font-bold text-lg pt-2 border-t border-white/10">
-                      <span>Total</span>
+                      <span>{translate({ pt: 'Total', es: 'Total', en: 'Total' }, language)}</span>
                       <span className="text-yellow-500">€{total.toFixed(2)}</span>
                     </div>
                   </div>
@@ -459,7 +461,7 @@ export default function DeliveryPage() {
                       onClick={() => setStep('checkout')}
                       className="w-full mt-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-3 px-6 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all"
                     >
-                      Finalizar Pedido
+                      {translate({ pt: 'Finalizar Pedido', es: 'Finalizar Pedido', en: 'Complete Order' }, language)}
                     </button>
                   )}
                 </>
