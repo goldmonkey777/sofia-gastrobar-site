@@ -15,7 +15,7 @@ import Link from 'next/link'
 import { useTableSession } from '@/modules/qr-table-system/hooks/useTableSession'
 import { useCallWaiter } from '@/modules/qr-table-system/hooks/useCallWaiter'
 import { formatTableNumber } from '@/modules/qr-table-system/utils/tableHelpers'
-import { TableMenu } from '@/components/menu/TableMenu'
+import { TableMenuWithCart } from '@/components/menu/TableMenuWithCart'
 import { LanguageSelector } from '@/components/ui/LanguageSelector'
 import { DJMode } from '@/components/dj/DJMode'
 import { useLanguage } from '@/hooks/useLanguage'
@@ -103,7 +103,7 @@ export default function MesaPage() {
 
       {/* Menu Direto - Sem página intermediária */}
       <div className="max-w-2xl mx-auto pb-24">
-        <TableMenu tableId={tableId} />
+        <TableMenuWithCart tableId={tableId} />
         
         {/* Modo DJ - Integrado na experiência da mesa */}
         <div className="px-4 mt-8">
