@@ -97,3 +97,10 @@ export function getCurrentHour(): number {
   return new Date().getHours()
 }
 
+/**
+ * Retorna menu filtrado por horário (alias para getActiveCategoriesByTime)
+ */
+export function getFilteredMenuByTime(hour: number): MenuCategory[] {
+  return getActiveCategoriesByTime(hour)
+}
+

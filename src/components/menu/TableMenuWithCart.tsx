@@ -9,7 +9,7 @@ import { useState, createContext, useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
-import { getCurrentHour, getFilteredMenuByTime, MenuItem } from '@/lib/menuHelpers'
+import { getCurrentHour, getFilteredMenuByTime, type MenuItem, type MenuCategory } from '@/lib/menuHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
 import { Star, Utensils, ChefHat, Info, ShoppingCart, Plus, Minus, Trash, CheckCircle, X } from 'lucide-react'
@@ -33,9 +33,18 @@ export function useCart() {
   return context
 }
 
-interface CartItem extends MenuItem {
+interface CartItem {
+  id: string
+  name: { pt: string; es: string; en: string }
+  price: number
+  description: { pt: string; es: string; en: string }
+  image: string
   quantity: number
   notes?: string
+  popular?: boolean
+  chefRecommend?: boolean
+  sunsetSpecial?: boolean
+  allergens?: string[]
 }
 
 interface TableMenuWithCartProps {
@@ -333,21 +342,21 @@ function MenuContent({
         {translate(translations.menuSubtitle, language)}
       </p>
 
-      {menu.map(category => (
+      {menu.map((category: MenuCategory) => (
         <div key={category.id} className="mb-8 last:mb-0">
           <div className="flex items-center gap-3 mb-6">
             <Utensils className="w-7 h-7 text-primary" />
             <h3 className="text-2xl font-bold text-gray-900">{translate(category.name, language)}</h3>
-            {category.description && (
+            {'description' in category && (category as any).description && (
               <span className="text-sm text-gray-500 italic ml-2 hidden sm:block">
-                ({translate(category.description, language)})
+                ({translate((category as any).description, language)})
               </span>
             )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {category.items.length > 0 ? (
-              category.items.map(item => (
+              category.items.map((item: MenuItem) => (
                 <motion.div
                   key={item.id}
                   layout
@@ -375,12 +384,12 @@ function MenuContent({
                           <Star className="w-3 h-3" /> {translate(translations.popular, language)}
                         </span>
                       )}
-                      {item.chefRecommend && (
+                      {'chefRecommend' in item && item.chefRecommend && (
                         <span className="flex items-center gap-1 text-xs font-medium bg-green-100 text-green-800 px-2 py-1 rounded-full">
                           <ChefHat className="w-3 h-3" /> {translate(translations.chefRecommend, language)}
                         </span>
                       )}
-                      {item.sunsetSpecial && (
+                      {'sunsetSpecial' in item && item.sunsetSpecial && (
                         <span className="flex items-center gap-1 text-xs font-medium bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
                           <Star className="w-3 h-3" /> {translate(translations.sunsetSpecial, language)}
                         </span>

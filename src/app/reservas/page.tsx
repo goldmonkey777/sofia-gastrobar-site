@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Calendar, Clock, Users, Phone, Mail, Home, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 import { useUserData } from '@/hooks/useUserData'
+import { UserDataAutoFill } from '@/components/ui/UserDataAutoFill'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
 
@@ -170,16 +171,16 @@ export default function ReservasPage() {
             <h3 className="text-lg font-semibold text-white">
               {translate({ pt: 'Dados da Reserva', es: 'Datos de la Reserva', en: 'Reservation Details' }, language)}
             </h3>
-            <UserDataAutoFill
-              onFill={(data) => {
-                setFormData(prev => ({
-                  ...prev,
-                  name: data.name || prev.name,
-                  email: data.email || prev.email,
-                  phone: data.phone || prev.phone,
-                }))
-              }}
-            />
+                    <UserDataAutoFill
+                      onFill={(data: { name?: string; email?: string; phone?: string }) => {
+                        setFormData(prev => ({
+                          ...prev,
+                          name: data.name || prev.name,
+                          email: data.email || prev.email,
+                          phone: data.phone || prev.phone,
+                        }))
+                      }}
+                    />
           </div>
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             {/* Name */}

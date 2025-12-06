@@ -12,7 +12,10 @@ import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
 import type { MenuItem } from '@/lib/menuHelpers'
 
-interface CartItem extends MenuItem {
+interface CartItem {
+  id: string
+  name: { pt: string; es: string; en: string } | string
+  price: number
   quantity: number
   notes?: string
 }
@@ -87,19 +90,20 @@ export function TableOrderCart({ tableId, onOrderPlaced }: TableOrderCartProps) 
 
   const addToCart = (item: MenuItem) => {
     setCart(prev => {
-      const existing = prev.find(i => i.id === item.id)
+      const existing = prev.find((i: CartItem) => i.id === item.id)
       if (existing) {
-        return prev.map(i =>
+        return prev.map((i: CartItem) =>
           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
         )
       }
-      return [...prev, { ...item, quantity: 1 }]
+      const itemName = typeof item.name === 'string' ? item.name : item.name.en
+      return [...prev, { id: item.id, name: itemName, price: item.price, quantity: 1 }]
     })
     setIsOpen(true)
   }
 
   const removeFromCart = (itemId: string) => {
-    setCart(prev => prev.filter(i => i.id !== itemId))
+    setCart(prev => prev.filter((i: CartItem) => i.id !== itemId))
   }
 
   const updateQuantity = (itemId: string, quantity: number) => {
@@ -108,11 +112,11 @@ export function TableOrderCart({ tableId, onOrderPlaced }: TableOrderCartProps) 
       return
     }
     setCart(prev =>
-      prev.map(i => (i.id === itemId ? { ...i, quantity } : i))
+      prev.map((i: CartItem) => (i.id === itemId ? { ...i, quantity } : i))
     )
   }
 
-  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const subtotal = cart.reduce((sum: number, item: CartItem) => sum + item.price * item.quantity, 0)
   const total = subtotal
 
   const handlePlaceOrder = async () => {
@@ -128,9 +132,9 @@ export function TableOrderCart({ tableId, onOrderPlaced }: TableOrderCartProps) 
         },
         body: JSON.stringify({
           tableId,
-          items: cart.map(item => ({
+          items: cart.map((item: CartItem) => ({
             id: item.id,
-            name: translate(item.name, language),
+            name: typeof item.name === 'string' ? item.name : translate(item.name, language),
             price: item.price,
             quantity: item.quantity,
             notes: item.notes,
@@ -228,7 +232,7 @@ export function TableOrderCart({ tableId, onOrderPlaced }: TableOrderCartProps) 
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {cart.map(item => (
+                    {cart.map((item: CartItem) => (
                       <div
                         key={item.id}
                         className="bg-white/5 rounded-lg p-4 border border-white/10"
@@ -236,7 +240,7 @@ export function TableOrderCart({ tableId, onOrderPlaced }: TableOrderCartProps) 
                         <div className="flex items-start justify-between mb-2">
                           <div className="flex-1">
                             <h3 className="text-white font-semibold">
-                              {translate(item.name, language)}
+                              {typeof item.name === 'string' ? item.name : translate(item.name, language)}
                             </h3>
                             <p className="text-white/60 text-sm">
                               €{item.price.toFixed(2)} × {item.quantity} = €

@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { AddressInput } from '@/components/ui/AddressInput'
 import { UserDataAutoFill } from '@/components/ui/UserDataAutoFill'
 import { useUserData } from '@/hooks/useUserData'
-import { detectZone, getDistanceFromSofia, calculateDeliveryFee } from '@/lib/locationHelpers'
+import { detectZone } from '@/lib/locationHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
 

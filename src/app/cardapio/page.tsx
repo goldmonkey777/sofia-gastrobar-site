@@ -12,7 +12,7 @@ import Link from 'next/link'
 import { Home, Utensils, Clock, Star, ChefHat, Filter } from 'lucide-react'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
-import { getCurrentHour, getFilteredMenuByTime, type MenuItem } from '@/lib/menuHelpers'
+import { getCurrentHour, getFilteredMenuByTime, type MenuItem, type MenuCategory } from '@/lib/menuHelpers'
 
 const translations = {
   title: {
@@ -134,8 +134,8 @@ export default function CardapioPage() {
           >
             {translate(translations.filterAll, language)}
           </button>
-          {allCategories.map(catId => {
-            const category = menu.find(c => c.id === catId)
+          {allCategories.map((catId: string) => {
+            const category = menu.find((c: MenuCategory) => c.id === catId)
             if (!category) return null
             return (
               <button
@@ -155,7 +155,7 @@ export default function CardapioPage() {
 
         {/* Menu Categories */}
         <div className="space-y-16">
-          {filteredMenu.map(category => (
+          {filteredMenu.map((category: MenuCategory) => (
             <motion.div
               key={category.id}
               initial={{ opacity: 0, y: 20 }}
@@ -169,16 +169,16 @@ export default function CardapioPage() {
                   <h2 className="text-3xl font-bold text-white">
                     {translate(category.name, language)}
                   </h2>
-                  {category.description && (
+                  {'description' in category && (category as any).description && (
                     <p className="text-white/60 mt-1">
-                      {translate(category.description, language)}
+                      {translate((category as any).description, language)}
                     </p>
                   )}
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {category.items.map(item => (
+                {category.items.map((item: MenuItem) => (
                   <MenuItemCard key={item.id} item={item} language={language} />
                 ))}
               </div>
@@ -211,7 +211,7 @@ function MenuItemCard({ item, language }: { item: MenuItem; language: 'pt' | 'es
               {translate(translations.popular, language)}
             </span>
           )}
-          {item.chefRecommend && (
+          {'chefRecommend' in item && item.chefRecommend && (
             <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
               <ChefHat className="w-3 h-3" />
               {translate(translations.chefRecommend, language)}
