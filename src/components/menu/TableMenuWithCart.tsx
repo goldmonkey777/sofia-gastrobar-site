@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils'
 import { getCurrentHour, getFilteredMenuByTime, type MenuItem, type MenuCategory } from '@/lib/menuHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
-import { Star, Utensils, ChefHat, Info, ShoppingCart, Plus, Minus, Trash, CheckCircle, X } from 'lucide-react'
+import { Star, Utensils, ChefHat, Info, ShoppingCart, Plus, Minus, Trash, CheckCircle, X, Clock, ChefHat as ChefIcon, Bell } from 'lucide-react'
 
 // Context para compartilhar carrinho
 interface CartContextType {
@@ -78,6 +78,7 @@ function CartProvider({ children, tableId, onOrderPlaced }: { children: React.Re
   const [isPlacing, setIsPlacing] = useState(false)
   const [orderPlaced, setOrderPlaced] = useState(false)
   const [orderNotes, setOrderNotes] = useState('')
+  const [placedOrderData, setPlacedOrderData] = useState<{ id: string; items: CartItem[]; total: number } | null>(null)
 
   const addToCart = (item: MenuItem) => {
     setCart(prev => {
@@ -137,16 +138,17 @@ function CartProvider({ children, tableId, onOrderPlaced }: { children: React.Re
       }
 
       setOrderPlaced(true)
+      setPlacedOrderData({
+        id: data.order.id,
+        items: [...cart],
+        total: subtotal,
+      })
       clearCart()
       setIsPlacing(false)
 
       if (onOrderPlaced) {
         onOrderPlaced(data.order.id)
       }
-
-      setTimeout(() => {
-        setOrderPlaced(false)
-      }, 3000)
     } catch (error) {
       console.error('Error placing order:', error)
       setIsPlacing(false)
@@ -251,13 +253,17 @@ function CartProvider({ children, tableId, onOrderPlaced }: { children: React.Re
                 className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-yellow-500 resize-none text-sm"
               />
 
-              {orderPlaced ? (
-                <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-3 text-center">
-                  <CheckCircle className="w-6 h-6 text-green-500 mx-auto mb-2" />
-                  <p className="text-white font-semibold text-sm">
-                    {translate(translations.orderPlaced, language)}
-                  </p>
-                </div>
+              {orderPlaced && placedOrderData ? (
+                <OrderSuccessScreen
+                  orderId={placedOrderData.id}
+                  items={placedOrderData.items}
+                  total={placedOrderData.total}
+                  language={language}
+                  onClose={() => {
+                    setOrderPlaced(false)
+                    setPlacedOrderData(null)
+                  }}
+                />
               ) : (
                 <button
                   onClick={handlePlaceOrder}
@@ -274,6 +280,200 @@ function CartProvider({ children, tableId, onOrderPlaced }: { children: React.Re
         </div>
       )}
     </CartContext.Provider>
+  )
+}
+
+/**
+ * Tela de Sucesso do Pedido
+ */
+function OrderSuccessScreen({
+  orderId,
+  items,
+  total,
+  language,
+  onClose,
+}: {
+  orderId: string
+  items: CartItem[]
+  total: number
+  language: 'pt' | 'es' | 'en'
+  onClose: () => void
+}) {
+  const translations = {
+    title: {
+      pt: 'Pedido Confirmado!',
+      es: '¡Pedido Confirmado!',
+      en: 'Order Confirmed!',
+    },
+    subtitle: {
+      pt: 'Seu pedido foi enviado para a cozinha',
+      es: 'Tu pedido ha sido enviado a la cocina',
+      en: 'Your order has been sent to the kitchen',
+    },
+    orderNumber: {
+      pt: 'Pedido #',
+      es: 'Pedido #',
+      en: 'Order #',
+    },
+    estimatedTime: {
+      pt: 'Tempo estimado',
+      es: 'Tiempo estimado',
+      en: 'Estimated time',
+    },
+    minutes: {
+      pt: 'minutos',
+      es: 'minutos',
+      en: 'minutes',
+    },
+    items: {
+      pt: 'Itens do pedido',
+      es: 'Ítems del pedido',
+      en: 'Order items',
+    },
+    total: {
+      pt: 'Total',
+      es: 'Total',
+      en: 'Total',
+    },
+    status: {
+      pt: 'Status',
+      es: 'Estado',
+      en: 'Status',
+    },
+    preparing: {
+      pt: 'Preparando',
+      es: 'Preparando',
+      en: 'Preparing',
+    },
+    continueShopping: {
+      pt: 'Fazer Outro Pedido',
+      es: 'Hacer Otro Pedido',
+      en: 'Place Another Order',
+    },
+    callWaiter: {
+      pt: 'Chamar Garçom',
+      es: 'Llamar Camarero',
+      en: 'Call Waiter',
+    },
+  }
+
+  // Calcular tempo estimado baseado no número de itens (15-20 min por item)
+  const estimatedMinutes = Math.max(15, items.reduce((sum, item) => sum + item.quantity, 0) * 5)
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+    >
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.1 }}
+        className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/20 rounded-2xl p-8 max-w-md w-full shadow-2xl"
+      >
+        {/* Success Icon */}
+        <div className="text-center mb-6">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: 'spring', delay: 0.2 }}
+            className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <CheckCircle className="w-12 h-12 text-green-500" />
+          </motion.div>
+          
+          <h2 className="text-3xl font-bold text-white mb-2">
+            {translate(translations.title, language)}
+          </h2>
+          <p className="text-white/70 text-sm">
+            {translate(translations.subtitle, language)}
+          </p>
+        </div>
+
+        {/* Order Details */}
+        <div className="space-y-4 mb-6">
+          {/* Order Number */}
+          <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-white/60 text-sm">
+                {translate(translations.orderNumber, language)}
+              </span>
+              <span className="text-yellow-400 font-bold text-lg">
+                {orderId.slice(-6).toUpperCase()}
+              </span>
+            </div>
+            
+            {/* Estimated Time */}
+            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-white/10">
+              <Clock className="w-4 h-4 text-yellow-400" />
+              <span className="text-white/80 text-sm">
+                {translate(translations.estimatedTime, language)}: <span className="text-yellow-400 font-semibold">{estimatedMinutes} {translate(translations.minutes, language)}</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Order Items */}
+          <div className="bg-white/5 rounded-lg p-4 border border-white/10">
+            <h3 className="text-white font-semibold mb-3 text-sm">
+              {translate(translations.items, language)} ({items.reduce((sum, item) => sum + item.quantity, 0)})
+            </h3>
+            <div className="space-y-2 max-h-40 overflow-y-auto">
+              {items.map((item) => (
+                <div key={item.id} className="flex items-center justify-between text-sm">
+                  <span className="text-white/80">
+                    {typeof item.name === 'string' ? item.name : translate(item.name, language)} × {item.quantity}
+                  </span>
+                  <span className="text-yellow-400 font-semibold">
+                    €{(item.price * item.quantity).toFixed(2)}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+              <span className="text-white font-bold">
+                {translate(translations.total, language)}:
+              </span>
+              <span className="text-yellow-400 font-bold text-lg">
+                €{total.toFixed(2)}
+              </span>
+            </div>
+          </div>
+
+          {/* Status */}
+          <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
+            <div className="flex items-center gap-3">
+              <ChefIcon className="w-5 h-5 text-yellow-400 animate-pulse" />
+              <div>
+                <p className="text-white/60 text-xs mb-1">
+                  {translate(translations.status, language)}
+                </p>
+                <p className="text-yellow-400 font-semibold">
+                  {translate(translations.preparing, language)}...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="space-y-3">
+          <button
+            onClick={onClose}
+            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-3 rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all"
+          >
+            {translate(translations.continueShopping, language)}
+          </button>
+          <button
+            onClick={onClose}
+            className="w-full bg-white/10 border border-white/20 text-white font-semibold py-3 rounded-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2"
+          >
+            <Bell className="w-4 h-4" />
+            {translate(translations.callWaiter, language)}
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
   )
 }
 
