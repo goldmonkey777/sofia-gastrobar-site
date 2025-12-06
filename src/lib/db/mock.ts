@@ -59,6 +59,31 @@ export async function getReservation(id: string): Promise<Reservation | null> {
   return reservations.get(id) || null
 }
 
+export function getReservationById(id: string): Reservation | null {
+  return reservations.get(id) || null
+}
+
+export async function updateReservationPayment(
+  id: string,
+  paymentStatus: 'pending' | 'paid' | 'failed' | 'expired' | 'cancelled',
+  prepaidAmount: number,
+  paymentLinkId?: string
+): Promise<Reservation | null> {
+  const reservation = reservations.get(id)
+  if (!reservation) return null
+  
+  reservation.paymentStatus = paymentStatus
+  reservation.prepaidAmount = prepaidAmount
+  if (paymentLinkId) reservation.paymentLinkId = paymentLinkId
+  if (paymentStatus === 'paid') {
+    reservation.paidAt = now()
+    reservation.status = 'confirmed'
+  }
+  reservation.updatedAt = now()
+  reservations.set(id, reservation)
+  return reservation
+}
+
 export async function getReservationsByDate(date: string): Promise<Reservation[]> {
   return Array.from(reservations.values()).filter(r => r.date === date)
 }

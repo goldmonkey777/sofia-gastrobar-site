@@ -21,6 +21,10 @@ export interface Reservation {
   area?: 'interior' | 'terraco' | 'sunset-front'
   specialRequests?: string
   status: 'pending' | 'confirmed' | 'cancelled' | 'completed'
+  prepaidAmount?: number // Valor pago antecipadamente (6€ * pessoas)
+  paymentLinkId?: string // ID do link SumUp
+  paymentStatus?: 'pending' | 'paid' | 'failed' | 'expired' | 'cancelled'
+  paidAt?: string // ISO timestamp
   createdAt: string // ISO timestamp
   updatedAt: string // ISO timestamp
 }

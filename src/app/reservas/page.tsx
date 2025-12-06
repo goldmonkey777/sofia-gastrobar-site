@@ -8,6 +8,7 @@ import { useUserData } from '@/hooks/useUserData'
 import { UserDataAutoFill } from '@/components/ui/UserDataAutoFill'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
+import { PaymentCheckout } from '@/components/payment/PaymentCheckout'
 
 export default function ReservasPage() {
   const { language, isReady } = useLanguage()
@@ -23,6 +24,10 @@ export default function ReservasPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [showPayment, setShowPayment] = useState(false)
+  const [reservationId, setReservationId] = useState<string | null>(null)
+  const [paymentLinkId, setPaymentLinkId] = useState<string | null>(null)
+  const [prepaidAmount, setPrepaidAmount] = useState(0)
 
   // Preencher dados do usuário automaticamente
   useEffect(() => {
@@ -56,6 +61,7 @@ export default function ReservasPage() {
     setIsSubmitting(true)
 
     try {
+      // 1. Criar reserva
       const response = await fetch('/api/reservas', {
         method: 'POST',
         headers: {
@@ -78,22 +84,37 @@ export default function ReservasPage() {
         throw new Error(data.error || 'Erro ao criar reserva')
       }
 
-      setIsSubmitting(false)
-      setIsSuccess(true)
+      // 2. Calcular valor do pagamento (6€ por pessoa)
+      const numberOfPeople = parseInt(formData.guests, 10)
+      const amount = numberOfPeople * 6
 
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setIsSuccess(false)
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          date: '',
-          time: '',
-          guests: '2',
-          specialRequests: '',
-        })
-      }, 3000)
+      // 3. Criar link de pagamento SumUp
+      const paymentResponse = await fetch('/api/sumup/payment-link', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'reservation',
+          reservationId: data.id,
+          numberOfPeople,
+          date: formData.date,
+          time: formData.time,
+        }),
+      })
+
+      const paymentData = await paymentResponse.json()
+
+      if (!paymentResponse.ok) {
+        throw new Error(paymentData.error || 'Erro ao criar link de pagamento')
+      }
+
+      // 4. Mostrar tela de pagamento
+      setReservationId(data.id)
+      setPaymentLinkId(paymentData.paymentLink.id)
+      setPrepaidAmount(amount)
+      setShowPayment(true)
+      setIsSubmitting(false)
     } catch (error) {
       console.error('Error creating reservation:', error)
       setIsSubmitting(false)
@@ -141,9 +162,37 @@ export default function ReservasPage() {
           </p>
         </motion.div>
 
+        {/* Payment Checkout */}
+        <AnimatePresence>
+          {showPayment && paymentLinkId && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="mb-8"
+            >
+              <PaymentCheckout
+                amount={prepaidAmount}
+                description={`Reserva Sofia Gastrobar – ${formData.date} ${formData.time} – ${formData.guests} pessoa${parseInt(formData.guests) > 1 ? 's' : ''}`}
+                paymentLinkId={paymentLinkId}
+                onSuccess={() => {
+                  setShowPayment(false)
+                  setIsSuccess(true)
+                  setTimeout(() => {
+                    window.location.href = `/reservas/confirmacao?reservation_id=${reservationId}&status=paid`
+                  }, 2000)
+                }}
+                onError={(error) => {
+                  alert(error)
+                }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {/* Success Message */}
         <AnimatePresence>
-          {isSuccess && (
+          {isSuccess && !showPayment && (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -298,17 +347,34 @@ export default function ReservasPage() {
             />
           </div>
 
+          {/* Info sobre pagamento */}
+          {!showPayment && (
+            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
+              <p className="text-yellow-400 text-sm font-medium mb-2">
+                💳 Reserva Paga - 6€ por pessoa
+              </p>
+              <p className="text-white/70 text-xs">
+                Para confirmar sua reserva, cobramos 6€ por pessoa. Este valor será totalmente descontado da sua conta no momento do consumo.
+              </p>
+              <p className="text-white/60 text-xs mt-2">
+                Valor estimado: <span className="font-bold text-yellow-400">€{parseInt(formData.guests || '2') * 6}</span>
+              </p>
+            </div>
+          )}
+
           {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isSubmitting || isSuccess}
-            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-yellow-500/20"
-          >
-            {isSubmitting ? 'Enviando...' : isSuccess ? 'Reserva Confirmada!' : 'Confirmar Reserva'}
-          </button>
+          {!showPayment && (
+            <button
+              type="submit"
+              disabled={isSubmitting || isSuccess}
+              className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-yellow-500/20"
+            >
+              {isSubmitting ? 'Criando Reserva...' : `Confirmar e Pagar €${parseInt(formData.guests || '2') * 6} Agora`}
+            </button>
+          )}
 
           <p className="text-white/50 text-sm text-center mt-4">
-            * Campos obrigatórios. Confirmaremos sua reserva por e-mail e WhatsApp.
+            * Campos obrigatórios. A reserva só será confirmada após o pagamento.
           </p>
         </motion.form>
 
