@@ -182,9 +182,11 @@ export default function DeliveryPage() {
             className="mb-8 bg-green-500/20 border border-green-500/50 rounded-2xl p-6 text-center"
           >
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-2">Pedido Confirmado!</h3>
+            <h3 className="text-2xl font-bold text-white mb-2">
+              {translate({ pt: 'Pedido Confirmado!', es: '¡Pedido Confirmado!', en: 'Order Confirmed!' }, language)}
+            </h3>
             <p className="text-white/80">
-              Enviaremos o link de pagamento por WhatsApp em breve.
+              {translate({ pt: 'Enviaremos o link de pagamento por WhatsApp em breve.', es: 'Enviaremos el enlace de pago por WhatsApp pronto.', en: 'We will send the payment link via WhatsApp shortly.' }, language)}
             </p>
           </motion.div>
         )}
@@ -201,8 +203,15 @@ export default function DeliveryPage() {
               >
                 <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                   <MapPin className="w-6 h-6 text-yellow-500" />
-                  Selecione sua Zona
+                  {translate({ pt: 'Selecione sua Zona', es: 'Selecciona tu Zona', en: 'Select your Zone' }, language)}
                 </h2>
+                {location && (
+                  <div className="mb-4 p-4 bg-green-500/20 border border-green-500/50 rounded-lg">
+                    <p className="text-green-400 text-sm">
+                      {translate({ pt: 'Zona detectada automaticamente:', es: 'Zona detectada automáticamente:', en: 'Zone detected automatically:' }, language)} {zones.find(z => z.id === formData.zone)?.name}
+                    </p>
+                  </div>
+                )}
                 <div className="space-y-3">
                   {zones.map(zone => (
                     <button
@@ -211,7 +220,11 @@ export default function DeliveryPage() {
                         setFormData(prev => ({ ...prev, zone: zone.id }))
                         setStep('order')
                       }}
-                      className="w-full text-left p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-yellow-500/50 rounded-xl transition-all"
+                      className={`w-full text-left p-4 bg-white/5 hover:bg-white/10 border rounded-xl transition-all ${
+                        formData.zone === zone.id
+                          ? 'border-yellow-500 bg-yellow-500/10'
+                          : 'border-white/10 hover:border-yellow-500/50'
+                      }`}
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-white font-medium">{zone.name}</span>
@@ -255,7 +268,7 @@ export default function DeliveryPage() {
                         onClick={() => addToCart(item)}
                         className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors"
                       >
-                        Adicionar
+                        {translate({ pt: 'Adicionar', es: 'Añadir', en: 'Add' }, language)}
                       </button>
                     </div>
                   ))}
@@ -373,7 +386,11 @@ export default function DeliveryPage() {
                   disabled={isSubmitting || isSuccess}
                   className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Processando...' : isSuccess ? 'Pedido Confirmado!' : `Confirmar Pedido - €${total.toFixed(2)}`}
+                  {isSubmitting
+                    ? translate({ pt: 'Processando...', es: 'Procesando...', en: 'Processing...' }, language)
+                    : isSuccess
+                      ? translate({ pt: 'Pedido Confirmado!', es: '¡Pedido Confirmado!', en: 'Order Confirmed!' }, language)
+                      : `${translate({ pt: 'Confirmar Pedido', es: 'Confirmar Pedido', en: 'Confirm Order' }, language)} - €${total.toFixed(2)}`}
                 </button>
               </motion.form>
             )}
@@ -388,10 +405,12 @@ export default function DeliveryPage() {
             >
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <ShoppingCart className="w-5 h-5" />
-                Seu Pedido
+                {translate({ pt: 'Seu Pedido', es: 'Tu Pedido', en: 'Your Order' }, language)}
               </h3>
               {cart.length === 0 ? (
-                <p className="text-white/60 text-sm">Carrinho vazio</p>
+                <p className="text-white/60 text-sm">
+                  {translate({ pt: 'Carrinho vazio', es: 'Carrito vacío', en: 'Empty cart' }, language)}
+                </p>
               ) : (
                 <>
                   <div className="space-y-3 mb-4">
