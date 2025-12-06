@@ -8,7 +8,7 @@
 import { useEffect } from 'react'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
-import { generateDynamicContent } from '../lib/content-generator'
+import { generateDynamicContent, generateSEOText } from '../lib/content-generator'
 import { generateStructuredData, generateBreadcrumbs } from '../lib/seo'
 import Link from 'next/link'
 import { MapPin, Clock, Phone, Mail } from 'lucide-react'
@@ -148,7 +148,7 @@ export function SEOLandingPage({
           </h2>
           
           <p className="text-lg text-white/80 mb-6">
-            {generateSEOText(keywords[0], language, dynamicContent)}
+            {generateSEOText(keywords[0] || 'restaurante ibiza', language, dynamicContent)}
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 my-12">
@@ -205,17 +205,4 @@ export function SEOLandingPage({
   )
 }
 
-function generateSEOText(
-  keyword: string,
-  language: 'pt' | 'es' | 'en',
-  dynamicContent?: any
-): string {
-  const baseTexts = {
-    pt: `Encontre ${keyword} em Ibiza no Sofia Gastrobar. ${dynamicContent?.special || 'A melhor experiência gastronômica da ilha.'} Reserve agora e desfrute de pratos autênticos, ambiente único e atendimento excepcional.`,
-    es: `Encuentra ${keyword} en Ibiza en Sofia Gastrobar. ${dynamicContent?.special || 'La mejor experiencia gastronómica de la isla.'} Reserva ahora y disfruta de platos auténticos, ambiente único y atención excepcional.`,
-    en: `Find ${keyword} in Ibiza at Sofia Gastrobar. ${dynamicContent?.special || 'The best gastronomic experience on the island.'} Book now and enjoy authentic dishes, unique atmosphere and exceptional service.`,
-  }
-
-  return baseTexts[language]
-}
 
