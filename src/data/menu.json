@@ -1,0 +1,166 @@
+{
+  "categories": [
+    {
+      "id": "breakfast",
+      "name": {
+        "pt": "Café da Manhã",
+        "es": "Desayuno",
+        "en": "Breakfast"
+      },
+      "timeRange": {
+        "start": 8,
+        "end": 12
+      },
+      "items": [
+        {
+          "id": "breakfast-1",
+          "name": {
+            "pt": "Desayuno Completo",
+            "es": "Desayuno Completo",
+            "en": "Full Breakfast"
+          },
+          "price": 12.00,
+          "description": {
+            "pt": "Huevos, bacon, tostadas, zumo y café",
+            "es": "Huevos, bacon, tostadas, zumo y café",
+            "en": "Eggs, bacon, toast, juice and coffee"
+          },
+          "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400",
+          "allergens": ["gluten", "eggs", "dairy"],
+          "popular": true
+        }
+      ]
+    },
+    {
+      "id": "tapas",
+      "name": {
+        "pt": "Tapas & Entradas",
+        "es": "Tapas & Entradas",
+        "en": "Tapas & Starters"
+      },
+      "timeRange": {
+        "start": 12,
+        "end": 24
+      },
+      "items": [
+        {
+          "id": "tapas-1",
+          "name": {
+            "pt": "Nachos del Crimen Perfecto",
+            "es": "Nachos del Crimen Perfecto",
+            "en": "Perfect Crime Nachos"
+          },
+          "price": 16.00,
+          "description": {
+            "pt": "Frango, bacon e cheddar fundido",
+            "es": "Pollo, bacon y cheddar fundido",
+            "en": "Chicken, bacon and melted cheddar"
+          },
+          "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=400",
+          "allergens": ["gluten", "dairy"],
+          "popular": true,
+          "chefRecommend": true
+        },
+        {
+          "id": "tapas-2",
+          "name": {
+            "pt": "Coração Crocante do Brasil",
+            "es": "Corazón Crujiente de Brasil",
+            "en": "Crispy Heart of Brazil"
+          },
+          "price": 7.00,
+          "description": {
+            "pt": "Coxinhas douradas de frango",
+            "es": "Croquetas doradas de pollo",
+            "en": "Golden chicken croquettes"
+          },
+          "image": "https://images.unsplash.com/photo-1626087921236-3bf3b8b1b3a1?w=400",
+          "allergens": ["gluten", "eggs"],
+          "popular": true
+        },
+        {
+          "id": "tapas-3",
+          "name": {
+            "pt": "Bravas Ibicencas",
+            "es": "Bravas Ibicencas",
+            "en": "Ibiza Bravas"
+          },
+          "price": 9.00,
+          "description": {
+            "pt": "Patatas caseras con salsa picante",
+            "es": "Patatas caseras con salsa picante",
+            "en": "Homemade potatoes with spicy sauce"
+          },
+          "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400",
+          "allergens": [],
+          "popular": false
+        }
+      ]
+    },
+    {
+      "id": "burgers",
+      "name": {
+        "pt": "Gastroburgers",
+        "es": "Gastroburgers",
+        "en": "Gastroburgers"
+      },
+      "timeRange": {
+        "start": 12,
+        "end": 24
+      },
+      "items": [
+        {
+          "id": "burger-1",
+          "name": {
+            "pt": "Signature Burger Sofia",
+            "es": "Signature Burger Sofia",
+            "en": "Signature Burger Sofia"
+          },
+          "price": 18.00,
+          "description": {
+            "pt": "Carne premium, queijo, bacon, alface, tomate",
+            "es": "Carne premium, queso, bacon, lechuga, tomate",
+            "en": "Premium beef, cheese, bacon, lettuce, tomato"
+          },
+          "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=400",
+          "allergens": ["gluten", "dairy", "eggs"],
+          "popular": true,
+          "chefRecommend": true
+        }
+      ]
+    },
+    {
+      "id": "cocktails",
+      "name": {
+        "pt": "Cocktails",
+        "es": "Cócteles",
+        "en": "Cocktails"
+      },
+      "timeRange": {
+        "start": 0,
+        "end": 24
+      },
+      "items": [
+        {
+          "id": "cocktail-1",
+          "name": {
+            "pt": "Sangria Sofia",
+            "es": "Sangría Sofia",
+            "en": "Sofia Sangria"
+          },
+          "price": 22.00,
+          "description": {
+            "pt": "Sangria especial da casa (1L)",
+            "es": "Sangría especial de la casa (1L)",
+            "en": "House special sangria (1L)"
+          },
+          "image": "https://images.unsplash.com/photo-1514362545857-3bc16549766b?w=400",
+          "allergens": [],
+          "popular": true,
+          "sunsetSpecial": true
+        }
+      ]
+    }
+  ]
+}
+
