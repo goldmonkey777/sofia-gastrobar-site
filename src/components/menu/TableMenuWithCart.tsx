@@ -165,13 +165,13 @@ function CartProvider({ children, tableId, onOrderPlaced }: { children: React.Re
     <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}>
       {children}
       
-      {/* Floating Cart Button - Compacto */}
+      {/* Floating Cart Button - Compacto - Acima do botão Actions */}
       {cartItemCount > 0 && (
         <motion.button
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           onClick={() => setIsCartOpen(!isCartOpen)}
-          className="fixed bottom-20 right-4 z-40 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black rounded-full p-3 shadow-xl hover:from-yellow-400 hover:to-yellow-500 transition-all active:scale-95"
+          className="fixed bottom-20 right-4 z-[55] bg-gradient-to-r from-yellow-500 to-yellow-600 text-black rounded-full p-3 shadow-xl hover:from-yellow-400 hover:to-yellow-500 transition-all active:scale-95"
         >
           <ShoppingCart className="w-5 h-5" />
           <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
@@ -190,17 +190,17 @@ function CartProvider({ children, tableId, onOrderPlaced }: { children: React.Re
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsCartOpen(false)}
-              className="fixed inset-0 bg-black/60 z-[45]"
+              className="fixed inset-0 bg-black/60 z-[55]"
             />
 
-            {/* Drawer */}
+            {/* Drawer - Acima do botão Actions */}
             <motion.div
               initial={{ y: '100%' }}
               animate={{ y: 0 }}
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed bottom-0 left-0 right-0 bg-black border-t-2 border-yellow-500/50 z-50 rounded-t-2xl shadow-2xl flex flex-col"
-              style={{ maxHeight: 'calc(100vh - 80px)' }}
+              className="fixed bottom-16 left-0 right-0 bg-black border-t-2 border-yellow-500/50 z-[60] rounded-t-2xl shadow-2xl flex flex-col"
+              style={{ maxHeight: 'calc(100vh - 140px)' }}
             >
               {/* Header Compacto */}
               <div className="flex items-center justify-between p-2.5 border-b border-white/10 flex-shrink-0">
