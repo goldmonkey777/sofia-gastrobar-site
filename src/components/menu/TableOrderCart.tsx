@@ -22,6 +22,7 @@ interface CartItem {
 
 interface TableOrderCartProps {
   tableId: string
+  menuItems: MenuItem[]
   onOrderPlaced?: (orderId: string) => void
 }
 
@@ -78,7 +79,7 @@ const translations = {
   },
 }
 
-export function TableOrderCart({ tableId, onOrderPlaced }: TableOrderCartProps) {
+export function TableOrderCart({ tableId, menuItems, onOrderPlaced }: TableOrderCartProps) {
   const { language, isReady } = useLanguage()
   const [cart, setCart] = useState<CartItem[]>([])
   const [isOpen, setIsOpen] = useState(false)
@@ -118,6 +119,8 @@ export function TableOrderCart({ tableId, onOrderPlaced }: TableOrderCartProps) 
 
   const subtotal = cart.reduce((sum: number, item: CartItem) => sum + item.price * item.quantity, 0)
   const total = subtotal
+
+  const findMenuItem = (id: string) => menuItems.find(item => item.id === id)
 
   const handlePlaceOrder = async () => {
     if (cart.length === 0) return
@@ -232,47 +235,50 @@ export function TableOrderCart({ tableId, onOrderPlaced }: TableOrderCartProps) 
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {cart.map((item: CartItem) => (
-                      <div
-                        key={item.id}
-                        className="bg-white/5 rounded-lg p-4 border border-white/10"
-                      >
-                        <div className="flex items-start justify-between mb-2">
-                          <div className="flex-1">
-                            <h3 className="text-white font-semibold">
-                              {typeof item.name === 'string' ? item.name : translate(item.name, language)}
-                            </h3>
-                            <p className="text-white/60 text-sm">
-                              €{item.price.toFixed(2)} × {item.quantity} = €
-                              {(item.price * item.quantity).toFixed(2)}
-                            </p>
+                    {cart.map((item: CartItem) => {
+                      const fullMenuItem = findMenuItem(item.id)
+                      return (
+                        <div
+                          key={item.id}
+                          className="bg-white/5 rounded-lg p-4 border border-white/10"
+                        >
+                          <div className="flex items-start justify-between mb-2">
+                            <div className="flex-1">
+                              <h3 className="text-white font-semibold">
+                                {typeof item.name === 'string' ? item.name : translate(item.name, language)}
+                              </h3>
+                              <p className="text-white/60 text-sm">
+                                €{item.price.toFixed(2)} × {item.quantity} = €
+                                {(item.price * item.quantity).toFixed(2)}
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => removeFromCart(item.id)}
+                              className="text-red-500 hover:text-red-400"
+                            >
+                              <Trash className="w-5 h-5" />
+                            </button>
                           </div>
-                          <button
-                            onClick={() => removeFromCart(item.id)}
-                            className="text-red-500 hover:text-red-400"
-                          >
-                            <Trash className="w-5 h-5" />
-                          </button>
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                              className="bg-white/10 text-white rounded p-1"
+                            >
+                              <Minus className="w-4 h-4" />
+                            </button>
+                            <span className="text-white font-semibold w-8 text-center">
+                              {item.quantity}
+                            </span>
+                            <button
+                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                              className="bg-white/10 text-white rounded p-1"
+                            >
+                              <Plus className="w-4 h-4" />
+                            </button>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="bg-white/10 text-white rounded p-1"
-                          >
-                            <Minus className="w-4 h-4" />
-                          </button>
-                          <span className="text-white font-semibold w-8 text-center">
-                            {item.quantity}
-                          </span>
-                          <button
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="bg-white/10 text-white rounded p-1"
-                          >
-                            <Plus className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
+                      )
+                    })}
                   </div>
                 )}
               </div>
