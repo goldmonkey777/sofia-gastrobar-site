@@ -30,12 +30,10 @@ function MesaPage({ params }: { params: { id: string } }) {
 
 ## Files
 
-- ✅ `hooks/useTableSession.ts` - React hook para gerenciar sessão da mesa
-- ✅ `hooks/useCallWaiter.ts` - Hook específico para chamar garçom
-- ✅ `utils/tableHelpers.ts` - Funções auxiliares
-- ✅ `types.ts` - TypeScript types
-- ✅ `components/TableQRCode.tsx` - Componente para exibir QR code
-- ✅ `index.ts` - Exports do módulo
+- `hooks/useTableSession.ts` - React hook para gerenciar sessão da mesa
+- `hooks/useCallWaiter.ts` - Hook específico para chamar garçom
+- `utils/tableHelpers.ts` - Funções auxiliares
+- `types.ts` - TypeScript types
 
 ## API Routes Required
 

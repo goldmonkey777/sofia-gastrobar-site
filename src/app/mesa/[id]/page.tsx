@@ -2,18 +2,38 @@
 
 import { useParams } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { Bell, FileText, XCircle, Home, Menu, Gamepad2, Music } from 'lucide-react'
+import { Bell, FileText, Home, Menu, Gamepad2, Music, Clock } from 'lucide-react'
 import Link from 'next/link'
-import { useState } from 'react'
-import { getTableById } from '@/lib/tables'
+import { useTableSession } from '@/modules/qr-table-system/hooks/useTableSession'
+import { useCallWaiter } from '@/modules/qr-table-system/hooks/useCallWaiter'
+import { formatTableNumber } from '@/modules/qr-table-system/utils/tableHelpers'
+import { TableQRCode } from '@/modules/qr-table-system/components/TableQRCode'
 
 export default function MesaPage() {
   const params = useParams()
   const tableId = params.id as string
-  const [callStatus, setCallStatus] = useState<'idle' | 'calling' | 'success' | 'error'>('idle')
-  const [billStatus, setBillStatus] = useState<'idle' | 'requesting' | 'success' | 'error'>('idle')
 
-  const table = getTableById(tableId)
+  // Usar hooks modulares
+  const {
+    table,
+    isActive,
+    sessionDurationFormatted,
+  } = useTableSession({ tableId, autoStart: true })
+
+  const {
+    callStatus,
+    billStatus,
+    callWaiter,
+    requestBill,
+  } = useCallWaiter({
+    tableId,
+    onSuccess: (response) => {
+      console.log('Success:', response)
+    },
+    onError: (error) => {
+      console.error('Error:', error)
+    },
+  })
 
   if (!table) {
     return (
@@ -26,52 +46,6 @@ export default function MesaPage() {
         </div>
       </div>
     )
-  }
-
-  const handleCallWaiter = async () => {
-    setCallStatus('calling')
-
-    try {
-      const response = await fetch('/api/garcom', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tableId, action: 'call' }),
-      })
-
-      if (response.ok) {
-        setCallStatus('success')
-        setTimeout(() => setCallStatus('idle'), 3000)
-      } else {
-        setCallStatus('error')
-        setTimeout(() => setCallStatus('idle'), 3000)
-      }
-    } catch (error) {
-      setCallStatus('error')
-      setTimeout(() => setCallStatus('idle'), 3000)
-    }
-  }
-
-  const handleRequestBill = async () => {
-    setBillStatus('requesting')
-
-    try {
-      const response = await fetch('/api/garcom', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tableId, action: 'bill' }),
-      })
-
-      if (response.ok) {
-        setBillStatus('success')
-        setTimeout(() => setBillStatus('idle'), 3000)
-      } else {
-        setBillStatus('error')
-        setTimeout(() => setBillStatus('idle'), 3000)
-      }
-    } catch (error) {
-      setBillStatus('error')
-      setTimeout(() => setBillStatus('idle'), 3000)
-    }
   }
 
   return (
@@ -89,8 +63,14 @@ export default function MesaPage() {
               <span className="font-semibold">Sofia</span>
             </Link>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">Mesa {table.number}</div>
+              <div className="text-2xl font-bold text-primary">{formatTableNumber(table)}</div>
               <div className="text-sm text-gray-600">{table.location}</div>
+              {isActive && (
+                <div className="text-xs text-gray-500 mt-1 flex items-center justify-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  {sessionDurationFormatted}
+                </div>
+              )}
             </div>
             <div className="text-sm text-gray-500">{table.capacity} pessoas</div>
           </div>
@@ -121,7 +101,7 @@ export default function MesaPage() {
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            onClick={handleCallWaiter}
+            onClick={callWaiter}
             disabled={callStatus === 'calling'}
             className={`
               bg-gradient-to-r from-primary to-primary/80 text-white
@@ -153,8 +133,8 @@ export default function MesaPage() {
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
-            onClick={handleRequestBill}
-            disabled={billStatus === 'requesting'}
+            onClick={requestBill}
+            disabled={billStatus === 'calling'}
             className={`
               bg-gradient-to-r from-accent to-accent/80 text-white
               rounded-xl p-6 shadow-lg
@@ -165,10 +145,10 @@ export default function MesaPage() {
               ${billStatus === 'error' ? 'bg-red-500' : ''}
             `}
           >
-            <FileText className={`w-8 h-8 ${billStatus === 'requesting' ? 'animate-pulse' : ''}`} />
+            <FileText className={`w-8 h-8 ${billStatus === 'calling' ? 'animate-pulse' : ''}`} />
             <div className="text-left flex-1">
               <div className="text-xl font-bold">
-                {billStatus === 'requesting' && 'Solicitando...'}
+                {billStatus === 'calling' && 'Solicitando...'}
                 {billStatus === 'success' && 'Conta solicitada!'}
                 {billStatus === 'error' && 'Erro. Tente novamente'}
                 {billStatus === 'idle' && 'Pedir a Conta'}
@@ -244,16 +224,21 @@ export default function MesaPage() {
           </motion.div>
         </div>
 
-        {/* Info */}
+        {/* QR Code Section */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-8 text-center text-gray-600 text-sm"
+          className="mt-8 bg-white rounded-2xl shadow-lg p-6"
         >
-          <p>Escaneie o QR code da sua mesa a qualquer momento</p>
-          <p className="mt-2 text-xs text-gray-500">
-            Mesa {table.number} • {table.location} • {table.capacity} pessoas
+          <h3 className="text-lg font-bold text-gray-900 mb-4 text-center">
+            QR Code da Mesa
+          </h3>
+          <div className="flex justify-center">
+            <TableQRCode tableId={tableId} size={180} showLabel={true} />
+          </div>
+          <p className="mt-4 text-center text-xs text-gray-500">
+            {formatTableNumber(table)} • {table.location} • {table.capacity} pessoas
           </p>
         </motion.div>
       </div>
