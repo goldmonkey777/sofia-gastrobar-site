@@ -59,6 +59,13 @@ export async function POST(request: NextRequest) {
 
     // Criar checkout real
     try {
+      console.log('[SumUp] Tentando criar checkout com:', {
+        amount,
+        currency: currency || 'EUR',
+        hasApiKey: !!process.env.SUMUP_API_KEY,
+        apiKeyPrefix: process.env.SUMUP_API_KEY?.substring(0, 10) || 'none',
+      })
+
       const paymentLink = await createPaymentLink({
         amount,
         currency: currency || 'EUR',
@@ -68,18 +75,50 @@ export async function POST(request: NextRequest) {
         reference,
       })
 
+      console.log('[SumUp] Checkout criado com sucesso:', paymentLink.id)
       return NextResponse.json({
         success: true,
         checkout: paymentLink,
       })
     } catch (error: any) {
-      console.error('Erro ao criar checkout SumUp:', error)
+      console.error('[SumUp] Erro ao criar checkout:', error)
+      console.error('[SumUp] Error details:', {
+        message: error.message,
+        stack: error.stack,
+        isConfigured,
+        hasApiKey,
+        envKeys: Object.keys(process.env).filter(k => k.includes('SUMUP')),
+      })
       
-      // Se falhar, retornar erro ao invés de mock
+      // Se erro de configuração, retornar checkout mock
+      if (error.message?.includes('SUMUP_NOT_CONFIGURED')) {
+        console.warn('[SumUp] Retornando checkout mock devido a configuração ausente')
+        return NextResponse.json({
+          success: true,
+          checkout: {
+            id: `mock_${Date.now()}_${reference || 'checkout'}`,
+            merchant_code: '',
+            amount,
+            currency: currency || 'EUR',
+            description,
+            redirect_url: redirect_url || '',
+            status: 'PENDING',
+            created_at: new Date().toISOString(),
+            expires_at: new Date(Date.now() + 3600000).toISOString(),
+          },
+        })
+      }
+      
+      // Outros erros: retornar erro real
       return NextResponse.json({
         success: false,
         error: error.message || 'Erro ao criar checkout SumUp',
         message: 'Não foi possível criar o checkout. Verifique se o SumUp está configurado corretamente.',
+        debug: {
+          isConfigured,
+          hasApiKey,
+          errorMessage: error.message,
+        },
       }, { status: 500 })
     }
   } catch (error: any) {

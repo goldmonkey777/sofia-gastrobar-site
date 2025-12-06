@@ -145,50 +145,70 @@ export async function createPaymentLink(
     }
   }
 
-  // Fallback: usar API direta (método anterior)
-  const accessToken = await getAccessToken()
-  const merchantCode = process.env.SUMUP_MERCHANT_CODE || ''
+  // Se não tem API_KEY, tentar OAuth apenas se tiver credenciais
+  const hasOAuthCredentials = process.env.SUMUP_CLIENT_ID && process.env.SUMUP_CLIENT_SECRET
+  
+  if (hasOAuthCredentials) {
+    try {
+      const accessToken = await getAccessToken()
+      const merchantCode = process.env.SUMUP_MERCHANT_CODE || ''
 
-  // Calcular data de expiração
-  const expiresAt = new Date()
-  expiresAt.setSeconds(expiresAt.getSeconds() + expiresIn)
+      // Calcular data de expiração
+      const expiresAt = new Date()
+      expiresAt.setSeconds(expiresAt.getSeconds() + expiresIn)
 
-  // Criar link via API SumUp
-  const response = await fetch(`${SUMUP_API_BASE}/checkouts`, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${accessToken}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      amount: amount.toFixed(2),
-      currency,
-      description,
-      redirect_url: redirectUrl,
-      merchant_code: merchantCode,
-      reference,
-      expiry_date: expiresAt.toISOString(),
-    }),
+      // Criar link via API SumUp
+      const response = await fetch(`${SUMUP_API_BASE}/checkouts`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: amount.toFixed(2),
+          currency,
+          description,
+          redirect_url: redirectUrl,
+          merchant_code: merchantCode,
+          reference,
+          expiry_date: expiresAt.toISOString(),
+        }),
+      })
+
+      if (!response.ok) {
+        const error = await response.text()
+        throw new Error(`Falha ao criar link SumUp: ${error}`)
+      }
+
+      const data = await response.json()
+
+      return {
+        id: data.id,
+        merchant_code: merchantCode,
+        amount,
+        currency,
+        description,
+        redirect_url: redirectUrl,
+        status: 'PENDING',
+        created_at: new Date().toISOString(),
+        expires_at: expiresAt.toISOString(),
+      }
+    } catch (error) {
+      console.error('Erro ao criar checkout com OAuth:', error)
+      throw error
+    }
+  }
+
+  // Se chegou aqui, não tem nenhuma credencial configurada
+  console.error('[SumUp] Nenhuma credencial configurada:', {
+    hasApiKey: !!process.env.SUMUP_API_KEY,
+    hasAccessToken: !!process.env.SUMUP_ACCESS_TOKEN,
+    hasClientId: !!process.env.SUMUP_CLIENT_ID,
+    hasClientSecret: !!process.env.SUMUP_CLIENT_SECRET,
+    allEnvKeys: Object.keys(process.env).filter(k => k.includes('SUMUP')),
   })
-
-  if (!response.ok) {
-    const error = await response.text()
-    throw new Error(`Falha ao criar link SumUp: ${error}`)
-  }
-
-  const data = await response.json()
-
-  return {
-    id: data.id,
-    merchant_code: merchantCode,
-    amount,
-    currency,
-    description,
-    redirect_url: redirectUrl,
-    status: 'PENDING',
-    created_at: new Date().toISOString(),
-    expires_at: expiresAt.toISOString(),
-  }
+  
+  throw new Error('SUMUP_NOT_CONFIGURED: Configure SUMUP_API_KEY ou SUMUP_CLIENT_ID/SUMUP_CLIENT_SECRET no Vercel')
 }
 
 /**
