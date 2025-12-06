@@ -175,7 +175,13 @@ export default function DeliveryPage() {
       const paymentData = await paymentResponse.json()
 
       if (!paymentResponse.ok) {
-        throw new Error(paymentData.error || 'Erro ao criar link de pagamento')
+        // Tratar erro de configuração do SumUp
+        if (paymentData.error === 'SUMUP_NOT_CONFIGURED') {
+          alert('SumUp não está configurado. O pagamento online está temporariamente indisponível. Por favor, entre em contato conosco via WhatsApp para finalizar seu pedido.')
+          setIsSubmitting(false)
+          return
+        }
+        throw new Error(paymentData.message || paymentData.error || 'Erro ao criar link de pagamento')
       }
 
       // 3. Mostrar tela de pagamento

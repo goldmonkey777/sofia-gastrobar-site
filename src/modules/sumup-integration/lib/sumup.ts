@@ -9,6 +9,17 @@ const SUMUP_API_BASE = 'https://api.sumup.com/v0.1'
 const SUMUP_CHECKOUT_BASE = 'https://pay.sumup.com'
 
 /**
+ * Verifica se SumUp está configurado
+ */
+export function isSumUpConfigured(): boolean {
+  return !!(
+    process.env.SUMUP_CLIENT_ID &&
+    process.env.SUMUP_CLIENT_SECRET &&
+    (process.env.SUMUP_ACCESS_TOKEN || process.env.SUMUP_MERCHANT_CODE)
+  )
+}
+
+/**
  * Obtém access token do SumUp
  */
 async function getAccessToken(): Promise<string> {
@@ -16,7 +27,7 @@ async function getAccessToken(): Promise<string> {
   const clientSecret = process.env.SUMUP_CLIENT_SECRET
 
   if (!clientId || !clientSecret) {
-    throw new Error('SUMUP_CLIENT_ID e SUMUP_CLIENT_SECRET devem estar configurados')
+    throw new Error('SUMUP_NOT_CONFIGURED')
   }
 
   // Se já temos um token válido, retornar
