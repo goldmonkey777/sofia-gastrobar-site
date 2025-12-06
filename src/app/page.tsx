@@ -1,3 +1,4 @@
+import { DetailedMenu } from "@/components/sections/DetailedMenu";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { MenuHighlights } from "@/components/sections/MenuHighlights";
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <Story />
       <MenuHighlights />
+      <DetailedMenu />
       <SmartTable />
       <Footer />
     </main>
