@@ -18,6 +18,7 @@ import {
 } from '@/lib/locationHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
+import { PaymentCheckout } from '@/components/payment/PaymentCheckout'
 
 export default function DeliveryPage() {
   const { language } = useLanguage()
@@ -38,6 +39,9 @@ export default function DeliveryPage() {
   const [cart, setCart] = useState<Array<{ id: string; name: string; price: number; quantity: number }>>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [showPayment, setShowPayment] = useState(false)
+  const [deliveryId, setDeliveryId] = useState<string | null>(null)
+  const [paymentLinkId, setPaymentLinkId] = useState<string | null>(null)
 
   // Preencher dados do usuário automaticamente
   useEffect(() => {
@@ -126,6 +130,7 @@ export default function DeliveryPage() {
     setIsSubmitting(true)
 
     try {
+      // 1. Criar pedido de delivery
       const response = await fetch('/api/delivery', {
         method: 'POST',
         headers: {
@@ -153,8 +158,31 @@ export default function DeliveryPage() {
         throw new Error(data.error || 'Erro ao criar pedido')
       }
 
+      // 2. Criar link de pagamento SumUp
+      const paymentResponse = await fetch('/api/sumup/payment-link', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'delivery',
+          deliveryId: data.order.id,
+          totalAmount: total,
+          deliveryFee: deliveryFee,
+        }),
+      })
+
+      const paymentData = await paymentResponse.json()
+
+      if (!paymentResponse.ok) {
+        throw new Error(paymentData.error || 'Erro ao criar link de pagamento')
+      }
+
+      // 3. Mostrar tela de pagamento
+      setDeliveryId(data.order.id)
+      setPaymentLinkId(paymentData.paymentLink.id)
+      setShowPayment(true)
       setIsSubmitting(false)
-      setIsSuccess(true)
     } catch (error) {
       console.error('Error creating delivery order:', error)
       setIsSubmitting(false)
@@ -197,8 +225,33 @@ export default function DeliveryPage() {
           </p>
         </motion.div>
 
+        {/* Payment Checkout */}
+        {showPayment && paymentLinkId && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-8"
+          >
+            <PaymentCheckout
+              amount={total}
+              description={`Delivery Sofia Gastrobar – Pedido ${deliveryId}`}
+              paymentLinkId={paymentLinkId}
+              onSuccess={() => {
+                setShowPayment(false)
+                setIsSuccess(true)
+                setTimeout(() => {
+                  window.location.href = `/delivery/confirmacao?delivery_id=${deliveryId}&status=paid`
+                }, 2000)
+              }}
+              onError={(error) => {
+                alert(error)
+              }}
+            />
+          </motion.div>
+        )}
+
         {/* Success Message */}
-        {isSuccess && (
+        {isSuccess && !showPayment && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -209,7 +262,7 @@ export default function DeliveryPage() {
               {translate({ pt: 'Pedido Confirmado!', es: '¡Pedido Confirmado!', en: 'Order Confirmed!' }, language)}
             </h3>
             <p className="text-white/80">
-              {translate({ pt: 'Enviaremos o link de pagamento por WhatsApp em breve.', es: 'Enviaremos el enlace de pago por WhatsApp pronto.', en: 'We will send the payment link via WhatsApp shortly.' }, language)}
+              {translate({ pt: 'Seu pedido foi confirmado e será preparado em breve.', es: 'Tu pedido ha sido confirmado y será preparado pronto.', en: 'Your order has been confirmed and will be prepared shortly.' }, language)}
             </p>
           </motion.div>
         )}
@@ -410,17 +463,29 @@ export default function DeliveryPage() {
                     )}
                   </div>
                 </div>
-                <button
-                  type="submit"
-                  disabled={isSubmitting || isSuccess}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50"
-                >
-                  {isSubmitting
-                    ? translate({ pt: 'Processando...', es: 'Procesando...', en: 'Processing...' }, language)
-                    : isSuccess
-                      ? translate({ pt: 'Pedido Confirmado!', es: '¡Pedido Confirmado!', en: 'Order Confirmed!' }, language)
-                      : `${translate({ pt: 'Confirmar Pedido', es: 'Confirmar Pedido', en: 'Confirm Order' }, language)} - €${total.toFixed(2)}`}
-                </button>
+                {/* Info sobre pagamento */}
+                {!showPayment && (
+                  <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
+                    <p className="text-yellow-400 text-sm font-medium mb-2">
+                      💳 Pagamento Antecipado
+                    </p>
+                    <p className="text-white/70 text-xs">
+                      Para garantir seu pedido, o pagamento é necessário antes do preparo. Zero calote, entrega garantida.
+                    </p>
+                  </div>
+                )}
+
+                {!showPayment && (
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || isSuccess}
+                    className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50"
+                  >
+                    {isSubmitting
+                      ? translate({ pt: 'Criando Pedido...', es: 'Creando Pedido...', en: 'Creating Order...' }, language)
+                      : `${translate({ pt: 'Confirmar e Pagar', es: 'Confirmar y Pagar', en: 'Confirm and Pay' }, language)} €${total.toFixed(2)}`}
+                  </button>
+                )}
               </motion.form>
             )}
           </div>
