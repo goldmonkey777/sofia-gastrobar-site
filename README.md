@@ -20,6 +20,17 @@ Sofia is not just a restaurant. It is a refuge, a stage, and a living microcosm 
 -   **Icons**: [Lucide React](https://lucide.dev/)
 -   **Language**: TypeScript
 
+## 🗺️ Sistema de Localização
+
+O projeto inclui um sistema completo de localização com:
+- ✅ Geolocalização precisa (GPS)
+- ✅ Google Places Autocomplete
+- ✅ Integração Apple Maps
+- ✅ Preenchimento automático de dados do usuário
+- ✅ Detecção automática de zona de entrega
+
+**📋 Para configurar:** Veja [SETUP_LOCALIZACAO.md](./SETUP_LOCALIZACAO.md)
+
 ## 🚀 Getting Started
 
 1.  **Install dependencies**:
