@@ -34,8 +34,8 @@ export function Navbar() {
             )}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-                <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
-                    SOFIA <span className="text-yellow-500">IBIZA</span>
+                <Link href="/" className="relative w-12 h-12 md:w-16 md:h-16">
+                    <img src="/logo.png" alt="Sofia Gastrobar" className="w-full h-full object-contain" />
                 </Link>
 
                 {/* Desktop Nav */}
