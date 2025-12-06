@@ -193,7 +193,7 @@ export default function SobrePage() {
               className="object-cover"
               quality={85}
             />
-            <div className="absolute inset-0 bg-purple-900/30 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-purple-900/30 mix-blend-overlay pointer-events-none" />
           </div>
         </motion.div>
 

@@ -11,7 +11,7 @@ export function Hero() {
         <section id="manifesto" className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
             {/* Background Image / Overlay */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10 pointer-events-none" />
                 <Image
                     src="https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=2070&auto=format&fit=crop"
                     alt="Sofia Gastrobar Ibiza - Ambiente acolhedor"

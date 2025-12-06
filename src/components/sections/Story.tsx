@@ -35,7 +35,7 @@ export function Story() {
                         quality={85}
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-purple-900/30 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-purple-900/30 mix-blend-overlay pointer-events-none" />
                 </div>
             </div>
         </Section>
