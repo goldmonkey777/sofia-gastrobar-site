@@ -9,6 +9,11 @@
     { "id": "07", "number": 7, "capacity": 8, "location": "Sala VIP" },
     { "id": "08", "number": 8, "capacity": 2, "location": "Terraço" },
     { "id": "09", "number": 9, "capacity": 4, "location": "Sala principal" },
-    { "id": "10", "number": 10, "capacity": 6, "location": "Sala principal" }
+    { "id": "10", "number": 10, "capacity": 6, "location": "Sala principal" },
+    { "id": "11", "number": 11, "capacity": 4, "location": "Terraço" },
+    { "id": "12", "number": 12, "capacity": 6, "location": "Sala principal" },
+    { "id": "13", "number": 13, "capacity": 2, "location": "Bar" },
+    { "id": "14", "number": 14, "capacity": 4, "location": "Terraço" },
+    { "id": "15", "number": 15, "capacity": 8, "location": "Sala VIP" }
   ]
 }

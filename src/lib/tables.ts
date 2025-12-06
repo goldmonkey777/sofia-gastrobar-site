@@ -20,9 +20,21 @@ export function getTables(): Table[] {
 
 /**
  * Busca uma mesa pelo ID
+ * Aceita tanto "12" quanto "12" (normaliza IDs)
  */
 export function getTableById(id: string): Table | undefined {
-  return getTables().find(table => table.id === id);
+  // Normalizar ID: remover zeros à esquerda ou adicionar se necessário
+  const normalizedId = id.startsWith('0') ? id : id.padStart(2, '0');
+  
+  // Tentar buscar com o ID normalizado
+  let table = getTables().find(table => table.id === normalizedId);
+  
+  // Se não encontrar, tentar buscar com o ID original
+  if (!table) {
+    table = getTables().find(table => table.id === id);
+  }
+  
+  return table;
 }
 
 /**
