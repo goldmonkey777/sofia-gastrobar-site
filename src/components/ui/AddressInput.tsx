@@ -181,26 +181,6 @@ export function AddressInput({
     getCurrentPosition()
   }
 
-  const handleOpenGoogleMaps = () => {
-    if (value) {
-      const encodedAddress = encodeURIComponent(value)
-      window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank')
-    }
-  }
-
-  const handleOpenAppleMaps = () => {
-    if (value) {
-      const encodedAddress = encodeURIComponent(value)
-      // Detectar se é iOS
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
-      if (isIOS) {
-        window.open(`maps://maps.apple.com/?q=${encodedAddress}`, '_blank')
-      } else {
-        // Fallback para web
-        window.open(`https://maps.apple.com/?q=${encodedAddress}`, '_blank')
-      }
-    }
-  }
 
   if (!isReady) return null
 
@@ -249,26 +229,6 @@ export function AddressInput({
           </button>
         )}
 
-        {showMaps && value && (
-          <>
-            <button
-              type="button"
-              onClick={handleOpenGoogleMaps}
-              className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors text-sm"
-            >
-              <MapPin className="w-4 h-4" />
-              {translate(translations.openGoogleMaps, language)}
-            </button>
-            <button
-              type="button"
-              onClick={handleOpenAppleMaps}
-              className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors text-sm"
-            >
-              <MapPin className="w-4 h-4" />
-              {translate(translations.openAppleMaps, language)}
-            </button>
-          </>
-        )}
       </div>
 
       {geoError && (

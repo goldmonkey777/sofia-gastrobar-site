@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { AddressInput } from '@/components/ui/AddressInput'
 import { UserDataAutoFill } from '@/components/ui/UserDataAutoFill'
 import { useUserData } from '@/hooks/useUserData'
-import { detectZone } from '@/lib/locationHelpers'
+import { detectZone, getDistanceFromSofia, calculateDeliveryFee } from '@/lib/locationHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
 
@@ -22,6 +22,7 @@ export default function DeliveryPage() {
     name: '',
     deliveryTime: 'now' as 'now' | 'scheduled',
     scheduledTime: '',
+    deliveryFee: 0,
   })
   const [location, setLocation] = useState<{ lat: number; lng: number; address: string } | null>(null)
   const [cart, setCart] = useState<Array<{ id: string; name: string; price: number; quantity: number }>>([])
@@ -40,26 +41,22 @@ export default function DeliveryPage() {
     }
   }, [userData, userDataLoading])
 
-  // Detectar zona quando localização muda
+  // Calcular taxa de entrega baseada no GPS quando localização muda
   useEffect(() => {
     if (location) {
-      const zone = detectZone(location.lat, location.lng)
-      if (zone) {
-        setFormData(prev => ({ ...prev, zone: zone.id }))
-      } else {
-        // Se não detectar zona, usar zona "other"
-        // A taxa será calculada automaticamente baseada na distância
-        setFormData(prev => ({ ...prev, zone: 'other' }))
-      }
+      const distance = getDistanceFromSofia(location.lat, location.lng)
+      const fee = calculateDeliveryFee(distance)
+      // Atualizar zona com base na distância calculada
+      setFormData(prev => ({ ...prev, zone: 'gps-calculated', deliveryFee: fee }))
     }
   }, [location])
 
   const zones = [
-    { id: 'sant-antoni', name: 'Sant Antoni de Portmany', fee: 3.00 },
-    { id: 'ibiza-town', name: 'Ibiza Town / Eivissa', fee: 5.00 },
-    { id: 'san-jose', name: 'Sant Josep', fee: 4.00 },
-    { id: 'santa-eulalia', name: 'Santa Eulària', fee: 6.00 },
-    { id: 'other', name: 'Outra zona da ilha', fee: 8.00 },
+    { id: 'sant-antoni', name: translate({ pt: 'Sant Antoni de Portmany', es: 'Sant Antoni de Portmany', en: 'Sant Antoni de Portmany' }, language), fee: 3.00 },
+    { id: 'ibiza-town', name: translate({ pt: 'Ibiza Town / Eivissa', es: 'Ibiza Town / Eivissa', en: 'Ibiza Town / Eivissa' }, language), fee: 5.00 },
+    { id: 'san-jose', name: translate({ pt: 'Sant Josep', es: 'Sant Josep', en: 'Sant Josep' }, language), fee: 4.00 },
+    { id: 'santa-eulalia', name: translate({ pt: 'Santa Eulària', es: 'Santa Eulària', en: 'Santa Eulària' }, language), fee: 6.00 },
+    { id: 'other', name: translate({ pt: 'Outra zona da ilha', es: 'Otra zona de la isla', en: 'Other island zone' }, language), fee: 8.00 },
   ]
 
   const menuItems = [
@@ -93,7 +90,10 @@ export default function DeliveryPage() {
   }
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const deliveryFee = zones.find(z => z.id === formData.zone)?.fee || 0
+  // Usar taxa calculada pelo GPS se disponível, senão usar taxa da zona
+  const deliveryFee = formData.deliveryFee > 0 
+    ? formData.deliveryFee 
+    : zones.find(z => z.id === formData.zone)?.fee || 0
   const total = subtotal + deliveryFee
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -331,16 +331,16 @@ export default function DeliveryPage() {
                     <label className="block text-white/80 text-sm font-medium mb-2">
                       {translate({ pt: 'Endereço Completo', es: 'Dirección Completa', en: 'Full Address' }, language)} *
                     </label>
-                    <AddressInput
-                      value={formData.address}
-                      onChange={(address) => setFormData(prev => ({ ...prev, address }))}
-                      onLocationChange={(loc) => {
-                        setLocation(loc)
-                        setFormData(prev => ({ ...prev, address: loc.address }))
-                      }}
-                      showGeolocation={true}
-                      showMaps={true}
-                    />
+                       <AddressInput
+                         value={formData.address}
+                         onChange={(address) => setFormData(prev => ({ ...prev, address }))}
+                         onLocationChange={(loc) => {
+                           setLocation(loc)
+                           setFormData(prev => ({ ...prev, address: loc.address }))
+                         }}
+                         showGeolocation={true}
+                         showMaps={false}
+                       />
                   </div>
                   <div>
                     <label className="block text-white/80 text-sm font-medium mb-2">Horário de Entrega</label>
