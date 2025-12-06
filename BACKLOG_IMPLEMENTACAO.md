@@ -1,7 +1,7 @@
 # 📋 Backlog de Implementação - Sofia Gastrobar
 
-**Data:** 2024  
-**Status:** Análise completa do que falta implementar
+**Data:** 2025  
+**Status:** Backlog atualizado com foco em backend, integrações e automações
 
 ---
 
@@ -363,6 +363,5 @@
 ---
 
 **Última atualização:** 2024  
-**Status do projeto:** ~60% completo  
+**Status do projeto:** ~85% completo  
 **Próxima ação:** Integrar Supabase
-
