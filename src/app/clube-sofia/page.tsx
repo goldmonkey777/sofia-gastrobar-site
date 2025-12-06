@@ -44,10 +44,32 @@ export default function ClubeSofiaPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // TODO: Integrar com CRM e n8n para automação
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/clube-sofia', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          language: formData.language,
+          consentMarketing: formData.acceptMarketing,
+          consentTerms: formData.acceptTerms,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao criar cadastro')
+      }
+
       setIsSubmitting(false)
       setIsSuccess(true)
+
+      // Reset form after 3 seconds
       setTimeout(() => {
         setIsSuccess(false)
         setFormData({
@@ -59,7 +81,11 @@ export default function ClubeSofiaPage() {
           acceptMarketing: true,
         })
       }, 3000)
-    }, 1500)
+    } catch (error) {
+      console.error('Error creating customer:', error)
+      setIsSubmitting(false)
+      alert(error instanceof Error ? error.message : 'Erro ao criar cadastro. Tente novamente.')
+    }
   }
 
   return (

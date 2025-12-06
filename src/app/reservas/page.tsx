@@ -22,11 +22,32 @@ export default function ReservasPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // TODO: Integrar com API de reservas e ChefIApp OS
-    // Por enquanto, simula sucesso
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/reservas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+          guests: parseInt(formData.guests, 10),
+          specialRequests: formData.specialRequests || undefined,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao criar reserva')
+      }
+
       setIsSubmitting(false)
       setIsSuccess(true)
+
       // Reset form after 3 seconds
       setTimeout(() => {
         setIsSuccess(false)
@@ -40,7 +61,11 @@ export default function ReservasPage() {
           specialRequests: '',
         })
       }, 3000)
-    }, 1500)
+    } catch (error) {
+      console.error('Error creating reservation:', error)
+      setIsSubmitting(false)
+      alert(error instanceof Error ? error.message : 'Erro ao criar reserva. Tente novamente.')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

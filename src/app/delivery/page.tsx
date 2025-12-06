@@ -65,11 +65,41 @@ export default function DeliveryPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // TODO: Integrar com API de pedidos e ChefIApp OS
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/delivery', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          customerName: formData.name,
+          customerPhone: formData.phone,
+          address: formData.address,
+          zone: formData.zone,
+          items: cart.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+          })),
+          deliveryTime: formData.deliveryTime,
+          scheduledTime: formData.deliveryTime === 'scheduled' ? formData.scheduledTime : undefined,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao criar pedido')
+      }
+
       setIsSubmitting(false)
       setIsSuccess(true)
-    }, 1500)
+    } catch (error) {
+      console.error('Error creating delivery order:', error)
+      setIsSubmitting(false)
+      alert(error instanceof Error ? error.message : 'Erro ao criar pedido. Tente novamente.')
+    }
   }
 
   return (

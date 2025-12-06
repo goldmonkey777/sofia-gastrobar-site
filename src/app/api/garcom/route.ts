@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { isValidTableId } from '@/lib/tables'
-
-// Simulated database/state (in production, use real database)
-const calls: Record<string, { tableId: string; action: string; timestamp: number }[]> = {}
+import { createWaiterCall, getWaiterCallsByTable, getPendingWaiterCalls } from '@/lib/db/mock'
 
 // Tipos para as ações permitidas
 type Action = 'call' | 'bill'
@@ -59,29 +57,26 @@ export async function POST(request: NextRequest) {
 
     const { tableId, action } = validation.data
 
-    // Store the call (in production, save to database)
-    if (!calls[tableId]) {
-      calls[tableId] = []
-    }
-
-    const callRecord = {
-      tableId,
-      action,
-      timestamp: Date.now(),
-    }
-
-    calls[tableId].push(callRecord)
+    // Create waiter call in database
+    const call = await createWaiterCall(tableId, action)
 
     // Log for debugging (in production, send notification to staff)
     const actionLabel = action === 'call' ? '🔔 Chamar garçom' : '💳 Pedir conta'
-    console.log(`[Mesa ${tableId}] ${actionLabel} - ${new Date(callRecord.timestamp).toISOString()}`)
+    console.log(`[Mesa ${tableId}] ${actionLabel} - ${call.createdAt}`)
+
+    // TODO: Enviar notificação para staff (WebSocket/SSE)
+    // TODO: Integrar com ChefIApp OS
 
     return NextResponse.json({
       success: true,
       message: action === 'call' ? 'Garçom chamado com sucesso!' : 'Conta solicitada!',
-      tableId,
-      action,
-      timestamp: callRecord.timestamp,
+      call: {
+        id: call.id,
+        tableId: call.tableId,
+        action: call.action,
+        status: call.status,
+        createdAt: call.createdAt,
+      },
     })
   } catch (error) {
     console.error('Error processing request:', error)
@@ -106,7 +101,7 @@ export async function GET(request: NextRequest) {
         )
       }
 
-      const tableCalls = calls[tableId] || []
+      const tableCalls = await getWaiterCallsByTable(tableId)
       return NextResponse.json({
         tableId,
         calls: tableCalls,
@@ -114,18 +109,18 @@ export async function GET(request: NextRequest) {
       })
     }
 
-    // Retorna estatísticas gerais
-    const allCalls = Object.values(calls).flat()
-    const tablesWithCalls = Object.keys(calls).filter(id => calls[id].length > 0)
+    // Retorna chamadas pendentes (para staff/admin)
+    const pendingCalls = await getPendingWaiterCalls()
 
     return NextResponse.json({
-      totalCalls: allCalls.length,
-      tablesWithCalls: tablesWithCalls.length,
-      tables: tablesWithCalls,
-      summary: tablesWithCalls.map(id => ({
-        tableId: id,
-        count: calls[id].length,
-        lastCall: calls[id][calls[id].length - 1]?.timestamp || null,
+      totalCalls: pendingCalls.length,
+      pendingCalls,
+      summary: pendingCalls.map(call => ({
+        id: call.id,
+        tableId: call.tableId,
+        action: call.action,
+        status: call.status,
+        createdAt: call.createdAt,
       })),
     })
   } catch (error) {
