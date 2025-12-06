@@ -1,5 +1,11 @@
 # 🎵 Configuração do Spotify - Modo DJ
 
+## ⚡ Setup Rápido (5 minutos)
+
+**Para começar rápido, veja:** [`SPOTIFY_QUICK_SETUP.md`](./SPOTIFY_QUICK_SETUP.md)
+
+---
+
 ## Perfil Oficial
 
 **Perfil do Sofia Gastrobar Ibiza:**
