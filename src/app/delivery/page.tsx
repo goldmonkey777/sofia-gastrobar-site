@@ -47,10 +47,8 @@ export default function DeliveryPage() {
       if (zone) {
         setFormData(prev => ({ ...prev, zone: zone.id }))
       } else {
-        // Se não detectar zona, calcular taxa por distância
-        const distance = getDistanceFromSofia(location.lat, location.lng)
-        const fee = calculateDeliveryFee(distance)
-        // Usar zona "other" com taxa calculada
+        // Se não detectar zona, usar zona "other"
+        // A taxa será calculada automaticamente baseada na distância
         setFormData(prev => ({ ...prev, zone: 'other' }))
       }
     }
