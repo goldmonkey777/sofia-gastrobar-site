@@ -29,7 +29,7 @@ const MENU_ITEMS = [
 
 export function MenuHighlights() {
     return (
-        <Section id="menu" className="bg-black py-24">
+        <Section id="menu" className="bg-black py-24 relative z-0">
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                     Cozinha de <span className="text-yellow-500">Alma Livre</span>
