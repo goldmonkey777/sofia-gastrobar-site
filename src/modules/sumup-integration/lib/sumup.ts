@@ -165,14 +165,18 @@ export async function createPaymentLink(
       // Priorizar merchant_code, mas usar pay_to_email como fallback
       if (merchantCode) {
         checkoutPayload.merchant_code = merchantCode
+        console.log('[SumUp] ✅ Usando merchant_code:', merchantCode.substring(0, 10) + '...')
       } else {
         checkoutPayload.pay_to_email = payToEmail
+        console.log('[SumUp] ✅ Usando pay_to_email:', payToEmail)
       }
 
+      console.log('[SumUp] 📤 Payload completo que será enviado:', JSON.stringify(checkoutPayload, null, 2))
       console.log('[SumUp] Creating checkout with:', {
         hasMerchantCode: !!merchantCode,
         hasPayToEmail: !!checkoutPayload.pay_to_email,
         payToEmail: checkoutPayload.pay_to_email || 'none',
+        payloadKeys: Object.keys(checkoutPayload),
       })
 
       // Criar checkout via API direta com API_KEY
@@ -184,6 +188,8 @@ export async function createPaymentLink(
         },
         body: JSON.stringify(checkoutPayload),
       })
+      
+      console.log('[SumUp] 📥 Response status:', response.status, response.statusText)
 
       if (!response.ok) {
         const errorText = await response.text()
