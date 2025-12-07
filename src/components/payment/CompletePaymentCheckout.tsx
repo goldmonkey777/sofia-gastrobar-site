@@ -94,6 +94,8 @@ export function CompletePaymentCheckout({
       setIsCreatingCheckout(true)
       setError(null)
 
+      console.log('[Payment] Creating checkout...', { amount, currency, description, orderId, orderType })
+
       // Criar checkout via API
       const response = await fetch('/api/sumup/create-checkout', {
         method: 'POST',
@@ -110,10 +112,12 @@ export function CompletePaymentCheckout({
       })
 
       const data = await response.json()
+      console.log('[Payment] Checkout response:', { status: response.status, data })
 
       if (!response.ok) {
         // Se SumUp não está configurado, criar checkout mock
-        if (data.error === 'SUMUP_NOT_CONFIGURED') {
+        if (data.error === 'SUMUP_NOT_CONFIGURED' || data.error?.includes('SUMUP_NOT_CONFIGURED')) {
+          console.warn('[Payment] SumUp not configured, creating mock checkout')
           const mockCheckoutId = `mock_${Date.now()}_${orderId}`
           setCheckoutId(mockCheckoutId)
           setAvailableMethods(['apple_pay', 'google_pay', 'card'])
@@ -123,6 +127,11 @@ export function CompletePaymentCheckout({
         throw new Error(data.error || 'Erro ao criar checkout')
       }
 
+      if (!data.checkout || !data.checkout.id) {
+        throw new Error('Checkout criado mas sem ID válido')
+      }
+
+      console.log('[Payment] Checkout created successfully:', data.checkout.id)
       setCheckoutId(data.checkout.id)
       setMerchantCode(data.checkout.merchant_code || '')
 
@@ -132,18 +141,22 @@ export function CompletePaymentCheckout({
           const methodsResponse = await fetch(`/api/sumup/payment-methods?checkout_id=${data.checkout.id}`)
           if (methodsResponse.ok) {
             const methodsData = await methodsResponse.json()
+            console.log('[Payment] Available methods:', methodsData.methods)
             setAvailableMethods(methodsData.methods?.map((m: any) => m.id) || ['card', 'apple_pay', 'google_pay'])
           } else {
             // Fallback: assumir que Apple Pay e Google Pay estão disponíveis
+            console.warn('[Payment] Could not fetch payment methods, using defaults')
             setAvailableMethods(['card', 'apple_pay', 'google_pay'])
           }
-        } catch {
+        } catch (err) {
+          console.error('[Payment] Error fetching payment methods:', err)
           setAvailableMethods(['card', 'apple_pay', 'google_pay'])
         }
       }
 
       setIsCreatingCheckout(false)
     } catch (err) {
+      console.error('[Payment] Error creating checkout:', err)
       const errorMessage = err instanceof Error ? err.message : t.error
       setError(errorMessage)
       setIsCreatingCheckout(false)
@@ -152,10 +165,17 @@ export function CompletePaymentCheckout({
   }
 
   const handleCardPayment = async () => {
-    if (!checkoutId) return
+    console.log('[Payment] handleCardPayment called', { checkoutId, isMock: checkoutId?.startsWith('mock_') })
+    
+    if (!checkoutId) {
+      console.error('[Payment] No checkoutId available')
+      setError('Erro: Checkout não foi criado. Tente novamente.')
+      return
+    }
 
     // Se é checkout mock, não pode processar
     if (checkoutId.startsWith('mock_')) {
+      console.warn('[Payment] Mock checkout detected, cannot process')
       setError('SumUp não está configurado. Por favor, configure as variáveis de ambiente SUMUP_API_KEY no Vercel.')
       setIsProcessing(false)
       onError?.('SumUp não está configurado')
@@ -166,10 +186,19 @@ export function CompletePaymentCheckout({
     setError(null)
 
     try {
+      // Verificar se checkoutId é válido
+      if (!checkoutId || checkoutId.trim() === '') {
+        throw new Error('Checkout ID inválido')
+      }
+
       // Redirecionar para SumUp checkout page
       const checkoutUrl = `https://pay.sumup.com/checkout/${checkoutId}`
+      console.log('[Payment] Redirecting to:', checkoutUrl)
+      
+      // Usar window.open para abrir em nova aba (melhor UX) ou window.location.href
       window.location.href = checkoutUrl
     } catch (err) {
+      console.error('[Payment] Error in handleCardPayment:', err)
       const errorMessage = err instanceof Error ? err.message : t.error
       setError(errorMessage)
       setIsProcessing(false)
@@ -271,8 +300,14 @@ export function CompletePaymentCheckout({
         {/* Cartão de Crédito */}
         {availableMethods.includes('card') && (
           <button
-            onClick={handleCardPayment}
-            disabled={isProcessing || checkoutId?.startsWith('mock_')}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              console.log('[Payment] Button clicked', { checkoutId, isProcessing })
+              handleCardPayment()
+            }}
+            disabled={isProcessing || !checkoutId || checkoutId?.startsWith('mock_')}
             className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-yellow-500/20 flex items-center justify-center gap-3"
           >
             {isProcessing ? (
@@ -284,6 +319,11 @@ export function CompletePaymentCheckout({
               <>
                 <AlertCircle className="w-5 h-5" />
                 <span>SumUp não configurado</span>
+              </>
+            ) : !checkoutId ? (
+              <>
+                <AlertCircle className="w-5 h-5" />
+                <span>Criando checkout...</span>
               </>
             ) : (
               <>
