@@ -10,10 +10,17 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
+      {/* Hero com menu em primeiro plano */}
       <Hero />
-      <Story />
+      
+      {/* Menu primeiro - COMIDA NA CARA */}
       <MenuHighlights />
       <DetailedMenu />
+      
+      {/* História depois - desce um degrau */}
+      <Story />
+      
+      {/* Resto */}
       <HowItWorks />
       <SmartTable />
       <Footer />

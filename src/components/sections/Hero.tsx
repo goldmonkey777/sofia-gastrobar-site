@@ -3,93 +3,81 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { MagicButton } from "@/components/ui/MagicButton";
+import { MenuQuickAccess } from "@/components/home/MenuQuickAccess";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 export function Hero() {
     return (
-        <section id="manifesto" className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
-            {/* Background Image / Overlay */}
+        <section id="manifesto" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+            {/* Background Image / Overlay - mais sutil */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/50 z-10 pointer-events-none" />
                 <Image
                     src="https://images.unsplash.com/photo-1514362545857-3bc16549766b?q=80&w=2070&auto=format&fit=crop"
                     alt="Sofia Gastrobar Ibiza - Ambiente acolhedor"
                     fill
-                    className="object-cover opacity-60 pointer-events-none"
+                    className="object-cover opacity-40 pointer-events-none"
                     priority
                     quality={85}
                     sizes="100vw"
                 />
             </div>
 
-            <div className="relative z-30 max-w-5xl mx-auto px-6 text-center">
+            <div className="relative z-30 max-w-6xl mx-auto px-6 py-16 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
+                    className="flex flex-col items-center gap-6"
                 >
-                    <div className="mb-6 flex justify-center">
+                    {/* Logo */}
+                    <div className="mb-4 flex justify-center">
                         <Image
                             src="/logo.png"
                             alt="Sofia Gastrobar Ibiza"
-                            width={120}
-                            height={120}
+                            width={100}
+                            height={100}
                             className="object-contain"
                             priority
                         />
                     </div>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-6">
-                        <span className="text-yellow-500">Magia</span>, Fogo<br className="hidden md:block" /> e Sabor.
+
+                    {/* Título compacto */}
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white mb-2">
+                        <span className="text-yellow-500">Magia</span>, Fogo e Sabor.
                     </h1>
-                    <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-                        Um refúgio para quem procura presença.
-                        Onde cada prato é uma oração e cada noite é uma história escrita entre a brisa do mar e o calor da noite balear.
+
+                    {/* Subtexto curto */}
+                    <p className="text-base md:text-lg text-white/70 max-w-xl mx-auto mb-4">
+                        Magia, fogo e sabor em Sant Antoni, Ibiza.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-30">
+                    {/* 👉 BOTÕES DO MENU EM PRIMEIRO PLANO */}
+                    <MenuQuickAccess />
+
+                    {/* Botões secundários (Reservar, Delivery) */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                             <Link 
                                 href="/reservas" 
-                                className="relative z-30 inline-flex items-center justify-center px-6 py-3 overflow-hidden rounded-full transition-all duration-300 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold shadow-lg shadow-yellow-500/20 hover:shadow-yellow-500/40 border border-transparent"
+                                className="inline-flex items-center justify-center px-5 py-2.5 rounded-full transition-all duration-300 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-yellow-500/50 text-sm md:text-base"
                             >
-                                <Sparkles size={18} className="mr-2" />
+                                <Sparkles size={16} className="mr-2" />
                                 Reservar Mesa
                             </Link>
                         </motion.div>
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                             <Link 
                                 href="/delivery" 
-                                className="relative z-30 inline-flex items-center justify-center px-6 py-3 overflow-hidden rounded-full transition-all duration-300 bg-transparent border border-white/20 text-white hover:bg-white/10 hover:border-yellow-500/50"
+                                className="inline-flex items-center justify-center px-5 py-2.5 rounded-full transition-all duration-300 bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-yellow-500/50 text-sm md:text-base"
                             >
-                                <ArrowRight size={18} className="mr-2" />
+                                <ArrowRight size={16} className="mr-2" />
                                 Pedir Delivery
-                            </Link>
-                        </motion.div>
-                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <Link 
-                                href="#menu" 
-                                className="relative z-30 inline-flex items-center justify-center px-6 py-3 overflow-hidden rounded-full transition-all duration-300 bg-transparent border border-white/20 text-white hover:bg-white/10 hover:border-yellow-500/50"
-                            >
-                                <ArrowRight size={18} className="mr-2" />
-                                Ver Menu
                             </Link>
                         </motion.div>
                     </div>
                 </motion.div>
             </div>
-
-            {/* Scroll indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, y: [0, 10, 0] }}
-                transition={{ delay: 2, duration: 2, repeat: Infinity }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white/50"
-            >
-                <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-                    <div className="w-1 h-3 bg-white/50 rounded-full" />
-                </div>
-            </motion.div>
         </section>
     );
 }

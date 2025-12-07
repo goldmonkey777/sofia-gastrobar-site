@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const FULL_MENU = [
     {
+        id: "tapas",
         category: "Tapas & Entradas",
         description: "Para compartilhar",
         items: [
@@ -24,6 +25,7 @@ const FULL_MENU = [
         ]
     },
     {
+        id: "gastroburgers",
         category: "Gastroburgers",
         description: "Servidas sin patatas / Served without fries",
         items: [
@@ -69,6 +71,7 @@ const FULL_MENU = [
         ]
     },
     {
+        id: "vegan",
         category: "Ensaladas",
         items: [
             { name: "Ensalada del Edén", price: "€16.00", desc: "Queso de cabra, frutos rojos, nueces." },
@@ -78,6 +81,7 @@ const FULL_MENU = [
         ]
     },
     {
+        id: "cocktails",
         category: "Sangrías & Cocteles",
         items: [
             { name: "Red Sunset (Sangría Tinto)", price: "€26.00", desc: "Vino tinto, frutas frescas, canela." },
@@ -139,6 +143,7 @@ export function DetailedMenu() {
                         section.category === activeCategory && (
                             <motion.div
                                 key={section.category}
+                                id={section.id || section.category.toLowerCase().replace(/\s+/g, '-')}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
