@@ -138,10 +138,50 @@ export async function POST(request: NextRequest) {
       }, { status: 500 })
     }
   } catch (error: any) {
-    console.error('Erro ao criar checkout:', error)
+    console.error('[SumUp] Erro no catch externo:', error)
+    console.error('[SumUp] Error message:', error?.message)
+    console.error('[SumUp] Error stack:', error?.stack)
     
-    // Retornar checkout mock em caso de erro
-    const body = await request.json().catch(() => ({}))
+    // Se erro de configuração, SEMPRE retornar checkout mock
+    if (error?.message?.includes('SUMUP_NOT_CONFIGURED')) {
+      console.warn('[SumUp] SUMUP_NOT_CONFIGURED detectado no catch externo. Retornando checkout mock.')
+      
+      // Tentar ler body novamente
+      let body: any = {}
+      try {
+        const requestClone = request.clone()
+        body = await requestClone.json()
+      } catch (e) {
+        console.warn('[SumUp] Não foi possível ler body novamente')
+      }
+      
+      return NextResponse.json({
+        success: true,
+        checkout: {
+          id: `mock_${Date.now()}_${body.reference || 'checkout'}`,
+          merchant_code: '',
+          amount: body.amount || 0,
+          currency: body.currency || 'EUR',
+          description: body.description || '',
+          redirect_url: body.redirect_url || '',
+          status: 'PENDING',
+          created_at: new Date().toISOString(),
+          expires_at: new Date(Date.now() + 3600000).toISOString(),
+        },
+      })
+    }
+    
+    // Outros erros: retornar checkout mock também (graceful degradation)
+    console.warn('[SumUp] Erro inesperado. Retornando checkout mock como fallback.')
+    
+    let body: any = {}
+    try {
+      const requestClone = request.clone()
+      body = await requestClone.json()
+    } catch (e) {
+      // Ignorar erro ao ler body
+    }
+    
     return NextResponse.json({
       success: true,
       checkout: {

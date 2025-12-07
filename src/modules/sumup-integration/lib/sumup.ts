@@ -28,14 +28,37 @@ const SUMUP_CHECKOUT_BASE = 'https://pay.sumup.com'
 
 /**
  * Verifica se SumUp está configurado
+ * Verifica em runtime se as variáveis têm valores válidos
  */
 export function isSumUpConfigured(): boolean {
-  // SDK oficial usa SUMUP_API_KEY ou podemos usar SUMUP_ACCESS_TOKEN
-  return !!(
-    process.env.SUMUP_API_KEY || 
-    process.env.SUMUP_ACCESS_TOKEN ||
-    (process.env.SUMUP_CLIENT_ID && process.env.SUMUP_CLIENT_SECRET)
+  const apiKey = process.env.SUMUP_API_KEY?.trim()
+  const accessToken = process.env.SUMUP_ACCESS_TOKEN?.trim()
+  const clientId = process.env.SUMUP_CLIENT_ID?.trim()
+  const clientSecret = process.env.SUMUP_CLIENT_SECRET?.trim()
+  
+  const isConfigured = !!(
+    (apiKey && apiKey.length > 10) || 
+    (accessToken && accessToken.length > 10) ||
+    (clientId && clientId.length > 5 && clientSecret && clientSecret.length > 5)
   )
+  
+  // Log detalhado para diagnóstico
+  if (!isConfigured) {
+    console.warn('[SumUp] isSumUpConfigured: false', {
+      hasApiKey: !!apiKey,
+      apiKeyLength: apiKey?.length || 0,
+      hasAccessToken: !!accessToken,
+      accessTokenLength: accessToken?.length || 0,
+      hasClientId: !!clientId,
+      clientIdLength: clientId?.length || 0,
+      hasClientSecret: !!clientSecret,
+      clientSecretLength: clientSecret?.length || 0,
+      nodeEnv: process.env.NODE_ENV,
+      vercelEnv: process.env.VERCEL_ENV,
+    })
+  }
+  
+  return isConfigured
 }
 
 /**
