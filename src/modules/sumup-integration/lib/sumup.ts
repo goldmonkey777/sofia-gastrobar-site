@@ -200,11 +200,14 @@ export async function createPaymentLink(
           error: errorData,
           hasMerchantCode: !!merchantCode,
           merchantCodeLength: merchantCode?.length || 0,
+          hasPayToEmail: !!checkoutPayload.pay_to_email,
+          payToEmail: checkoutPayload.pay_to_email || 'none',
           errorParam: errorData.param,
           errorMessage: errorData.message,
+          fullErrorText: errorText,
         })
         
-        // Se erro de validação sobre merchant_code, não tentar OAuth
+        // Se erro de validação sobre merchant_code ou pay_to_email, não tentar OAuth
         const isMerchantCodeError = 
           errorData.param?.includes('merchant_code') || 
           errorData.param?.includes('pay_to_email') ||
@@ -213,9 +216,16 @@ export async function createPaymentLink(
           errorText.includes('merchant_code') ||
           errorText.includes('pay_to_email')
         
+        console.log('[SumUp] Verificando tipo de erro:', {
+          isMerchantCodeError,
+          errorParam: errorData.param,
+          errorMessage: errorData.message,
+          errorText: errorText.substring(0, 200),
+        })
+        
         if (isMerchantCodeError) {
-          const errorMsg = `SUMUP_MERCHANT_CODE_REQUIRED: ${errorData.message || errorText}. Configure SUMUP_MERCHANT_CODE no Vercel.`
-          console.error('[SumUp] Erro de merchant_code detectado. Não tentando OAuth:', errorMsg)
+          const errorMsg = `SUMUP_MERCHANT_CODE_REQUIRED: ${errorData.message || errorText}. Payload enviado: ${JSON.stringify({ hasMerchantCode: !!merchantCode, hasPayToEmail: !!checkoutPayload.pay_to_email, payToEmail: checkoutPayload.pay_to_email })}`
+          console.error('[SumUp] ❌ Erro de merchant_code/pay_to_email detectado. NÃO tentando OAuth. Lançando erro:', errorMsg)
           throw new Error(errorMsg)
         }
         
