@@ -9,23 +9,26 @@
 
 import { useParams } from 'next/navigation'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Bell, FileText, Home, Clock, Globe } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Bell, FileText, Home, Clock, Globe, CreditCard } from 'lucide-react'
 import Link from 'next/link'
 import { useTableSession } from '@/modules/qr-table-system/hooks/useTableSession'
 import { useCallWaiter } from '@/modules/qr-table-system/hooks/useCallWaiter'
 import { formatTableNumber } from '@/modules/qr-table-system/utils/tableHelpers'
-import { TableMenuWithCart } from '@/components/menu/TableMenuWithCart'
+import { TableMenuWithCart, useCart } from '@/components/menu/TableMenuWithCart'
 import { LanguageSelector } from '@/components/ui/LanguageSelector'
 import { DJMode } from '@/components/dj/DJMode'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
+import { CompletePaymentCheckout } from '@/components/payment/CompletePaymentCheckout'
 
-export default function MesaPage() {
-  const params = useParams()
-  const tableId = params.id as string
+// Componente interno que tem acesso ao CartContext
+function MesaPageContent({ tableId }: { tableId: string }) {
   const { language, isReady } = useLanguage()
   const [showActions, setShowActions] = useState(false)
+  const [showPayment, setShowPayment] = useState(false)
+  const [orderId, setOrderId] = useState<string | null>(null)
+  const { cart } = useCart()
 
   // Usar hooks modulares
   const {
@@ -49,6 +52,20 @@ export default function MesaPage() {
     },
   })
 
+  // Calcular total do carrinho
+  const cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const hasItems = cart.length > 0
+
+  // Criar orderId único para pagamento
+  const handleRequestPayment = async () => {
+    if (!hasItems) return
+
+    // Criar um orderId único baseado na mesa e timestamp
+    const newOrderId = `TABLE_${tableId}_${Date.now()}`
+    setOrderId(newOrderId)
+    setShowPayment(true)
+  }
+
   if (!table) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black text-white">
@@ -68,6 +85,10 @@ export default function MesaPage() {
         </div>
       </div>
     )
+  }
+
+  if (!isReady) {
+    return null
   }
 
   return (
@@ -103,12 +124,44 @@ export default function MesaPage() {
 
       {/* Menu Direto - Sem página intermediária */}
       <div className="max-w-2xl mx-auto pb-24">
+        {/* Menu dentro do CartProvider */}
         <TableMenuWithCart tableId={tableId} />
         
         {/* Modo DJ - Integrado na experiência da mesa */}
         <div className="px-4 mt-8">
           <DJMode tableId={tableId} />
         </div>
+
+        {/* Payment Checkout */}
+        <AnimatePresence>
+          {showPayment && orderId && cartTotal > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="px-4 mt-8 mb-8"
+            >
+              <CompletePaymentCheckout
+                amount={cartTotal}
+                currency="EUR"
+                description={`Conta Mesa ${formatTableNumber(table)} – Pedido ${orderId.slice(-6)}`}
+                orderId={orderId}
+                orderType="table"
+                redirectUrl={`${typeof window !== 'undefined' ? window.location.origin : ''}/mesa/${tableId}/pago?order_id=${orderId}&status=paid`}
+                onSuccess={() => {
+                  setShowPayment(false)
+                  setTimeout(() => {
+                    window.location.href = `/mesa/${tableId}/pago?order_id=${orderId}&status=paid`
+                  }, 2000)
+                }}
+                onError={(error) => {
+                  console.error('Payment error:', error)
+                }}
+                language={language}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Botões de Ação Fixos (Bottom Sheet) */}
@@ -227,9 +280,57 @@ export default function MesaPage() {
                 </div>
               </div>
             </button>
+
+            {/* Pay Bill */}
+            {hasItems && (
+              <button
+                onClick={handleRequestPayment}
+                disabled={showPayment}
+                className={`
+                  w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black
+                  rounded-xl p-4 shadow-lg
+                  flex items-center gap-3
+                  hover:from-yellow-400 hover:to-yellow-500 transition-all
+                  disabled:opacity-50 disabled:cursor-not-allowed
+                  ${showPayment ? 'bg-green-500' : ''}
+                `}
+              >
+                <CreditCard className="w-6 h-6" />
+                <div className="text-left flex-1">
+                  <div className="font-bold">
+                    {showPayment
+                      ? translate(
+                          { pt: 'Pagando...', es: 'Pagando...', en: 'Paying...' },
+                          language
+                        )
+                      : translate(
+                          { pt: 'Pagar Conta', es: 'Pagar Cuenta', en: 'Pay Bill' },
+                          language
+                        )}
+                  </div>
+                  {!showPayment && (
+                    <div className="text-sm opacity-90">
+                      €{cartTotal.toFixed(2)}
+                    </div>
+                  )}
+                </div>
+              </button>
+            )}
           </motion.div>
         )}
       </motion.div>
     </div>
+  )
+}
+
+// Componente wrapper que fornece o CartProvider
+export default function MesaPage() {
+  const params = useParams()
+  const tableId = params.id as string
+
+  return (
+    <TableMenuWithCart tableId={tableId}>
+      <MesaPageContent tableId={tableId} />
+    </TableMenuWithCart>
   )
 }
