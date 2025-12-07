@@ -46,6 +46,7 @@ async function getAccessToken(): Promise<string> {
       grant_type: 'client_credentials',
       client_id: clientId,
       client_secret: clientSecret,
+      scope: 'payments payment_instruments', // Solicitar scopes necessários
     }),
   })
 
@@ -70,6 +71,9 @@ export async function createPaymentLink(
     redirectUrl,
     expiresIn = 3600, // 1 hora padrão
     reference,
+    enableGooglePay = true, // Habilitado por padrão
+    enableApplePay = true, // Habilitado por padrão
+    paymentType = 'any', // Aceitar todos os métodos por padrão
   } = params
 
   const accessToken = await getAccessToken()
@@ -79,6 +83,27 @@ export async function createPaymentLink(
   const expiresAt = new Date()
   expiresAt.setSeconds(expiresAt.getSeconds() + expiresIn)
 
+  // Configurar payload para SumUp API
+  const payload: any = {
+    amount: amount.toFixed(2),
+    currency,
+    description,
+    redirect_url: redirectUrl,
+    merchant_code: merchantCode,
+    reference,
+    expiry_date: expiresAt.toISOString(),
+    payment_type: paymentType,
+  }
+
+  // Adicionar configurações de carteiras digitais
+  // Nota: SumUp habilita automaticamente Google Pay e Apple Pay
+  // quando disponível no checkout, mas podemos configurar preferências
+  if (enableGooglePay || enableApplePay) {
+    payload.personal_details = {
+      email: process.env.SUMUP_MERCHANT_EMAIL || '',
+    }
+  }
+
   // Criar link via API SumUp
   const response = await fetch(`${SUMUP_API_BASE}/checkouts`, {
     method: 'POST',
@@ -86,15 +111,7 @@ export async function createPaymentLink(
       'Authorization': `Bearer ${accessToken}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      amount: amount.toFixed(2),
-      currency,
-      description,
-      redirect_url: redirectUrl,
-      merchant_code: merchantCode,
-      reference,
-      expiry_date: expiresAt.toISOString(),
-    }),
+    body: JSON.stringify(payload),
   })
 
   if (!response.ok) {
@@ -128,7 +145,10 @@ export async function createReservationPaymentLink(
 ): Promise<SumUpPaymentLink> {
   const amount = numberOfPeople * 6 // 6€ por pessoa
   const description = `Reserva Sofia Gastrobar – ${date} ${time} – ${numberOfPeople} pessoa${numberOfPeople > 1 ? 's' : ''}`
-  const redirectUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sofiagastrobaribiza.com'}/reservas/confirmacao?reservation_id=${reservationId}`
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sofiagastrobaribiza.com'
+
+  // Usar callback endpoint que vai redirecionar após atualizar status
+  const redirectUrl = `${baseUrl}/api/sumup/callback?reservation_id=${reservationId}`
 
   return createPaymentLink({
     amount,
@@ -136,7 +156,10 @@ export async function createReservationPaymentLink(
     description,
     redirectUrl,
     expiresIn: 3600, // 1 hora
-    reference: `RESERVATION_${reservationId}`,
+    reference: `res_${reservationId}`, // Foreign TX ID para tracking
+    enableGooglePay: true,
+    enableApplePay: true,
+    paymentType: 'any',
   })
 }
 
@@ -170,7 +193,10 @@ export async function createDeliveryPaymentLink(
   deliveryFee: number
 ): Promise<SumUpPaymentLink> {
   const description = `Delivery Sofia Gastrobar – Pedido ${deliveryId}`
-  const redirectUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://sofiagastrobaribiza.com'}/delivery/confirmacao?delivery_id=${deliveryId}`
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sofiagastrobaribiza.com'
+
+  // Usar callback endpoint que vai redirecionar após atualizar status
+  const redirectUrl = `${baseUrl}/api/sumup/callback?delivery_id=${deliveryId}`
 
   return createPaymentLink({
     amount: totalAmount + deliveryFee,
@@ -178,7 +204,10 @@ export async function createDeliveryPaymentLink(
     description,
     redirectUrl,
     expiresIn: 1800, // 30 minutos
-    reference: `DELIVERY_${deliveryId}`,
+    reference: `del_${deliveryId}`, // Foreign TX ID para tracking
+    enableGooglePay: true,
+    enableApplePay: true,
+    paymentType: 'any',
   })
 }
 
