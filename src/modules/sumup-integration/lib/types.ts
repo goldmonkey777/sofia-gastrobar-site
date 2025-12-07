@@ -21,6 +21,9 @@ export interface CreatePaymentLinkParams {
   redirectUrl: string
   expiresIn?: number // segundos
   reference?: string
+  enableGooglePay?: boolean // Habilitar Google Pay
+  enableApplePay?: boolean // Habilitar Apple Pay
+  paymentType?: 'card' | 'any' // Tipo de pagamento permitido
 }
 
 export interface PaymentMethod {

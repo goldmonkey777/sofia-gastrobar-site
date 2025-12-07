@@ -88,8 +88,12 @@ const link = await createPaymentLink({
   amount: 18.00,
   currency: 'EUR',
   description: 'Reserva Sofia Gastrobar - Mesa X - 15/01 - 3 pessoas',
-  redirectUrl: 'https://sofiagastrobaribiza.com/reservas/confirmacao',
-  expiresIn: 3600 // 1 hora
+  redirectUrl: 'https://sofiagastrobaribiza.com/api/sumup/callback?reservation_id=123',
+  expiresIn: 3600, // 1 hora
+  reference: 'res_123', // Foreign TX ID para tracking
+  enableGooglePay: true, // Habilita Google Pay
+  enableApplePay: true, // Habilita Apple Pay
+  paymentType: 'any', // Aceita todos os métodos
 })
 ```
 
