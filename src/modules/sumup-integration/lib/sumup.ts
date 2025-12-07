@@ -253,12 +253,23 @@ export async function createPaymentLink(
   }
 
   // Se chegou aqui, não tem nenhuma credencial configurada
+  const allSumUpEnvKeys = Object.keys(process.env).filter(k => k.includes('SUMUP'))
   console.error('[SumUp] Nenhuma credencial configurada:', {
     hasApiKey: !!process.env.SUMUP_API_KEY,
     hasAccessToken: !!process.env.SUMUP_ACCESS_TOKEN,
     hasClientId: !!process.env.SUMUP_CLIENT_ID,
     hasClientSecret: !!process.env.SUMUP_CLIENT_SECRET,
-    allEnvKeys: Object.keys(process.env).filter(k => k.includes('SUMUP')),
+    allSumUpEnvKeys,
+    envValues: Object.fromEntries(
+      allSumUpEnvKeys.map(key => [
+        key,
+        key.includes('SECRET') || key.includes('KEY')
+          ? `${process.env[key]?.substring(0, 10)}... (length: ${process.env[key]?.length || 0})`
+          : process.env[key]
+      ])
+    ),
+    nodeEnv: process.env.NODE_ENV,
+    vercelEnv: process.env.VERCEL_ENV,
   })
   
   throw new Error('SUMUP_NOT_CONFIGURED: Configure SUMUP_API_KEY ou SUMUP_CLIENT_ID/SUMUP_CLIENT_SECRET no Vercel')

@@ -20,11 +20,22 @@ export async function POST(request: NextRequest) {
     }
 
     // Debug: verificar configuração do SumUp
-    const isConfigured = isSumUpConfigured()
     const hasApiKey = !!process.env.SUMUP_API_KEY
     const hasAccessToken = !!process.env.SUMUP_ACCESS_TOKEN
     const hasClientId = !!process.env.SUMUP_CLIENT_ID
     const hasClientSecret = !!process.env.SUMUP_CLIENT_SECRET
+    const isConfigured = isSumUpConfigured()
+
+    // Log detalhado de TODAS as variáveis de ambiente relacionadas
+    const allSumUpEnvKeys = Object.keys(process.env).filter(k => k.includes('SUMUP'))
+    const envValues = Object.fromEntries(
+      allSumUpEnvKeys.map(key => [
+        key,
+        key.includes('SECRET') || key.includes('KEY') 
+          ? `${process.env[key]?.substring(0, 10)}... (length: ${process.env[key]?.length || 0})`
+          : process.env[key]
+      ])
+    )
 
     console.log('[SumUp Debug] Config Check:', {
       isConfigured,
@@ -33,9 +44,12 @@ export async function POST(request: NextRequest) {
       hasClientId,
       hasClientSecret,
       apiKeyLength: process.env.SUMUP_API_KEY?.length || 0,
-      clientIdPrefix: process.env.SUMUP_CLIENT_ID?.substring(0, 15) || 'none',
-      clientSecretPrefix: process.env.SUMUP_CLIENT_SECRET?.substring(0, 15) || 'none',
-      envKeys: Object.keys(process.env).filter(k => k.includes('SUMUP')),
+      clientIdPrefix: process.env.SUMUP_CLIENT_ID?.substring(0, 20) || 'none',
+      clientSecretPrefix: process.env.SUMUP_CLIENT_SECRET?.substring(0, 20) || 'none',
+      allSumUpEnvKeys,
+      envValues,
+      nodeEnv: process.env.NODE_ENV,
+      vercelEnv: process.env.VERCEL_ENV,
     })
 
     // Se SumUp não está configurado, retornar checkout mock
