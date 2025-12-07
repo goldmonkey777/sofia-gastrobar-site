@@ -183,11 +183,23 @@ export async function createPaymentLink(
           error: errorData,
           hasMerchantCode: !!merchantCode,
           merchantCodeLength: merchantCode?.length || 0,
+          errorParam: errorData.param,
+          errorMessage: errorData.message,
         })
         
         // Se erro de validação sobre merchant_code, não tentar OAuth
-        if (errorData.message?.includes('merchant_code') || errorData.message?.includes('pay_to_email')) {
-          throw new Error(`SUMUP_MERCHANT_CODE_REQUIRED: ${errorData.message || errorText}. Configure SUMUP_MERCHANT_CODE no Vercel.`)
+        const isMerchantCodeError = 
+          errorData.param?.includes('merchant_code') || 
+          errorData.param?.includes('pay_to_email') ||
+          errorData.message?.includes('merchant_code') || 
+          errorData.message?.includes('pay_to_email') ||
+          errorText.includes('merchant_code') ||
+          errorText.includes('pay_to_email')
+        
+        if (isMerchantCodeError) {
+          const errorMsg = `SUMUP_MERCHANT_CODE_REQUIRED: ${errorData.message || errorText}. Configure SUMUP_MERCHANT_CODE no Vercel.`
+          console.error('[SumUp] Erro de merchant_code detectado. Não tentando OAuth:', errorMsg)
+          throw new Error(errorMsg)
         }
         
         // Se erro de autenticação, não tentar OAuth (API Key pode estar incorreta)
@@ -214,23 +226,31 @@ export async function createPaymentLink(
     } catch (error) {
       console.error('[SumUp] Erro ao criar checkout com API_KEY:', error)
       
+      const errorMessage = error instanceof Error ? error.message : String(error)
+      
       // Se erro de validação (merchant_code), não tentar OAuth - lançar erro direto
-      if (error instanceof Error && error.message.includes('SUMUP_MERCHANT_CODE_REQUIRED')) {
+      if (
+        errorMessage.includes('SUMUP_MERCHANT_CODE_REQUIRED') ||
+        errorMessage.includes('merchant_code') ||
+        errorMessage.includes('pay_to_email')
+      ) {
+        console.error('[SumUp] Erro de merchant_code detectado no catch. Não tentando OAuth.')
         throw error
       }
       
       // Se erro de autenticação, não tentar OAuth (API Key pode estar incorreta)
-      if (error instanceof Error && (
-        error.message.includes('401') || 
-        error.message.includes('403') || 
-        error.message.includes('Unauthorized') ||
-        error.message.includes('SUMUP_API_KEY inválida')
-      )) {
+      if (
+        errorMessage.includes('401') || 
+        errorMessage.includes('403') || 
+        errorMessage.includes('Unauthorized') ||
+        errorMessage.includes('SUMUP_API_KEY inválida')
+      ) {
+        console.error('[SumUp] Erro de autenticação detectado. Não tentando OAuth.')
         throw error
       }
       
       // Se outro erro, tentar OAuth se disponível (apenas para erros não críticos)
-      console.warn('[SumUp] Tentando OAuth como fallback...')
+      console.warn('[SumUp] Erro não crítico. Tentando OAuth como fallback...')
     }
   }
 
