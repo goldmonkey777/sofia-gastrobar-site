@@ -8,7 +8,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export function Hero() {
     return (
-        <section id="manifesto" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+        <section id="manifesto" className="relative min-h-[500px] flex items-center justify-center overflow-hidden bg-black pt-16 pb-10">
             {/* Background Image / Overlay - mais sutil */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/50 z-10 pointer-events-none" />
@@ -48,12 +48,14 @@ export function Hero() {
                     </h1>
 
                     {/* Subtexto curto */}
-                    <p className="text-base md:text-lg text-white/70 max-w-xl mx-auto mb-4">
-                        Magia, fogo e sabor em Sant Antoni, Ibiza.
+                    <p className="text-sm md:text-base text-white/60 max-w-xl mx-auto mb-6">
+                        Um gastrobar de alma livre em Sant Antoni, Ibiza.
                     </p>
 
-                    {/* 👉 BOTÕES DO MENU EM PRIMEIRO PLANO */}
-                    <MenuQuickAccess />
+                    {/* 👉 BOTÕES DO MENU EM PRIMEIRO PLANO - DESTAQUE MÁXIMO */}
+                    <div className="w-full max-w-4xl">
+                        <MenuQuickAccess />
+                    </div>
 
                     {/* Botões secundários (Reservar, Delivery) */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-4">
