@@ -45,35 +45,59 @@ async function getAccessToken(): Promise<string> {
   const clientId = process.env.SUMUP_CLIENT_ID
   const clientSecret = process.env.SUMUP_CLIENT_SECRET
 
+  console.log('[SumUp OAuth] getAccessToken called', {
+    hasClientId: !!clientId,
+    hasClientSecret: !!clientSecret,
+    clientIdPrefix: clientId?.substring(0, 10) || 'none',
+  })
+
   if (!clientId || !clientSecret) {
+    console.error('[SumUp OAuth] Missing credentials')
     throw new Error('SUMUP_NOT_CONFIGURED')
   }
 
   // Se já temos um token válido, retornar
   const existingToken = process.env.SUMUP_ACCESS_TOKEN
   if (existingToken) {
+    console.log('[SumUp OAuth] Using existing token')
     return existingToken
   }
 
   // Caso contrário, fazer OAuth (simplificado - em produção usar refresh token)
-  const response = await fetch(`${SUMUP_API_BASE}/token`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      grant_type: 'client_credentials',
-      client_id: clientId,
-      client_secret: clientSecret,
-    }),
-  })
+  console.log('[SumUp OAuth] Requesting new token from:', `${SUMUP_API_BASE}/token`)
+  
+  try {
+    const response = await fetch(`${SUMUP_API_BASE}/token`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        grant_type: 'client_credentials',
+        client_id: clientId,
+        client_secret: clientSecret,
+      }),
+    })
 
-  if (!response.ok) {
-    throw new Error('Falha ao obter access token do SumUp')
+    console.log('[SumUp OAuth] Token response status:', response.status, response.statusText)
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error('[SumUp OAuth] Token request failed:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorText,
+      })
+      throw new Error(`Falha ao obter access token do SumUp: ${response.status} ${errorText}`)
+    }
+
+    const data = await response.json()
+    console.log('[SumUp OAuth] Token obtained successfully')
+    return data.access_token
+  } catch (error) {
+    console.error('[SumUp OAuth] Error in getAccessToken:', error)
+    throw error
   }
-
-  const data = await response.json()
-  return data.access_token
 }
 
 /**
@@ -153,14 +177,38 @@ export async function createPaymentLink(
   // Se não tem API_KEY, tentar OAuth apenas se tiver credenciais
   const hasOAuthCredentials = process.env.SUMUP_CLIENT_ID && process.env.SUMUP_CLIENT_SECRET
   
+  console.log('[SumUp] Checking OAuth fallback:', {
+    hasOAuthCredentials,
+    hasClientId: !!process.env.SUMUP_CLIENT_ID,
+    hasClientSecret: !!process.env.SUMUP_CLIENT_SECRET,
+  })
+  
   if (hasOAuthCredentials) {
     try {
+      console.log('[SumUp OAuth] Attempting to get access token...')
       const accessToken = await getAccessToken()
+      console.log('[SumUp OAuth] Access token obtained, creating checkout...')
+      
       const merchantCode = process.env.SUMUP_MERCHANT_CODE || ''
 
       // Calcular data de expiração
       const expiresAt = new Date()
       expiresAt.setSeconds(expiresAt.getSeconds() + expiresIn)
+
+      const checkoutPayload = {
+        amount: amount.toFixed(2),
+        currency,
+        description,
+        redirect_url: redirectUrl,
+        ...(merchantCode && { merchant_code: merchantCode }),
+        ...(reference && { checkout_reference: reference }),
+        valid_until: expiresAt.toISOString(),
+      }
+
+      console.log('[SumUp OAuth] Creating checkout with payload:', {
+        ...checkoutPayload,
+        redirect_url: redirectUrl.substring(0, 50) + '...',
+      })
 
       // Criar link via API SumUp
       const response = await fetch(`${SUMUP_API_BASE}/checkouts`, {
@@ -169,37 +217,37 @@ export async function createPaymentLink(
           'Authorization': `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          amount: amount.toFixed(2),
-          currency,
-          description,
-          redirect_url: redirectUrl,
-          merchant_code: merchantCode,
-          reference,
-          expiry_date: expiresAt.toISOString(),
-        }),
+        body: JSON.stringify(checkoutPayload),
       })
+
+      console.log('[SumUp OAuth] Checkout response status:', response.status, response.statusText)
 
       if (!response.ok) {
         const error = await response.text()
-        throw new Error(`Falha ao criar link SumUp: ${error}`)
+        console.error('[SumUp OAuth] Checkout creation failed:', {
+          status: response.status,
+          statusText: response.statusText,
+          error,
+        })
+        throw new Error(`Falha ao criar link SumUp: ${response.status} ${error}`)
       }
 
       const data = await response.json()
+      console.log('[SumUp OAuth] Checkout created successfully:', data.id)
 
       return {
         id: data.id,
-        merchant_code: merchantCode,
+        merchant_code: merchantCode || data.merchant_code || '',
         amount,
         currency,
         description,
         redirect_url: redirectUrl,
-        status: 'PENDING',
-        created_at: new Date().toISOString(),
-        expires_at: expiresAt.toISOString(),
+        status: (data.status || 'PENDING') as SumUpPaymentLink['status'],
+        created_at: data.date || new Date().toISOString(),
+        expires_at: data.valid_until || expiresAt.toISOString(),
       }
     } catch (error) {
-      console.error('Erro ao criar checkout com OAuth:', error)
+      console.error('[SumUp OAuth] Error creating checkout:', error)
       throw error
     }
   }

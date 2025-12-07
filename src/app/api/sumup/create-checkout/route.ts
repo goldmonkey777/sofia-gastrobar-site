@@ -33,6 +33,8 @@ export async function POST(request: NextRequest) {
       hasClientId,
       hasClientSecret,
       apiKeyLength: process.env.SUMUP_API_KEY?.length || 0,
+      clientIdPrefix: process.env.SUMUP_CLIENT_ID?.substring(0, 15) || 'none',
+      clientSecretPrefix: process.env.SUMUP_CLIENT_SECRET?.substring(0, 15) || 'none',
       envKeys: Object.keys(process.env).filter(k => k.includes('SUMUP')),
     })
 
