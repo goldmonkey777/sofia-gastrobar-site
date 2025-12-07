@@ -13,8 +13,7 @@ export default function Icon() {
         (
             <div
                 style={{
-                    fontSize: 24,
-                    background: 'transparent',
+                    background: 'black',
                     width: '100%',
                     height: '100%',
                     display: 'flex',
@@ -22,7 +21,20 @@ export default function Icon() {
                     justifyContent: 'center',
                 }}
             >
-                <img src="https://sofia-gastrobar-site-qh7wo4v04-goldmonkeys-projects.vercel.app/logo.png" alt="S" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                <div
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#EAB308', // yellow-500
+                        fontWeight: 'bold',
+                        fontSize: 24,
+                    }}
+                >
+                    S
+                </div>
             </div>
         ),
         { ...size }
