@@ -25,8 +25,8 @@ const buttons = [
     emoji: "🥗"
   },
   { 
-    label: "🥘 Tapas & Entradas", 
-    href: "#tapas",
+    label: "🥘 Paellas & Pratos de Casa", 
+    href: "#pratos",
     emoji: "🥘"
   },
 ];

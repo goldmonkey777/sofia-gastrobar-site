@@ -61,6 +61,7 @@ const FULL_MENU = [
         ]
     },
     {
+        id: "pratos",
         category: "Platos Principales",
         items: [
             { name: "Salmón Boreal", price: "€26.00", desc: "Salmón salvaje a la plancha con patatas y ensalada." },
