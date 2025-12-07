@@ -169,8 +169,33 @@ export async function createPaymentLink(
       })
 
       if (!response.ok) {
-        const error = await response.text()
-        throw new Error(`Falha ao criar link SumUp: ${error}`)
+        const errorText = await response.text()
+        let errorData: any = {}
+        try {
+          errorData = JSON.parse(errorText)
+        } catch {
+          errorData = { message: errorText }
+        }
+        
+        console.error('[SumUp] Erro ao criar checkout com API_KEY:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorData,
+          hasMerchantCode: !!merchantCode,
+          merchantCodeLength: merchantCode?.length || 0,
+        })
+        
+        // Se erro de validação sobre merchant_code, não tentar OAuth
+        if (errorData.message?.includes('merchant_code') || errorData.message?.includes('pay_to_email')) {
+          throw new Error(`SUMUP_MERCHANT_CODE_REQUIRED: ${errorData.message || errorText}. Configure SUMUP_MERCHANT_CODE no Vercel.`)
+        }
+        
+        // Se erro de autenticação, não tentar OAuth (API Key pode estar incorreta)
+        if (response.status === 401 || response.status === 403) {
+          throw new Error(`SUMUP_API_KEY inválida ou expirada (${response.status}). Verifique no Vercel Dashboard.`)
+        }
+        
+        throw new Error(`Falha ao criar link SumUp: ${errorText}`)
       }
 
       const checkoutData = await response.json()
@@ -188,11 +213,23 @@ export async function createPaymentLink(
       }
     } catch (error) {
       console.error('[SumUp] Erro ao criar checkout com API_KEY:', error)
-      // Se erro de autenticação, não tentar OAuth (API Key pode estar incorreta)
-      if (error instanceof Error && (error.message.includes('401') || error.message.includes('Unauthorized'))) {
-        throw new Error('SUMUP_API_KEY inválida ou expirada. Verifique no Vercel Dashboard.')
+      
+      // Se erro de validação (merchant_code), não tentar OAuth - lançar erro direto
+      if (error instanceof Error && error.message.includes('SUMUP_MERCHANT_CODE_REQUIRED')) {
+        throw error
       }
-      // Se outro erro, tentar OAuth se disponível
+      
+      // Se erro de autenticação, não tentar OAuth (API Key pode estar incorreta)
+      if (error instanceof Error && (
+        error.message.includes('401') || 
+        error.message.includes('403') || 
+        error.message.includes('Unauthorized') ||
+        error.message.includes('SUMUP_API_KEY inválida')
+      )) {
+        throw error
+      }
+      
+      // Se outro erro, tentar OAuth se disponível (apenas para erros não críticos)
       console.warn('[SumUp] Tentando OAuth como fallback...')
     }
   }

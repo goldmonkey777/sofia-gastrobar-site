@@ -106,9 +106,13 @@ export async function POST(request: NextRequest) {
         envKeys: Object.keys(process.env).filter(k => k.includes('SUMUP')),
       })
       
-      // Se erro de configuração, retornar checkout mock
-      if (error.message?.includes('SUMUP_NOT_CONFIGURED')) {
-        console.warn('[SumUp] Retornando checkout mock devido a configuração ausente')
+      // Se erro de configuração ou merchant_code, retornar checkout mock
+      if (
+        error.message?.includes('SUMUP_NOT_CONFIGURED') ||
+        error.message?.includes('SUMUP_MERCHANT_CODE_REQUIRED') ||
+        error.message?.includes('merchant_code')
+      ) {
+        console.warn('[SumUp] Retornando checkout mock devido a:', error.message)
         return NextResponse.json({
           success: true,
           checkout: {
@@ -142,9 +146,13 @@ export async function POST(request: NextRequest) {
     console.error('[SumUp] Error message:', error?.message)
     console.error('[SumUp] Error stack:', error?.stack)
     
-    // Se erro de configuração, SEMPRE retornar checkout mock
-    if (error?.message?.includes('SUMUP_NOT_CONFIGURED')) {
-      console.warn('[SumUp] SUMUP_NOT_CONFIGURED detectado no catch externo. Retornando checkout mock.')
+    // Se erro de configuração ou merchant_code, SEMPRE retornar checkout mock
+    if (
+      error?.message?.includes('SUMUP_NOT_CONFIGURED') ||
+      error?.message?.includes('SUMUP_MERCHANT_CODE_REQUIRED') ||
+      error?.message?.includes('merchant_code')
+    ) {
+      console.warn('[SumUp] Erro de configuração detectado no catch externo:', error.message)
       
       // Tentar ler body novamente
       let body: any = {}
