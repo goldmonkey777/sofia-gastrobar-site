@@ -5,9 +5,9 @@ import { Section } from "@/components/ui/Section";
 
 export function Story() {
     return (
-        <Section id="lenda" className="bg-gradient-to-b from-black to-zinc-900 py-32">
+        <Section id="lenda" className="bg-gradient-to-b from-black to-zinc-900 py-32 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div>
+                <div className="relative z-20">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
                         A Lenda de <span className="text-yellow-500">Sofia</span>
                     </h2>

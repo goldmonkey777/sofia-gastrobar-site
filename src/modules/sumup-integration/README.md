@@ -4,6 +4,11 @@
 **Versão 1.0**  
 **Objetivo:** Sistema completo de pagamentos antecipados e monetização
 
+**SDK Instalado:** `@sumup/sdk@0.0.8`  
+**Documentação:** https://developer.sumup.com/api/sdks
+
+> **Nota:** O módulo usa chamadas diretas à API REST do SumUp para maior compatibilidade. O SDK oficial está instalado e pode ser usado no futuro.
+
 ---
 
 ## 🎯 Funcionalidades

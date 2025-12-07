@@ -18,12 +18,12 @@ import {
 } from '@/lib/locationHelpers'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
-import { PaymentCheckout } from '@/components/payment/PaymentCheckout'
+import { CompletePaymentCheckout } from '@/components/payment/CompletePaymentCheckout'
 
 export default function DeliveryPage() {
   const { language } = useLanguage()
   const { userData, loading: userDataLoading } = useUserData({ autoLoad: true })
-  const [step, setStep] = useState<'zone' | 'order' | 'checkout'>('zone')
+  const [step, setStep] = useState<'order' | 'zone' | 'checkout'>('order')
   const [formData, setFormData] = useState({
     zone: '',
     address: '',
@@ -41,7 +41,6 @@ export default function DeliveryPage() {
   const [isSuccess, setIsSuccess] = useState(false)
   const [showPayment, setShowPayment] = useState(false)
   const [deliveryId, setDeliveryId] = useState<string | null>(null)
-  const [paymentLinkId, setPaymentLinkId] = useState<string | null>(null)
 
   // Preencher dados do usuário automaticamente
   useEffect(() => {
@@ -158,35 +157,8 @@ export default function DeliveryPage() {
         throw new Error(data.error || 'Erro ao criar pedido')
       }
 
-      // 2. Criar link de pagamento SumUp
-      const paymentResponse = await fetch('/api/sumup/payment-link', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          type: 'delivery',
-          deliveryId: data.order.id,
-          totalAmount: total,
-          deliveryFee: deliveryFee,
-        }),
-      })
-
-      const paymentData = await paymentResponse.json()
-
-      if (!paymentResponse.ok) {
-        // Tratar erro de configuração do SumUp
-        if (paymentData.error === 'SUMUP_NOT_CONFIGURED') {
-          alert('SumUp não está configurado. O pagamento online está temporariamente indisponível. Por favor, entre em contato conosco via WhatsApp para finalizar seu pedido.')
-          setIsSubmitting(false)
-          return
-        }
-        throw new Error(paymentData.message || paymentData.error || 'Erro ao criar link de pagamento')
-      }
-
-      // 3. Mostrar tela de pagamento
+      // 2. Mostrar tela de pagamento completa (com Apple Pay e Google Pay)
       setDeliveryId(data.order.id)
-      setPaymentLinkId(paymentData.paymentLink.id)
       setShowPayment(true)
       setIsSubmitting(false)
     } catch (error) {
@@ -216,32 +188,37 @@ export default function DeliveryPage() {
         </div>
       </motion.header>
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Title */}
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Title Compacto */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Delivery para <span className="text-yellow-500">Toda a Ilha</span>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            Delivery <span className="text-yellow-500">Sofia</span>
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Leve o sabor do Sofia até você. Entregamos em toda Ibiza com rapidez e cuidado.
+          <p className="text-white/60 text-sm">
+            {translate({ pt: 'Entregamos em toda Ibiza', es: 'Entregamos en toda Ibiza', en: 'We deliver all over Ibiza' }, language)}
           </p>
         </motion.div>
 
-        {/* Payment Checkout */}
-        {showPayment && paymentLinkId && (
+        {/* Complete Payment Checkout */}
+        {showPayment && deliveryId && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <PaymentCheckout
+            <CompletePaymentCheckout
               amount={total}
+              currency="EUR"
               description={`Delivery Sofia Gastrobar – Pedido ${deliveryId}`}
-              paymentLinkId={paymentLinkId}
+              orderId={deliveryId}
+              orderType="delivery"
+              customerEmail={formData.phone ? undefined : undefined}
+              customerName={formData.name}
+              redirectUrl={`${typeof window !== 'undefined' ? window.location.origin : ''}/delivery/confirmacao?delivery_id=${deliveryId}&status=paid`}
               onSuccess={() => {
                 setShowPayment(false)
                 setIsSuccess(true)
@@ -250,8 +227,9 @@ export default function DeliveryPage() {
                 }, 2000)
               }}
               onError={(error) => {
-                alert(error)
+                console.error('Payment error:', error)
               }}
+              language={language}
             />
           </motion.div>
         )}
@@ -276,6 +254,48 @@ export default function DeliveryPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
+            {/* Menu Selection - PRIMEIRO (COMIDA NA CARA) */}
+            {step === 'order' && (
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-bold text-white">
+                    {translate({ pt: 'Menu', es: 'Menú', en: 'Menu' }, language)}
+                  </h2>
+                  {cart.length > 0 && (
+                    <button
+                      onClick={() => setStep('zone')}
+                      className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors text-sm"
+                    >
+                      {translate({ pt: 'Continuar →', es: 'Continuar →', en: 'Continue →' }, language)}
+                    </button>
+                  )}
+                </div>
+                <div className="space-y-4">
+                  {menuItems.map(item => (
+                    <div
+                      key={item.id}
+                      className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                    >
+                      <div className="flex-1">
+                        <h3 className="text-white font-medium">{item.name}</h3>
+                        <p className="text-yellow-500 font-bold">€{item.price.toFixed(2)}</p>
+                      </div>
+                      <button
+                        onClick={() => addToCart(item)}
+                        className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors"
+                      >
+                        {translate({ pt: 'Adicionar', es: 'Añadir', en: 'Add' }, language)}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
             {/* Zone Selection */}
             {step === 'zone' && (
               <motion.div
@@ -300,7 +320,7 @@ export default function DeliveryPage() {
                       key={zone.id}
                       onClick={() => {
                         setFormData(prev => ({ ...prev, zone: zone.id }))
-                        setStep('order')
+                        setStep('checkout')
                       }}
                       className={`w-full text-left p-4 bg-white/5 hover:bg-white/10 border rounded-xl transition-all ${
                         formData.zone === zone.id
@@ -324,45 +344,6 @@ export default function DeliveryPage() {
               </motion.div>
             )}
 
-            {/* Menu Selection */}
-            {step === 'order' && (
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-white">
-                    {translate({ pt: 'Menu', es: 'Menú', en: 'Menu' }, language)}
-                  </h2>
-                  <button
-                    onClick={() => setStep('zone')}
-                    className="text-white/60 hover:text-white text-sm"
-                  >
-                    ← {translate({ pt: 'Alterar zona', es: 'Cambiar zona', en: 'Change zone' }, language)}
-                  </button>
-                </div>
-                <div className="space-y-4">
-                  {menuItems.map(item => (
-                    <div
-                      key={item.id}
-                      className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                    >
-                      <div className="flex-1">
-                        <h3 className="text-white font-medium">{item.name}</h3>
-                        <p className="text-yellow-500 font-bold">€{item.price.toFixed(2)}</p>
-                      </div>
-                      <button
-                        onClick={() => addToCart(item)}
-                        className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors"
-                      >
-                        {translate({ pt: 'Adicionar', es: 'Añadir', en: 'Add' }, language)}
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
 
             {/* Checkout Form */}
             {step === 'checkout' && cart.length > 0 && (
@@ -484,8 +465,14 @@ export default function DeliveryPage() {
                 {!showPayment && (
                   <button
                     type="submit"
-                    disabled={isSubmitting || isSuccess}
-                    className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50"
+                    disabled={isSubmitting || isSuccess || cart.length === 0}
+                    className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={(e) => {
+                      if (cart.length === 0) {
+                        e.preventDefault()
+                        alert(translate({ pt: 'Adicione itens ao carrinho primeiro', es: 'Agrega artículos al carrito primero', en: 'Add items to cart first' }, language))
+                      }
+                    }}
                   >
                     {isSubmitting
                       ? translate({ pt: 'Criando Pedido...', es: 'Creando Pedido...', en: 'Creating Order...' }, language)
@@ -581,6 +568,7 @@ export default function DeliveryPage() {
           </div>
         </div>
       </div>
+
     </div>
   )
 }

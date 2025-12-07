@@ -245,9 +245,5 @@ export function AddressInput({
 }
 
 // Declaração de tipos para Google Maps
-declare global {
-  interface Window {
-    google: typeof google
-  }
-}
+// Google types declarados em src/types/google-maps.d.ts
 

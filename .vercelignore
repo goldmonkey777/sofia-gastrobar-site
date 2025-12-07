@@ -1,0 +1,4 @@
+CACHE_BUST_1765074568
+# Este arquivo força o Vercel a fazer rebuild completo
+# Se este arquivo mudar, o cache é invalidado
+

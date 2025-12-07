@@ -139,11 +139,27 @@ export default function ContatoPage() {
         </div>
       </motion.header>
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Link Rápido para Menu - PRIMEIRO */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-8 text-center"
+        >
+          <Link
+            href="/cardapio"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-lg shadow-yellow-500/50"
+          >
+            <span>🍽️</span>
+            {translate({ pt: 'Ver Menu Completo', es: 'Ver Menú Completo', en: 'View Full Menu' }, language)}
+          </Link>
+        </motion.div>
+
         {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
           className="text-center mb-12"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-4">

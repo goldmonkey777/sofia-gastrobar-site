@@ -512,7 +512,11 @@ function OrderSuccessScreen({
   )
 }
 
-export function TableMenuWithCart({ tableId, onOrderPlaced }: TableMenuWithCartProps) {
+export function TableMenuWithCart({ 
+  tableId, 
+  onOrderPlaced,
+  children 
+}: TableMenuWithCartProps & { children?: React.ReactNode }) {
   const { language, isReady } = useLanguage()
   const currentHour = getCurrentHour()
   const menu = getFilteredMenuByTime(currentHour)
@@ -522,12 +526,14 @@ export function TableMenuWithCart({ tableId, onOrderPlaced }: TableMenuWithCartP
 
   return (
     <CartProvider tableId={tableId} onOrderPlaced={onOrderPlaced}>
-      <MenuContent
-        menu={menu}
-        language={language}
-        expandedItem={expandedItem}
-        setExpandedItem={setExpandedItem}
-      />
+      {children || (
+        <MenuContent
+          menu={menu}
+          language={language}
+          expandedItem={expandedItem}
+          setExpandedItem={setExpandedItem}
+        />
+      )}
     </CartProvider>
   )
 }

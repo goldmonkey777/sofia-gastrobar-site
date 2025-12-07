@@ -8,7 +8,7 @@ import { useUserData } from '@/hooks/useUserData'
 import { UserDataAutoFill } from '@/components/ui/UserDataAutoFill'
 import { useLanguage } from '@/hooks/useLanguage'
 import { translate } from '@/lib/i18n'
-import { PaymentCheckout } from '@/components/payment/PaymentCheckout'
+import { CompletePaymentCheckout } from '@/components/payment/CompletePaymentCheckout'
 
 export default function ReservasPage() {
   const { language, isReady } = useLanguage()
@@ -26,7 +26,6 @@ export default function ReservasPage() {
   const [isSuccess, setIsSuccess] = useState(false)
   const [showPayment, setShowPayment] = useState(false)
   const [reservationId, setReservationId] = useState<string | null>(null)
-  const [paymentLinkId, setPaymentLinkId] = useState<string | null>(null)
   const [prepaidAmount, setPrepaidAmount] = useState(0)
 
   // Preencher dados do usuário automaticamente
@@ -88,36 +87,8 @@ export default function ReservasPage() {
       const numberOfPeople = parseInt(formData.guests, 10)
       const amount = numberOfPeople * 6
 
-      // 3. Criar link de pagamento SumUp
-      const paymentResponse = await fetch('/api/sumup/payment-link', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          type: 'reservation',
-          reservationId: data.id,
-          numberOfPeople,
-          date: formData.date,
-          time: formData.time,
-        }),
-      })
-
-      const paymentData = await paymentResponse.json()
-
-      if (!paymentResponse.ok) {
-        // Tratar erro de configuração do SumUp
-        if (paymentData.error === 'SUMUP_NOT_CONFIGURED') {
-          alert('SumUp não está configurado. O pagamento online está temporariamente indisponível. Por favor, entre em contato conosco via WhatsApp para finalizar sua reserva.')
-          setIsSubmitting(false)
-          return
-        }
-        throw new Error(paymentData.message || paymentData.error || 'Erro ao criar link de pagamento')
-      }
-
-      // 4. Mostrar tela de pagamento
+      // 3. Mostrar tela de pagamento completa (com Apple Pay e Google Pay)
       setReservationId(data.id)
-      setPaymentLinkId(paymentData.paymentLink.id)
       setPrepaidAmount(amount)
       setShowPayment(true)
       setIsSubmitting(false)
@@ -153,34 +124,55 @@ export default function ReservasPage() {
         </div>
       </motion.header>
 
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Title */}
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* Title Compacto */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
             Reservar <span className="text-yellow-500">Mesa</span>
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Garanta seu lugar no Sofia Gastrobar. Reservas recomendadas especialmente para jantares e eventos especiais.
+          <p className="text-white/60 text-sm">
+            {translate({ pt: 'Garanta seu lugar no Sofia', es: 'Asegura tu lugar en Sofia', en: 'Secure your spot at Sofia' }, language)}
           </p>
         </motion.div>
 
-        {/* Payment Checkout */}
+        {/* Link Rápido para Menu */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="mb-8 text-center"
+        >
+          <Link
+            href="/cardapio"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-lg shadow-yellow-500/50"
+          >
+            <span>🍽️</span>
+            {translate({ pt: 'Ver Menu Completo', es: 'Ver Menú Completo', en: 'View Full Menu' }, language)}
+          </Link>
+        </motion.div>
+
+        {/* Complete Payment Checkout */}
         <AnimatePresence>
-          {showPayment && paymentLinkId && (
+          {showPayment && reservationId && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               className="mb-8"
             >
-              <PaymentCheckout
+              <CompletePaymentCheckout
                 amount={prepaidAmount}
+                currency="EUR"
                 description={`Reserva Sofia Gastrobar – ${formData.date} ${formData.time} – ${formData.guests} pessoa${parseInt(formData.guests) > 1 ? 's' : ''}`}
-                paymentLinkId={paymentLinkId}
+                orderId={reservationId}
+                orderType="reservation"
+                customerEmail={formData.email}
+                customerName={formData.name}
+                redirectUrl={`${typeof window !== 'undefined' ? window.location.origin : ''}/reservas/confirmacao?reservation_id=${reservationId}&status=paid`}
                 onSuccess={() => {
                   setShowPayment(false)
                   setIsSuccess(true)
@@ -189,8 +181,9 @@ export default function ReservasPage() {
                   }, 2000)
                 }}
                 onError={(error) => {
-                  alert(error)
+                  console.error('Payment error:', error)
                 }}
+                language={language}
               />
             </motion.div>
           )}
@@ -431,6 +424,7 @@ export default function ReservasPage() {
           </motion.div>
         </div>
       </div>
+
     </div>
   )
 }
