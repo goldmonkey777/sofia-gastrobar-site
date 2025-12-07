@@ -462,8 +462,14 @@ export default function DeliveryPage() {
                 {!showPayment && (
                   <button
                     type="submit"
-                    disabled={isSubmitting || isSuccess}
-                    className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50"
+                    disabled={isSubmitting || isSuccess || cart.length === 0}
+                    className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-4 px-8 rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={(e) => {
+                      if (cart.length === 0) {
+                        e.preventDefault()
+                        alert(translate({ pt: 'Adicione itens ao carrinho primeiro', es: 'Agrega artículos al carrito primero', en: 'Add items to cart first' }, language))
+                      }
+                    }}
                   >
                     {isSubmitting
                       ? translate({ pt: 'Criando Pedido...', es: 'Creando Pedido...', en: 'Creating Order...' }, language)
