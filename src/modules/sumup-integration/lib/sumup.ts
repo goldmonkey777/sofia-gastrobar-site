@@ -145,10 +145,35 @@ export async function createPaymentLink(
   if (apiKey) {
     try {
       const merchantCode = process.env.SUMUP_MERCHANT_CODE || ''
+      // Usar email do negócio como alternativa se merchant_code não estiver disponível
+      const payToEmail = process.env.SUMUP_PAY_TO_EMAIL || 'info@sofiagastrobaribiza.com'
       
       // Calcular data de expiração
       const expiresAt = new Date()
       expiresAt.setSeconds(expiresAt.getSeconds() + expiresIn)
+
+      // Preparar payload - usar merchant_code se disponível, senão usar pay_to_email
+      const checkoutPayload: any = {
+        amount: amount.toFixed(2),
+        currency: currency || 'EUR',
+        description,
+        redirect_url: redirectUrl,
+        ...(reference && { checkout_reference: reference }),
+        valid_until: expiresAt.toISOString(),
+      }
+      
+      // Priorizar merchant_code, mas usar pay_to_email como fallback
+      if (merchantCode) {
+        checkoutPayload.merchant_code = merchantCode
+      } else {
+        checkoutPayload.pay_to_email = payToEmail
+      }
+
+      console.log('[SumUp] Creating checkout with:', {
+        hasMerchantCode: !!merchantCode,
+        hasPayToEmail: !!checkoutPayload.pay_to_email,
+        payToEmail: checkoutPayload.pay_to_email || 'none',
+      })
 
       // Criar checkout via API direta com API_KEY
       const response = await fetch(`${SUMUP_API_BASE}/checkouts`, {
@@ -157,15 +182,7 @@ export async function createPaymentLink(
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          amount: amount.toFixed(2),
-          currency: currency || 'EUR',
-          description,
-          redirect_url: redirectUrl,
-          ...(merchantCode && { merchant_code: merchantCode }),
-          ...(reference && { checkout_reference: reference }),
-          valid_until: expiresAt.toISOString(),
-        }),
+        body: JSON.stringify(checkoutPayload),
       })
 
       if (!response.ok) {
@@ -270,20 +287,35 @@ export async function createPaymentLink(
       console.log('[SumUp OAuth] Access token obtained, creating checkout...')
       
       const merchantCode = process.env.SUMUP_MERCHANT_CODE || ''
+      // Usar email do negócio como alternativa se merchant_code não estiver disponível
+      const payToEmail = process.env.SUMUP_PAY_TO_EMAIL || 'info@sofiagastrobaribiza.com'
 
       // Calcular data de expiração
       const expiresAt = new Date()
       expiresAt.setSeconds(expiresAt.getSeconds() + expiresIn)
 
-      const checkoutPayload = {
+      // Preparar payload - usar merchant_code se disponível, senão usar pay_to_email
+      const checkoutPayload: any = {
         amount: amount.toFixed(2),
         currency,
         description,
         redirect_url: redirectUrl,
-        ...(merchantCode && { merchant_code: merchantCode }),
         ...(reference && { checkout_reference: reference }),
         valid_until: expiresAt.toISOString(),
       }
+      
+      // Priorizar merchant_code, mas usar pay_to_email como fallback
+      if (merchantCode) {
+        checkoutPayload.merchant_code = merchantCode
+      } else {
+        checkoutPayload.pay_to_email = payToEmail
+      }
+      
+      console.log('[SumUp OAuth] Creating checkout with:', {
+        hasMerchantCode: !!merchantCode,
+        hasPayToEmail: !!checkoutPayload.pay_to_email,
+        payToEmail: checkoutPayload.pay_to_email || 'none',
+      })
 
       console.log('[SumUp OAuth] Creating checkout with payload:', {
         ...checkoutPayload,
