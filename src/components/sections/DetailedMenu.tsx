@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/Section";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useGlobalCart } from "@/contexts/GlobalCartContext";
+import { Plus } from "lucide-react";
 
 const FULL_MENU = [
     {
@@ -109,6 +111,7 @@ const FULL_MENU = [
 
 export function DetailedMenu() {
     const [activeCategory, setActiveCategory] = useState(FULL_MENU[0].category);
+    const { addItem } = useGlobalCart();
 
     return (
         <Section id="full-menu" className="bg-zinc-950 py-24">
@@ -156,18 +159,40 @@ export function DetailedMenu() {
                                 </div>
 
                                 <div className="grid gap-4 md:grid-cols-2">
-                                    {section.items.map((item, idx) => (
-                                        <div
-                                            key={idx}
-                                            className="bg-white/5 border border-white/5 p-6 rounded-xl hover:bg-white/10 transition-colors group"
-                                        >
-                                            <div className="flex justify-between items-start mb-2">
-                                                <h4 className="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors">{item.name}</h4>
-                                                <span className="text-yellow-500 font-bold whitespace-nowrap ml-4">{item.price}</span>
+                                    {section.items.map((item, idx) => {
+                                        // Extrair preço numérico
+                                        const priceMatch = item.price.match(/€?([\d,]+\.?\d*)/);
+                                        const price = priceMatch ? parseFloat(priceMatch[1].replace(',', '.')) : 0;
+                                        
+                                        // Gerar ID único baseado no nome
+                                        const itemId = `${section.id || section.category.toLowerCase().replace(/\s+/g, '-')}-${idx}`;
+                                        
+                                        return (
+                                            <div
+                                                key={idx}
+                                                className="bg-white/5 border border-white/5 p-6 rounded-xl hover:bg-white/10 transition-colors group"
+                                            >
+                                                <div className="flex justify-between items-start mb-2">
+                                                    <h4 className="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors flex-1">{item.name}</h4>
+                                                    <span className="text-yellow-500 font-bold whitespace-nowrap ml-4">{item.price}</span>
+                                                </div>
+                                                <p className="text-white/60 text-sm leading-relaxed mb-3">{item.desc}</p>
+                                                <button
+                                                    onClick={() => addItem({
+                                                        id: itemId,
+                                                        name: item.name,
+                                                        price: price,
+                                                        quantity: 1,
+                                                        category: section.category,
+                                                    })}
+                                                    className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all"
+                                                >
+                                                    <Plus className="w-4 h-4" />
+                                                    Adicionar
+                                                </button>
                                             </div>
-                                            <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
-                                        </div>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             </motion.div>
                         )

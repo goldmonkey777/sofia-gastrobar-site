@@ -6,6 +6,8 @@ import { AudioPlayer } from "@/components/ui/AudioPlayer";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { StructuredData } from "@/components/StructuredData";
+import { GlobalCartProvider } from "@/contexts/GlobalCartContext";
+import { FloatingCart } from "@/components/cart/FloatingCart";
 
 // Using Outfit as primary font for that modern, slightly geometric look
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -69,12 +71,15 @@ export default function RootLayout({
   return (
     <html lang="pt" className="scroll-smooth">
       <body className={`${outfit.variable} ${inter.variable} antialiased bg-black text-white`}>
-        <StructuredData />
-        <Navbar />
-        {children}
-        <AudioPlayer />
-        <Analytics />
-        <SpeedInsights />
+        <GlobalCartProvider>
+          <StructuredData />
+          <Navbar />
+          {children}
+          <FloatingCart />
+          <AudioPlayer />
+          <Analytics />
+          <SpeedInsights />
+        </GlobalCartProvider>
       </body>
     </html>
   );
