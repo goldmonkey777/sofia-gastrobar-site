@@ -124,19 +124,35 @@ export default function ReservasPage() {
         </div>
       </motion.header>
 
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Title */}
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* Title Compacto */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
             Reservar <span className="text-yellow-500">Mesa</span>
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Garanta seu lugar no Sofia Gastrobar. Reservas recomendadas especialmente para jantares e eventos especiais.
+          <p className="text-white/60 text-sm">
+            {translate({ pt: 'Garanta seu lugar no Sofia', es: 'Asegura tu lugar en Sofia', en: 'Secure your spot at Sofia' }, language)}
           </p>
+        </motion.div>
+
+        {/* Link Rápido para Menu */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="mb-8 text-center"
+        >
+          <Link
+            href="/cardapio"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold rounded-xl hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-lg shadow-yellow-500/50"
+          >
+            <span>🍽️</span>
+            {translate({ pt: 'Ver Menu Completo', es: 'Ver Menú Completo', en: 'View Full Menu' }, language)}
+          </Link>
         </motion.div>
 
         {/* Complete Payment Checkout */}

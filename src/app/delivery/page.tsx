@@ -23,7 +23,7 @@ import { CompletePaymentCheckout } from '@/components/payment/CompletePaymentChe
 export default function DeliveryPage() {
   const { language } = useLanguage()
   const { userData, loading: userDataLoading } = useUserData({ autoLoad: true })
-  const [step, setStep] = useState<'zone' | 'order' | 'checkout'>('zone')
+  const [step, setStep] = useState<'order' | 'zone' | 'checkout'>('order')
   const [formData, setFormData] = useState({
     zone: '',
     address: '',
@@ -188,18 +188,18 @@ export default function DeliveryPage() {
         </div>
       </motion.header>
 
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        {/* Title */}
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Title Compacto */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Delivery para <span className="text-yellow-500">Toda a Ilha</span>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            Delivery <span className="text-yellow-500">Sofia</span>
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Leve o sabor do Sofia até você. Entregamos em toda Ibiza com rapidez e cuidado.
+          <p className="text-white/60 text-sm">
+            {translate({ pt: 'Entregamos em toda Ibiza', es: 'Entregamos en toda Ibiza', en: 'We deliver all over Ibiza' }, language)}
           </p>
         </motion.div>
 
@@ -254,6 +254,48 @@ export default function DeliveryPage() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
+            {/* Menu Selection - PRIMEIRO (COMIDA NA CARA) */}
+            {step === 'order' && (
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl font-bold text-white">
+                    {translate({ pt: 'Menu', es: 'Menú', en: 'Menu' }, language)}
+                  </h2>
+                  {cart.length > 0 && (
+                    <button
+                      onClick={() => setStep('zone')}
+                      className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors text-sm"
+                    >
+                      {translate({ pt: 'Continuar →', es: 'Continuar →', en: 'Continue →' }, language)}
+                    </button>
+                  )}
+                </div>
+                <div className="space-y-4">
+                  {menuItems.map(item => (
+                    <div
+                      key={item.id}
+                      className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                    >
+                      <div className="flex-1">
+                        <h3 className="text-white font-medium">{item.name}</h3>
+                        <p className="text-yellow-500 font-bold">€{item.price.toFixed(2)}</p>
+                      </div>
+                      <button
+                        onClick={() => addToCart(item)}
+                        className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors"
+                      >
+                        {translate({ pt: 'Adicionar', es: 'Añadir', en: 'Add' }, language)}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
             {/* Zone Selection */}
             {step === 'zone' && (
               <motion.div
@@ -278,7 +320,7 @@ export default function DeliveryPage() {
                       key={zone.id}
                       onClick={() => {
                         setFormData(prev => ({ ...prev, zone: zone.id }))
-                        setStep('order')
+                        setStep('checkout')
                       }}
                       className={`w-full text-left p-4 bg-white/5 hover:bg-white/10 border rounded-xl transition-all ${
                         formData.zone === zone.id
@@ -302,45 +344,6 @@ export default function DeliveryPage() {
               </motion.div>
             )}
 
-            {/* Menu Selection */}
-            {step === 'order' && (
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-white">
-                    {translate({ pt: 'Menu', es: 'Menú', en: 'Menu' }, language)}
-                  </h2>
-                  <button
-                    onClick={() => setStep('zone')}
-                    className="text-white/60 hover:text-white text-sm"
-                  >
-                    ← {translate({ pt: 'Alterar zona', es: 'Cambiar zona', en: 'Change zone' }, language)}
-                  </button>
-                </div>
-                <div className="space-y-4">
-                  {menuItems.map(item => (
-                    <div
-                      key={item.id}
-                      className="flex items-center justify-between p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
-                    >
-                      <div className="flex-1">
-                        <h3 className="text-white font-medium">{item.name}</h3>
-                        <p className="text-yellow-500 font-bold">€{item.price.toFixed(2)}</p>
-                      </div>
-                      <button
-                        onClick={() => addToCart(item)}
-                        className="px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors"
-                      >
-                        {translate({ pt: 'Adicionar', es: 'Añadir', en: 'Add' }, language)}
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
 
             {/* Checkout Form */}
             {step === 'checkout' && cart.length > 0 && (
